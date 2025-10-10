@@ -1,0 +1,181 @@
+body {
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    background-color: #0a0a0a; /* Color de respaldo */
+    position: relative;
+    overflow-x: hidden;
+    /* Fondo de rejilla con efecto Parallax (controlado por JS) */
+    background-image: 
+        linear-gradient(to right, rgba(30, 41, 59, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}
+
+/* Color de acento para botones y enlaces */
+.accent-color {
+    background-color: #2563eb; /* Azul */
+}
+.accent-color-hover:hover {
+    background-color: #1d4ed8;
+}
+.border-color {
+    border-color: #1e293b; /* Borde gris oscuro azulado */
+}
+
+/* Estilo de tarjeta con borde gradiente */
+.card-bg {
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* Estilos para el slider */
+.slider-button.hidden {
+    display: none;
+}
+
+/* Estilo de resplandor para el nombre */
+.name-glow {
+    text-shadow: 0 0 8px rgba(226, 232, 240, 0.2); /* Resplandor blanco sutil */
+}
+
+.name-glow:hover {
+    text-shadow: 0 0 16px rgba(37, 99, 235, 0.8); /* Resplandor azul (accent-color) más intenso al pasar el ratón */
+}
+
+/* Clase para la fuente cursiva del nombre */
+.font-cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Clase para la fuente monoespaciada */
+.font-mono {
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: -0.025em;
+}
+
+/* Estilo de resplandor para títulos de sección */
+.section-title {
+    text-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
+    letter-spacing: 0.025em; /* Espaciado de letra ligeramente más amplio */
+}
+
+/* --- EFECTO 3D Y ANIMACIÓN PARA EL TÍTULO HERO --- */
+.hero-title-effect {
+    /* Efecto de texto con gradiente animado */
+    background: linear-gradient(90deg, #1d4ed8, #60a5fa, #1d4ed8); /* Gradiente de respaldo */
+    background-size: 200% auto; /* Tamaño del fondo para la animación */
+    color: #fff; /* Color de texto base */
+    background-clip: text;
+    -webkit-background-clip: text; /* Para compatibilidad con Chrome/Safari */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+    animation: text-shimmer 5s linear infinite; /* Animación del brillo */
+}
+
+@keyframes text-shimmer {
+    to {
+        background-position: -200% center;
+    }
+}
+
+/* --- ANIMACIONES Y EFECTOS --- */
+
+/* Animación de entrada para secciones */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Transición suave para el efecto de elevación */
+.card-lift {
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #1e293b; /* Borde sutil y oscuro */
+    background-color: rgba(17, 24, 39, 0.5); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px);
+    overflow: hidden; /* Para contener el efecto de spotlight */
+}
+
+.card-lift::before {
+    content: '';
+    position: absolute;
+    /* Posición controlada por JS con variables CSS */
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    width: 300px; /* Tamaño del resplandor */
+    height: 300px;
+    background: radial-gradient(circle closest-side, rgba(37, 99, 235, 0.3), transparent);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+/* Efecto de elevación en tarjetas al pasar el cursor */
+.card-lift:hover {
+    transform: translateY(-8px);
+    border-color: rgba(37, 99, 235, 0.4);
+}
+
+.card-lift:hover::before {
+    opacity: 1;
+}
+
+/* --- EFECTO DE CURSOR AVANZADO --- */
+body, a, button, select {
+    cursor: none;
+}
+
+#cursor-glow {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.5) 0%, rgba(37, 99, 235, 0) 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    will-change: transform;
+}
+
+/* Transición para el efecto magnético */
+.magnetic-effect {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Estilo para el texto de descripción de proyectos */
+.project-description {
+    line-height: 1.75; /* Aumenta el espacio entre líneas para facilitar la lectura */
+    color: #cbd5e1;    /* Un gris ligeramente más claro (slate-300) para mejor contraste */
+}
+
+/* Estilo para las etiquetas de tecnología */
+.tech-tag {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #93c5fd; /* Azul claro */
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+/* Estilo para las etiquetas de tecnología */
+.tech-tag {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #93c5fd; /* Azul claro */
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+}
