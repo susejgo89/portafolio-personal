@@ -149,9 +149,20 @@
 
                 <!-- Proyecto 2: Nexus Play -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
-                     <div class="rounded-lg overflow-hidden border border-color lg:order-2">
-                        <img src="images/nexus-play.jpg" alt="Captura de pantalla de Nexus Play" class="w-full h-auto object-cover">
-                    </div>
+                     <!-- Slider para Nexus Play -->
+                     <div id="nexus-slider" class="relative rounded-lg overflow-hidden border border-color lg:order-2">
+                        <!-- Contenedor de las imágenes -->
+                        <div class="slider-track flex transition-transform duration-500 ease-in-out">
+                            <img src="images/nexusplay1.png" alt="Nexus Play - Vista 1" class="w-full flex-shrink-0">
+                            <img src="images/nexusplay2.png" alt="Nexus Play - Vista 2" class="w-full flex-shrink-0">
+                            <img src="images/nexusplay3.png" alt="Nexus Play - Vista 3" class="w-full flex-shrink-0">
+                            <img src="images/nexusplay4.png" alt="Nexus Play - Vista 4" class="w-full flex-shrink-0">
+                            <img src="images/nexusplay5.png" alt="Nexus Play - Vista 5" class="w-full flex-shrink-0">
+                        </div>
+                        <!-- Botones de navegación -->
+                        <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition hidden"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                        <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                     </div>
                     <div class="lg:order-1">
                         <span class="text-sm font-bold text-yellow-400 mb-2 inline-block" data-key="p2Status">EN DESARROLLO</span>
                         <h3 class="text-2xl font-bold mb-3 text-white font-mono" data-key="p2Title">Nexus Play - Plataforma de Contenido Corporativo</h3>

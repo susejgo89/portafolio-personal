@@ -44,33 +44,48 @@ setLanguage(initialLang);
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA DEL SLIDER DE PROYECTOS ---
-    const initSlider = () => {
-        const slider = document.getElementById('domino-slider');
-        if (!slider) return;
+    const initSliders = () => {
+        const sliders = document.querySelectorAll('[id$="-slider"]'); // Selecciona todos los IDs que terminan en -slider
+        if (sliders.length === 0) return;
 
-        const track = slider.querySelector('.slider-track');
-        const slides = Array.from(track.children);
-        const nextButton = slider.querySelector('.slider-button.next');
-        const prevButton = slider.querySelector('.slider-button.prev');
-        const slideWidth = slides[0].getBoundingClientRect().width;
+        sliders.forEach(slider => {
+            const track = slider.querySelector('.slider-track');
+            const slides = Array.from(track.children);
+            const nextButton = slider.querySelector('.slider-button.next');
+            const prevButton = slider.querySelector('.slider-button.prev');
+            
+            let currentIndex = 0;
+            let slideWidth = slider.offsetWidth; // Usamos el ancho del contenedor, es más fiable.
 
-        let currentIndex = 0;
+            const updateButtons = () => {
+                prevButton.classList.toggle('hidden', currentIndex === 0);
+                nextButton.classList.toggle('hidden', currentIndex === slides.length - 1);
+            };
 
-        const updateButtons = () => {
-            prevButton.classList.toggle('hidden', currentIndex === 0);
-            nextButton.classList.toggle('hidden', currentIndex === slides.length - 1);
-        };
+            const moveToSlide = (index, smooth = true) => {
+                if (smooth) {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                } else {
+                    track.style.transition = 'none';
+                }
+                track.style.transform = 'translateX(-' + slideWidth * index + 'px)';
+                currentIndex = index;
+                updateButtons();
+            };
 
-        const moveToSlide = (index) => {
-            track.style.transform = 'translateX(-' + slideWidth * index + 'px)';
-            currentIndex = index;
-            updateButtons();
-        };
+            // Recalcular el ancho y reajustar el slider si la ventana cambia de tamaño
+            const handleResize = () => {
+                slideWidth = slider.offsetWidth;
+                moveToSlide(currentIndex, false); // Mueve al slide actual sin animación
+            };
 
-        nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
-        prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
+            nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
+            prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
 
-        updateButtons(); // Inicializa el estado de los botones
+            updateButtons(); // Inicializa el estado de los botones
+
+            window.addEventListener('resize', handleResize);
+        });
     };
 
     // --- LÓGICA DE ANIMACIÓN AL HACER SCROLL ---
@@ -200,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    initSlider();
+    initSliders();
     initScrollAnimations();
     initCursorTrail();
     initMagneticElements();
