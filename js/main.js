@@ -119,14 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor.style.width = '60px';
                 cursor.style.height = '60px';
             });
+
             el.addEventListener('mouseleave', () => {
                 cursor.style.width = '30px';
                 cursor.style.height = '30px';
             });
+
+            // Sonido de hover
+            el.addEventListener('mouseenter', () => {
+                const hoverSound = new Audio('js/sounds/button_hover.mp3');
+                hoverSound.play();
+            });
+            // Sonido de click
+             el.addEventListener('click', () => {
+                const clickSound = new Audio('js/sounds/button_click.mp3');
+                clickSound.play();
+            });
         });
     };
 
-    // --- LÓGICA DE BOTONES MAGNÉTICOS ---
+   // --- LÓGICA DE BOTONES MAGNÉTICOS ---
     const initMagneticElements = () => {
         const magnets = document.querySelectorAll('.magnetic-effect');
         const strength = 40; // Fuerza de la atracción
@@ -183,20 +195,30 @@ document.addEventListener('DOMContentLoaded', () => {
         let i = 0;
         subtitle.innerHTML = ''; // Limpia el texto inicial
 
+         // Carga el sonido de la máquina de escribir
+        const typeSound = new Audio('js/sounds/typewriter.mp3');
+        typeSound.volume = 0.5; // Ajusta el volumen como desees
+
         function type() {
             if (i < originalText.length) {
                 subtitle.innerHTML += originalText.charAt(i);
                 i++;
+                typeSound.play(); // Reproduce el sonido en cada carácter
                 setTimeout(type, 20); // Velocidad de escritura
+            } else {
+                typeSound.pause(); // Pausa el sonido al finalizar
+                typeSound.currentTime = 0; // Reinicia el sonido al principio
             }
         }
-        // Inicia la animación solo cuando la sección es visible
+
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 setTimeout(type, 500); // Pequeño retraso antes de empezar
-                observer.disconnect(); // Para que no se repita
+                observer.unobserve(subtitle); // Unobserve the element instead of disconnecting entirely
             }
         }, { threshold: 0.5 });
+
+
         observer.observe(subtitle);
     };
 
