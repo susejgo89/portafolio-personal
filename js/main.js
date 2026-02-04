@@ -237,6 +237,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // --- LIGHTBOX (ZOOM DE IMÁGENES) ---
+    const initLightbox = () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        if (!lightbox) return;
+
+        // Abrir lightbox al hacer clic en imágenes del slider
+        document.querySelectorAll('.slider-track img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Cerrar lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            setTimeout(() => { lightboxImg.src = ''; }, 300); // Limpiar src después de la transición
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    };
+
     initSliders();
     initScrollAnimations();
     initCursorTrail();
@@ -245,4 +280,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initTypewriter();
     initSpotlightCards();
+    initLightbox();
 });

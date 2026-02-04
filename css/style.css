@@ -14,10 +14,10 @@ body {
 
 /* Color de acento para botones y enlaces */
 .accent-color {
-    background-color: #2563eb; /* Azul */
+    background-color: #7c3aed; /* Violeta Eléctrico */
 }
 .accent-color-hover:hover {
-    background-color: #1d4ed8;
+    background-color: #6d28d9;
 }
 .border-color {
     border-color: #1e293b; /* Borde gris oscuro azulado */
@@ -40,12 +40,17 @@ body {
 }
 
 .name-glow:hover {
-    text-shadow: 0 0 16px rgba(37, 99, 235, 0.8); /* Resplandor azul (accent-color) más intenso al pasar el ratón */
+    text-shadow: 0 0 16px rgba(124, 58, 237, 0.8); /* Resplandor violeta intenso */
 }
 
 /* Clase para la fuente cursiva del nombre */
 .font-cursive {
     font-family: 'Dancing Script', cursive;
+}
+
+/* Clase para títulos principales (Jerarquía Visual) */
+.font-heading {
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Clase para la fuente monoespaciada */
@@ -56,14 +61,14 @@ body {
 
 /* Estilo de resplandor para títulos de sección */
 .section-title {
-    text-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
+    text-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
     letter-spacing: 0.025em; /* Espaciado de letra ligeramente más amplio */
 }
 
 /* --- EFECTO 3D Y ANIMACIÓN PARA EL TÍTULO HERO --- */
 .hero-title-effect {
     /* Efecto de texto con gradiente animado */
-    background: linear-gradient(90deg, #1d4ed8, #60a5fa, #1d4ed8); /* Gradiente de respaldo */
+    background: linear-gradient(90deg, #6d28d9, #a78bfa, #6d28d9); /* Gradiente Violeta */
     background-size: 200% auto; /* Tamaño del fondo para la animación */
     color: #fff; /* Color de texto base */
     background-clip: text;
@@ -110,7 +115,7 @@ body {
     top: var(--y, 50%);
     width: 300px; /* Tamaño del resplandor */
     height: 300px;
-    background: radial-gradient(circle closest-side, rgba(37, 99, 235, 0.3), transparent);
+    background: radial-gradient(circle closest-side, rgba(124, 58, 237, 0.3), transparent);
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -120,7 +125,7 @@ body {
 /* Efecto de elevación en tarjetas al pasar el cursor */
 .card-lift:hover {
     transform: translateY(-8px);
-    border-color: rgba(37, 99, 235, 0.4);
+    border-color: rgba(124, 58, 237, 0.4);
 }
 
 .card-lift:hover::before {
@@ -140,7 +145,7 @@ body, a, button, select {
     left: 0;
     width: 30px;
     height: 30px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.5) 0%, rgba(37, 99, 235, 0) 60%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.5) 0%, rgba(124, 58, 237, 0) 60%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.3s ease, height 0.3s ease;
@@ -160,22 +165,102 @@ body, a, button, select {
 
 /* Estilo para las etiquetas de tecnología */
 .tech-tag {
-    background-color: rgba(37, 99, 235, 0.15);
-    color: #93c5fd; /* Azul claro */
+    background-color: rgba(124, 58, 237, 0.15);
+    color: #c4b5fd; /* Violeta claro */
     font-family: 'Roboto Mono', monospace;
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.6rem; /* Ligeramente más pequeño */
     border-radius: 9999px;
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Texto más pequeño para jerarquía */
     font-weight: 500;
+    border: 1px solid rgba(124, 58, 237, 0.3); /* Borde sutil */
 }
-/* Estilo para las etiquetas de tecnología */
-.tech-tag {
-    background-color: rgba(37, 99, 235, 0.15);
-    color: #93c5fd; /* Azul claro */
-    font-family: 'Roboto Mono', monospace;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 500;
+
+/* --- SECCIÓN CTA (CIERRE FUERTE) --- */
+.cta-section {
+    /* Gradiente radial suave desde abajo para resaltar los botones */
+    background: radial-gradient(circle at center bottom, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+    border-top: 1px solid rgba(124, 58, 237, 0.2); /* Borde sutil violeta */
+    position: relative;
 }
+
+/* Efecto de luz superior en el centro del borde */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.8), transparent);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+/* --- LIGHTBOX (ZOOM DE IMÁGENES) --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); /* Sombra violeta sutil */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #7c3aed; /* Accent color */
+}
+
+/* Cursor para imágenes ampliables */
+.cursor-zoom-in {
+    cursor: zoom-in;
+}
+
+/* --- ANIMACIONES FLOTANTES (HERO) --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float 7s ease-in-out infinite 2s; /* Retraso para que no se muevan igual */
 }

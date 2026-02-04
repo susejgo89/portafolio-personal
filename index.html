@@ -11,7 +11,7 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -40,7 +40,7 @@
                 
                 <!-- Selector de Idioma -->
                 <div class="relative">
-                    <select id="language-selector" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer magnetic-effect">
+                    <select id="language-selector" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 cursor-pointer magnetic-effect">
                         <option value="es">ES</option>
                         <option value="en">EN</option>
                         <option value="pt">PT</option>
@@ -58,62 +58,174 @@
 
     <main class="container mx-auto px-6 pt-24 md:pt-32">
         <!-- ==== SECCIÓN HERO / SOBRE MÍ ==== -->
-        <section id="home" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
-            <h1 class="hero-title-effect text-4xl md:text-6xl font-bold leading-tight mb-4 text-white" data-key="heroTitle">
-                Desarrollador Full-Stack
-            </h1>
-            <p id="hero-subtitle" class="text-lg md:text-xl max-w-3xl mx-auto text-slate-400 mb-8 font-mono" data-key="heroSubtitle">
-                Creando soluciones web robustas y escalables. Apasionado por la tecnología y la resolución de problemas complejos para transformar ideas en realidad digital.
-            </p>
-            <div class="flex flex-wrap justify-center items-center gap-6">
-                <!-- Reemplaza '#' con tus enlaces reales -->
-                <a href="https://github.com/susejgo89?tab=repositories" target="_blank" class="text-slate-400 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
-                    <i data-lucide="github" class="w-8 h-8"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="text-slate-400 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
-                    <i data-lucide="linkedin" class="w-8 h-8"></i>
-                </a>
-                <!-- Botón de Descargar CV -->
-                <a id="cv-download-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-slate-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-slate-600 transition duration-300 magnetic-effect">
-                    <i data-lucide="download" class="w-4 h-4"></i> <span data-key="downloadCV">Descargar CV</span>
-                </a>
+        <section id="home" class="min-h-[70vh] flex items-center mb-12">
+            <div class="grid lg:grid-cols-2 gap-12 w-full items-center">
+                <!-- Columna Izquierda: Contenido -->
+                <div class="text-left">
+                    <h1 class="hero-title-effect font-heading text-5xl md:text-7xl font-extrabold leading-tight mb-2 text-white tracking-tight" data-key="heroTitle">
+                        Susej Gonzalez
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-bold text-violet-400 mb-6 font-heading" data-key="heroRole">
+                        Desarrolladora Web Junior | Web Apps con React y Firebase
+                    </h2>
+                    <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-lg leading-relaxed" data-key="heroDescription">
+                        Creo aplicaciones web funcionales enfocadas en producto, usando IA como apoyo en el desarrollo.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-6">
+                        <a href="#projects" class="accent-color text-white px-6 py-3 rounded-md font-semibold accent-color-hover transition duration-300 magnetic-effect" data-key="btnViewProjects">
+                            Ver proyectos
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <a href="https://github.com/susejgo89?tab=repositories" target="_blank" class="text-slate-400 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
+                                <i data-lucide="github" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="text-slate-400 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
+                                <i data-lucide="linkedin" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://wa.me/5548999198605" target="_blank" class="text-green-500 hover:text-green-400 transition-transform duration-300 hover:scale-110 magnetic-effect">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Espacio visual (opcional para futuro o balance) -->
+                <div class="hidden lg:block relative">
+                    <!-- Fondo difuminado (Blob) -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-violet-600/20 rounded-full blur-3xl -z-10"></div>
+                    
+                    <!-- Contenedor de Imagen -->
+                    <div class="relative w-72 h-72 mx-auto">
+                        <!-- LOGO PRINCIPAL -->
+                        <img src="images/logo3.png" alt="Susej Gonzalez Logo" class="w-full h-full object-contain drop-shadow-2xl relative z-10">
+                        
+                        <!-- Elementos Flotantes (Decoración) -->
+                        <div class="absolute -top-4 -right-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg z-20 animate-float-slow">
+                            <i data-lucide="code-2" class="w-8 h-8 text-violet-400"></i>
+                        </div>
+                        <div class="absolute bottom-4 -left-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg z-20 animate-float-delayed">
+                            <i data-lucide="database" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==== SECCIÓN SOBRE MÍ ==== -->
+        <section id="about" class="py-12 fade-in-section">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Columna Izquierda: Texto -->
+                <div>
+                    <h2 class="section-title font-heading text-3xl md:text-4xl font-bold mb-6 text-white text-left" data-key="aboutTitle">
+                        Sobre mí
+                    </h2>
+                    <p class="text-slate-300 text-lg leading-relaxed text-left" data-key="aboutText">
+                        Soy desarrolladora web junior con enfoque en front-end y construcción de aplicaciones web reales. He desarrollado proyectos en producción usando React, Firebase y JavaScript, apoyándome en IA para acelerar el desarrollo y resolver problemas técnicos. Me interesa crecer en equipos donde pueda aportar, aprender y construir productos funcionales.
+                    </p>
+                </div>
+
+                <!-- Columna Derecha: Tarjetas de Enfoque -->
+                <div class="grid gap-4">
+                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
+                        <div class="bg-violet-500/20 p-3 rounded-lg text-violet-400">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus1">Arquitectura Frontend</h4>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
+                        <div class="bg-blue-500/20 p-3 rounded-lg text-blue-400">
+                            <i data-lucide="server" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus2">Backend y Bases de Datos</h4>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
+                        <div class="bg-green-500/20 p-3 rounded-lg text-green-400">
+                            <i data-lucide="rocket" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus3">Mentalidad de Producto</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ==== SECCIÓN DE PROYECTOS ==== -->
         <section id="projects" class="py-20 fade-in-section">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-white" data-key="projectsTitle">Mis Proyectos</h2>
+            <h2 class="section-title font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-white" data-key="projectsTitle">Mis Proyectos</h2>
             <div class="space-y-16">
 
                 <!-- Proyecto 1: Domino Pro -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
                     <!-- Slider para Domino Pro -->
-                    <div id="domino-slider" class="relative rounded-lg overflow-hidden border border-color">
-                        <!-- Contenedor de las imágenes -->
-                        <div class="slider-track flex transition-transform duration-500 ease-in-out">
-                            <img src="images/dominopro1.png" alt="Domino Pro - Vista 1" class="w-full flex-shrink-0">
-                            <img src="images/dominopro2.png" alt="Domino Pro - Vista 2" class="w-full flex-shrink-0">
-                            <img src="images/dominopro3.png" alt="Domino Pro - Vista 3" class="w-full flex-shrink-0">
-                            <img src="images/dominopro4.png" alt="Domino Pro - Vista 4" class="w-full flex-shrink-0">
-                            <img src="images/dominopro5.png" alt="Domino Pro - Vista 5" class="w-full flex-shrink-0">
+                    <div class="rounded-lg border border-slate-700 overflow-hidden bg-slate-900 shadow-2xl">
+                        <!-- Header de Navegador Mockup -->
+                        <div class="bg-slate-950 p-3 flex items-center gap-2 border-b border-slate-800">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div class="ml-4 flex-1 bg-slate-800 rounded-full h-5 max-w-xs opacity-50"></div>
                         </div>
-                        <!-- Botones de navegación -->
-                        <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                        </button>
-                        <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                        </button>
+                        <div id="domino-slider" class="relative group">
+                            <!-- Contenedor de las imágenes -->
+                            <div class="slider-track flex transition-transform duration-500 ease-in-out cursor-zoom-in">
+                                <img src="images/dominopro1.png" alt="Domino Pro - Vista 1" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/dominopro2.png" alt="Domino Pro - Vista 2" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/dominopro3.png" alt="Domino Pro - Vista 3" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/dominopro4.png" alt="Domino Pro - Vista 4" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/dominopro5.png" alt="Domino Pro - Vista 5" class="w-full flex-shrink-0 object-cover">
+                            </div>
+                            <!-- Botones de navegación -->
+                            <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100">
+                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            </button>
+                            <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100">
+                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            </button>
+                        </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold mb-3 text-white font-mono" data-key="p1Title">Domino Pro - Gestor de Torneos</h3>
-                        <p class="text-slate-400 mb-6 project-description" data-key="p1Description">
+                        <h3 class="text-3xl font-bold mb-4 text-white font-heading tracking-tight" data-key="p1Title">Domino Pro - Gestor de Torneos</h3>
+                        <p class="text-slate-300 mb-6 project-description text-lg leading-relaxed" data-key="p1Description">
                             Aplicación web full-stack diseñada para la gestión integral de torneos de dominó, automatizando desde la inscripción hasta la clasificación final. La plataforma implementa lógicas de negocio complejas basadas en reglamentos oficiales para garantizar la transparencia y competitividad del evento.
                         </p>
 
+                        <!-- Nueva Sección: Deep Dive (Problema, Rol, Desafío) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 mt-6">
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="alert-circle" class="w-4 h-4"></i> <span data-key="labelProblem">El Problema</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Problem">Los torneos manuales sufren de errores...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="user-cog" class="w-4 h-4"></i> <span data-key="labelRole">Mi Rol</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Role">Diseñé la arquitectura NoSQL...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="zap" class="w-4 h-4"></i> <span data-key="labelChallenge">El Desafío</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Challenge">Implementar el Sistema Suizo...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="trending-up" class="w-4 h-4"></i> <span data-key="labelResults">Impacto y Aprendizaje</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Results">Reduje el tiempo de organización...</p>
+                            </div>
+                        </div>
+
                         <div class="space-y-6 mb-8">
                             <div>
-                                <h4 class="font-semibold text-white mb-2 font-mono" data-key="p1FeaturesTitle">Funcionalidades Clave:</h4>
+                                <h4 class="font-bold text-white mb-3 font-heading text-lg" data-key="p1FeaturesTitle">Funcionalidades Clave:</h4>
                                 <ul class="list-disc list-inside text-slate-400 space-y-1">
                                     <li data-key="p1Feature1">Gestión de Torneos: Creación de eventos con parámetros personalizables (rondas, puntos, tiempo) y generación de un código único para seguimiento público.</li>
                                     <li data-key="p1Feature2">Sistema de Emparejamiento Suizo: Generación automática de rondas, emparejando jugadores según su rendimiento para mantener la competitividad.</li>
@@ -123,7 +235,7 @@
                             </div>
                             <hr class="border-slate-700">
                             <div>
-                                <h4 class="font-semibold text-white mb-2 font-mono" data-key="techUsed">Tecnologías Utilizadas:</h4>
+                                <h4 class="font-bold text-white mb-3 font-heading text-sm uppercase tracking-wider" data-key="techUsed">Tecnologías Utilizadas:</h4>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="tech-tag">React</span>
                                     <span class="tech-tag">HTML5 / CSS3</span>
@@ -150,29 +262,66 @@
                 <!-- Proyecto 2: Nexus Play -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
                      <!-- Slider para Nexus Play -->
-                     <div id="nexus-slider" class="relative rounded-lg overflow-hidden border border-color lg:order-2">
-                        <!-- Contenedor de las imágenes -->
-                        <div class="slider-track flex transition-transform duration-500 ease-in-out">
-                            <img src="images/nexusplay1.png" alt="Nexus Play - Vista 1" class="w-full flex-shrink-0">
-                            <img src="images/nexusplay2.png" alt="Nexus Play - Vista 2" class="w-full flex-shrink-0">
-                            <img src="images/nexusplay3.png" alt="Nexus Play - Vista 3" class="w-full flex-shrink-0">
-                            <img src="images/nexusplay4.png" alt="Nexus Play - Vista 4" class="w-full flex-shrink-0">
-                            <img src="images/nexusplay5.png" alt="Nexus Play - Vista 5" class="w-full flex-shrink-0">
+                     <div class="rounded-lg border border-slate-700 overflow-hidden bg-slate-900 shadow-2xl lg:order-2">
+                        <!-- Header de Navegador Mockup -->
+                        <div class="bg-slate-950 p-3 flex items-center gap-2 border-b border-slate-800">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div class="ml-4 flex-1 bg-slate-800 rounded-full h-5 max-w-xs opacity-50"></div>
                         </div>
-                        <!-- Botones de navegación -->
-                        <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition hidden"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
-                        <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                        <div id="nexus-slider" class="relative group">
+                            <!-- Contenedor de las imágenes -->
+                            <div class="slider-track flex transition-transform duration-500 ease-in-out cursor-zoom-in">
+                                <img src="images/nexusplay1.png" alt="Nexus Play - Vista 1" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/nexusplay2.png" alt="Nexus Play - Vista 2" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/nexusplay3.png" alt="Nexus Play - Vista 3" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/nexusplay4.png" alt="Nexus Play - Vista 4" class="w-full flex-shrink-0 object-cover">
+                                <img src="images/nexusplay5.png" alt="Nexus Play - Vista 5" class="w-full flex-shrink-0 object-cover">
+                            </div>
+                            <!-- Botones de navegación -->
+                            <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                            <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                        </div>
                      </div>
                     <div class="lg:order-1">
-                        <span class="text-sm font-bold text-yellow-400 mb-2 inline-block" data-key="p2Status">EN DESARROLLO</span>
-                        <h3 class="text-2xl font-bold mb-3 text-white font-mono" data-key="p2Title">Nexus Play - Plataforma de Contenido Corporativo</h3>
-                        <p class="text-slate-400 mb-6 project-description" data-key="p2Description">
+                        <span class="text-xs font-bold text-yellow-400 mb-3 inline-block tracking-widest border border-yellow-400/30 px-2 py-1 rounded" data-key="p2Status">EN DESARROLLO</span>
+                        <h3 class="text-3xl font-bold mb-4 text-white font-heading tracking-tight" data-key="p2Title">Nexus Play - Plataforma de Contenido Corporativo</h3>
+                        <p class="text-slate-300 mb-6 project-description text-lg leading-relaxed" data-key="p2Description">
                             Aplicación web profesional para la gestión de contenido multimedia en múltiples pantallas de forma remota. NexusPlay permite a los usuarios controlar playlists visuales y musicales, registrar dispositivos de forma segura y actualizar el contenido en tiempo real sin necesidad de intervención manual.
                         </p>
 
+                        <!-- Nueva Sección: Deep Dive (Problema, Rol, Desafío) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 mt-6">
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="alert-circle" class="w-4 h-4"></i> <span data-key="labelProblem">El Problema</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Problem">Las empresas dependen de USBs...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="user-cog" class="w-4 h-4"></i> <span data-key="labelRole">Mi Rol</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Role">Construí el sistema de autenticación...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="zap" class="w-4 h-4"></i> <span data-key="labelChallenge">El Desafío</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Challenge">Lograr que los cambios se reflejen...</p>
+                            </div>
+                            <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <h5 class="text-violet-400 font-bold mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <i data-lucide="trending-up" class="w-4 h-4"></i> <span data-key="labelResults">Impacto y Aprendizaje</span>
+                                </h5>
+                                <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Results">Logré sincronización de contenido...</p>
+                            </div>
+                        </div>
+
                         <div class="space-y-6 mb-8">
                             <div>
-                                <h4 class="font-semibold text-white mb-2 font-mono" data-key="p2FeaturesTitle">Funcionalidades Clave:</h4>
+                                <h4 class="font-bold text-white mb-3 font-heading text-lg" data-key="p2FeaturesTitle">Funcionalidades Clave:</h4>
                                 <ul class="list-disc list-inside text-slate-400 space-y-1">
                                     <li data-key="p2Feature1">Gestión de Contenido: Ciclo completo de subida, visualización y eliminación de imágenes, videos y audio.</li>
                                     <li data-key="p2Feature2">Asignación Dual de Playlists: Asignación independiente de playlists visuales y de audio a cada pantalla.</li>
@@ -186,7 +335,7 @@
                             </div>
                             <hr class="border-slate-700">
                             <div>
-                                <h4 class="font-semibold text-white mb-2 font-mono" data-key="techUsed">Tecnologías Utilizadas:</h4>
+                                <h4 class="font-bold text-white mb-3 font-heading text-sm uppercase tracking-wider" data-key="techUsed">Tecnologías Utilizadas:</h4>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="tech-tag">React</span>
                                     <span class="tech-tag">Firebase</span>
@@ -211,10 +360,10 @@
 
         <!-- ==== SECCIÓN DE HABILIDADES ==== -->
         <section id="skills" class="py-20 fade-in-section">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-white" data-key="skillsTitle">Mi Stack Tecnológico</h2>
+            <h2 class="section-title font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-white" data-key="skillsTitle">Mi Stack Tecnológico</h2>
             <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="card-bg p-6 rounded-lg border border-color card-lift">
-                    <h3 class="text-xl font-semibold mb-4 text-white" data-key="skillsFrontend">Frontend</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white font-heading" data-key="skillsFrontend">Frontend</h3>
                     <ul class="space-y-2 text-slate-400">
                         <li>HTML5</li>
                         <li>CSS3</li>
@@ -223,7 +372,7 @@
                     </ul>
                 </div>
                 <div class="card-bg p-6 rounded-lg border border-color card-lift">
-                    <h3 class="text-xl font-semibold mb-4 text-white" data-key="skillsBackend">Backend</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white font-heading" data-key="skillsBackend">Backend</h3>
                     <ul class="space-y-2 text-slate-400">
                         <li>Node.js</li>
                         <li>Express</li>
@@ -231,14 +380,14 @@
                     </ul>
                 </div>
                 <div class="card-bg p-6 rounded-lg border border-color card-lift">
-                    <h3 class="text-xl font-semibold mb-4 text-white" data-key="skillsDatabases">Bases de Datos</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white font-heading" data-key="skillsDatabases">Bases de Datos</h3>
                     <ul class="space-y-2 text-slate-400">
                         <li>Firestore (NoSQL)</li>
                         <li>MongoDB</li>
                     </ul>
                 </div>
                 <div class="card-bg p-6 rounded-lg border border-color card-lift">
-                    <h3 class="text-xl font-semibold mb-4 text-white" data-key="skillsTools">Herramientas</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white font-heading" data-key="skillsTools">Herramientas</h3>
                     <ul class="space-y-2 text-slate-400">
                         <li>Git & GitHub</li>
                         <li>VS Code</li>
@@ -249,8 +398,8 @@
         </section>
         
         <!-- ==== SECCIÓN DE CONTACTO ==== -->
-        <section id="contact" class="py-20 text-center fade-in-section">
-             <h2 class="section-title text-3xl md:text-4xl font-bold mb-4 text-white" data-key="contactTitle">¿Hablamos?</h2>
+        <section id="contact" class="py-24 text-center fade-in-section cta-section">
+             <h2 class="section-title font-heading text-4xl md:text-5xl font-bold mb-6 text-white" data-key="contactTitle">¿Hablamos?</h2>
              <p class="text-lg text-slate-400 max-w-xl mx-auto mb-8" data-key="contactSubtitle">
                 Estoy disponible para oportunidades freelance y roles de tiempo completo. Si tienes un proyecto en mente o simplemente quieres conectar, ¡no dudes en contactarme!
              </p>
@@ -276,6 +425,12 @@
         </div>
     </footer>
     
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Zoom Proyecto">
+    </div>
+
     <!-- Scripts -->
     <script src="js/translations.js"></script>
     <script src="js/main.js" defer></script>
