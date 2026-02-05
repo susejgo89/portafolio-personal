@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ANIMACIÓN DE MÁQUINA DE ESCRIBIR ---
     const initTypewriter = () => {
-        const subtitle = document.getElementById('hero-subtitle');
-        if (!subtitle) return;
+        const titleElement = document.getElementById('hero-title');
+        if (!titleElement) return;
 
-        const originalText = translations[initialLang].heroSubtitle;
+        const originalText = translations[initialLang].heroTitle;
         let i = 0;
-        subtitle.innerHTML = ''; // Limpia el texto inicial
+        titleElement.innerHTML = ''; // Limpia el texto inicial
 
          // Carga el sonido de la máquina de escribir
         const typeSound = new Audio('js/sounds/typewriter.mp3');
@@ -201,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function type() {
             if (i < originalText.length) {
-                subtitle.innerHTML += originalText.charAt(i);
+                titleElement.innerHTML += originalText.charAt(i);
                 i++;
-                typeSound.play(); // Reproduce el sonido en cada carácter
-                setTimeout(type, 20); // Velocidad de escritura
+                typeSound.play().catch(() => {}); // Reproduce el sonido en cada carácter
+                setTimeout(type, 100); // Velocidad de escritura
             } else {
                 typeSound.pause(); // Pausa el sonido al finalizar
                 typeSound.currentTime = 0; // Reinicia el sonido al principio
@@ -214,12 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 setTimeout(type, 500); // Pequeño retraso antes de empezar
-                observer.unobserve(subtitle); // Unobserve the element instead of disconnecting entirely
+                observer.unobserve(titleElement); // Unobserve the element instead of disconnecting entirely
             }
         }, { threshold: 0.5 });
 
 
-        observer.observe(subtitle);
+        observer.observe(titleElement);
     };
 
     // --- EFECTO SPOTLIGHT EN TARJETAS ---

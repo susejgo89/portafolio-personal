@@ -1,7 +1,7 @@
 const translations = {
     en: {
         pageTitle: "Professional Portfolio",
-        cvPath: "images/Currículum susej Gonzalez.pdf", // Usando el CV en portugués como fallback para inglés
+        cvPath: "images/Currículum Portugues.pdf", // Usando el CV en portugués como fallback para inglés
         yourName: "Susej Gonzalez",
         navProjects: "Projects",
         navSkills: "Skills",
@@ -66,7 +66,7 @@ const translations = {
     es: {
         pageTitle: "Portafolio Profesional",
         yourName: "Susej Gonzalez",
-        cvPath: "images/curriculum español.pdf",
+        cvPath: "images/Curriculum español.pdf",
         navProjects: "Proyectos",
         navSkills: "Habilidades",
         navContact: "Contacto",
@@ -130,7 +130,7 @@ const translations = {
     pt: {
         pageTitle: "Portfólio Profissional",
         yourName: "Susej Gonzalez",
-        cvPath: "images/Currículum susej Gonzalez.pdf",
+        cvPath: "images/Currículum Portugues.pdf",
         navProjects: "Projetos",
         navSkills: "Habilidades",
         navContact: "Contato",
