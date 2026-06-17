@@ -173,6 +173,13 @@ body, a, button, select {
     font-size: 0.75rem; /* Texto más pequeño para jerarquía */
     font-weight: 500;
     border: 1px solid rgba(124, 58, 237, 0.3); /* Borde sutil */
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background-color: rgba(124, 58, 237, 0.3);
+    transform: scale(1.05);
+    color: #fff;
 }
 
 /* --- SECCIÓN CTA (CIERRE FUERTE) --- */
@@ -263,4 +270,94 @@ body, a, button, select {
 
 .animate-float-delayed {
     animation: float 7s ease-in-out infinite 2s; /* Retraso para que no se muevan igual */
+}
+
+/* --- ESTILOS DE ACORDEÓN PARA PROYECTOS --- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px; /* Suficiente para el contenido */
+    opacity: 1;
+    padding-bottom: 1rem;
+}
+
+.accordion-item.active .chevron-icon {
+    transform: rotate(180deg);
+}
+
+/* --- ESTILO DE LA INSIGNIA AI --- */
+.ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(124, 58, 237, 0.1);
+    color: #a78bfa;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
+}
+
+/* --- CHATBOT STYLES --- */
+.chat-msg {
+    max-width: 80%;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    line-height: 1.4;
+}
+.msg-ai {
+    align-self: flex-start;
+    background: rgba(30, 41, 59, 0.7);
+    color: #e2e8f0;
+    border-bottom-left-radius: 0.2rem;
+}
+.msg-user {
+    align-self: flex-end;
+    background: #7c3aed;
+    color: white;
+    border-bottom-right-radius: 0.2rem;
+}
+
+/* --- ENLACES ESTILIZADOS (REEMPLAZO DE BOTONES) --- */
+.stylish-link {
+    background: transparent !important;
+    border: none !important;
+    color: #cbd5e1; /* slate-300 */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stylish-link:hover {
+    color: #a78bfa; /* Violeta claro */
+}
+
+.stylish-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #7c3aed;
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stylish-link:hover::after {
+    width: 100%;
 }
