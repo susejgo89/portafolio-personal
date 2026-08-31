@@ -3,629 +3,940 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional</title>
+    <title>Susej Gonzalez | Desenvolvedora Front-End & Agentes de IA</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & Poppins & Roboto Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body class="w-full">
 
-    <!-- Cursor de Resplandor -->
-    <div id="cursor-glow"></div>
+    <!-- ==== AMBIENT BACKGROUND GLOWS ==== -->
+    <div class="fixed top-20 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/3 right-10 w-[28rem] h-[28rem] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-20 left-1/3 w-96 h-96 bg-violet-800/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
 
     <!-- ==== HEADER / NAVEGACIÓN ==== -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center -my-12"> <!-- Margen negativo para controlar el espacio vertical -->
-                <img src="images/logo3.png" alt="Susej Gonzalez Logo" class="h-44 w-auto">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#07090e]/85 backdrop-blur-xl border-b border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-6 py-3.5 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3.5 group">
+                <div class="h-11 px-2.5 rounded-xl bg-violet-500/15 border border-violet-500/40 flex items-center justify-center transition-all group-hover:scale-105 group-hover:border-violet-400/70 shadow-lg shadow-violet-500/20 group-hover:shadow-violet-500/35">
+                    <img src="images/logo_icon.png" alt="Susej Gonzalez Logo" class="h-7 w-auto object-contain drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-white text-base sm:text-lg tracking-tight leading-none">Susej<span class="text-violet-400">.dev</span></span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-mono leading-tight" data-key="headerRole">Front-End & Agentes de IA</span>
+                </div>
             </a>
-            <div class="flex items-center space-x-8">
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#projects" class="text-slate-300 hover:text-white transition duration-300 magnetic-effect" data-key="navProjects">Proyectos</a>
-                    <a href="#skills" class="text-slate-300 hover:text-white transition duration-300 magnetic-effect" data-key="navSkills">Habilidades</a>
-                    <a href="#contact" class="text-slate-300 hover:text-white transition duration-300 magnetic-effect" data-key="navContact">Contacto</a>
-                </nav>
-                
-                <!-- Selector de Idioma -->
+            
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navAbout">Sobre mí</a>
+                <a href="#projects" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navProjects">Proyectos</a>
+                <a href="#education" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navEducation">Formación</a>
+                <a href="#skills" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navSkills">Habilidades</a>
+                <a href="#contact" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navContact">Contacto</a>
+            </nav>
+            
+            <!-- Right Actions: Language Selector & CV -->
+            <div class="flex items-center gap-3">
                 <div class="relative">
-                    <select id="language-selector" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 cursor-pointer magnetic-effect">
+                    <select id="language-selector" class="bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 block px-2.5 py-1.5 cursor-pointer transition shadow-inner">
                         <option value="es">ES</option>
-                        <option value="en">EN</option>
                         <option value="pt">PT</option>
+                        <option value="en">EN</option>
                     </select>
                 </div>
+                
+                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold bg-violet-600/15 hover:bg-violet-600/25 text-violet-300 border border-violet-500/40 px-3.5 py-1.5 rounded-lg transition-all hover:scale-105 shadow-sm">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                    <span data-key="downloadCV">Descargar CV</span>
+                </a>
 
-                <!-- Botón de Contáctame movido fuera del div principal para un mejor espaciado -->
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition-colors" aria-label="Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
-            <!-- Menú hamburguesa para móviles (necesitará JS para funcionar) -->
-            <div class="md:hidden">
-                <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#07090e]/95 border-b border-slate-800 px-6 py-5 space-y-3.5 backdrop-blur-xl">
+            <a href="#about" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navAbout">Sobre mí</a>
+            <a href="#projects" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navProjects">Proyectos</a>
+            <a href="#education" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navEducation">Formación</a>
+            <a href="#skills" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navSkills">Habilidades</a>
+            <a href="#contact" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navContact">Contacto</a>
+            <div class="pt-3 border-t border-slate-800">
+                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link-mobile" target="_blank" class="flex items-center justify-center gap-2 w-full text-sm font-semibold bg-violet-600 text-white px-4 py-2.5 rounded-xl shadow-lg shadow-violet-600/30">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span data-key="downloadCV">Descargar CV</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 pt-24 md:pt-32">
-        <!-- ==== SECCIÓN HERO / SOBRE MÍ ==== -->
-        <section id="home" class="min-h-[70vh] flex items-center mb-12">
-            <div class="grid lg:grid-cols-2 gap-12 w-full items-center">
-                <!-- Columna Izquierda: Contenido -->
-                <div class="text-left">
-                    <!-- Insignia de IA -->
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="ai-badge">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            <span data-key="aiBadge">AI-Enhanced Developer</span>
+    <main class="max-w-7xl mx-auto px-6 pt-28 md:pt-36">
+        
+        <!-- ==== HERO SECTION ==== -->
+        <section id="home" class="min-h-[78vh] flex flex-col justify-center mb-16">
+            <div class="grid lg:grid-cols-12 gap-12 w-full items-center">
+                <!-- Left Column (7 cols) -->
+                <div class="lg:col-span-7 text-left space-y-6">
+                    <!-- Badges -->
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="badge-feature">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
+                            <span data-key="aiBadge">Front-End & Agentes de IA</span>
+                        </span>
+                        <span class="text-xs text-slate-400 flex items-center gap-1.5 font-medium bg-slate-900/60 px-3 py-1.5 rounded-full border border-slate-800">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-violet-400"></i>
+                            <span data-key="heroLocation">Florianópolis, SC • Remoto / Presencial / Híbrido</span>
                         </span>
                     </div>
-                    <h1 id="hero-title" class="hero-title-effect font-heading text-5xl md:text-7xl font-extrabold leading-tight mb-2 text-white tracking-tight" data-key="heroTitle">
-                        Susej Gonzalez
-                    </h1>
-                    <h2 class="text-xl md:text-2xl font-bold text-violet-400 mb-6 font-heading" data-key="heroRole">
-                        Desarrolladora Web Junior | Web Apps con React y Firebase
-                    </h2>
-                    <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-lg leading-relaxed" data-key="heroDescription">
-                        Creo aplicaciones web funcionales enfocadas en producto, usando IA como apoyo en el desarrollo.
+
+                    <!-- Name & Headline -->
+                    <div>
+                        <h1 class="text-gradient font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none mb-3" data-key="heroTitle">
+                            Susej Gonzalez
+                        </h1>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-violet-300 font-heading" data-key="heroRole">
+                            Desenvolvedora Front-End & Agentes de IA | React.js • Firebase • Python
+                        </h2>
+                    </div>
+
+                    <!-- Value Proposition -->
+                    <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-light" data-key="heroDescription">
+                        Desarrolladora Front-End y creadora de soluciones con IA. Experiencia práctica en plataformas SaaS en producción con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>, además de desarrollo de <strong>Agentes de IA y automatización con Python</strong> (Gemini API, Google Places y Sheets).
                     </p>
-                    
-                    <div class="flex flex-wrap items-center gap-4">
-                        <a href="#projects" class="stylish-link magnetic-effect" data-key="btnViewProjects">
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                            <span class="font-heading">Ver proyectos</span>
+
+                    <!-- CTAs + CRISP CIRCULAR SOCIAL BUTTONS -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="btn-glow-primary" data-key="btnViewProjects">
+                            <span data-key="btnViewProjects">Explorar Proyectos</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
-                        <!-- Botón de GitHub mejorado -->
-                        <a href="https://github.com/susejgo89" target="_blank" class="stylish-link magnetic-effect">
-                            <i data-lucide="github" class="w-5 h-5"></i> <span>GitHub</span>
+                        <a href="#contact" class="btn-outline-glass" data-key="btnContact">
+                            <i data-lucide="mail" class="w-4 h-4 text-violet-400"></i>
+                            <span data-key="btnContact">Contactar</span>
                         </a>
-                        <a href="#" id="cv-download-link" target="_blank" class="stylish-link magnetic-effect">
-                            <i data-lucide="download" class="w-5 h-5"></i>
-                            <span data-key="downloadCV">Descargar CV</span>
-                        </a>
-                        <div class="flex items-center gap-4 ml-2">
-                            <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="text-slate-400 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
-                                <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        
+                        <!-- CIRCULAR SOCIAL BUTTONS WITH EMBEDDED SVGs -->
+                        <div class="flex items-center gap-2.5 sm:ml-2">
+                            <!-- GitHub Circle -->
+                            <a href="https://github.com/susejgo89" target="_blank" class="social-circle-btn" title="GitHub — susejgo89" aria-label="GitHub">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
                             </a>
-                            <a href="https://wa.me/5548991242305" target="_blank" class="text-green-500 hover:text-green-400 transition-transform duration-300 hover:scale-110 magnetic-effect">
-                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            <!-- LinkedIn Circle -->
+                            <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="social-circle-btn" title="LinkedIn — susejgo" aria-label="LinkedIn">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+                                </svg>
+                            </a>
+                            <!-- WhatsApp Circle -->
+                            <a href="https://wa.me/5548991242305" target="_blank" class="social-circle-btn whatsapp-circle" title="WhatsApp — +55 48 99124-2305" aria-label="WhatsApp">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
+                                </svg>
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Columna Derecha: Espacio visual (opcional para futuro o balance) -->
-                <div class="hidden lg:block relative">
-                    <!-- Fondo difuminado (Blob) -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-violet-600/20 rounded-full blur-3xl -z-10"></div>
-                    
-                    <!-- Contenedor de Imagen -->
-                    <div class="relative w-72 h-72 mx-auto">
-                        <!-- LOGO PRINCIPAL -->
-                        <img src="images/logo3.png" alt="Susej Gonzalez Logo" class="w-full h-full object-contain drop-shadow-2xl relative z-10">
+
+                <!-- Right Column: Interactive Holographic Tech Box (5 cols) -->
+                <div class="lg:col-span-5 relative hidden lg:flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Hologram Background Glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-violet-600 via-cyan-500 to-emerald-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
                         
-                        <!-- Elementos Flotantes (Decoración) -->
-                        <div class="absolute -top-4 -right-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg z-20 animate-float-slow">
-                            <i data-lucide="code-2" class="w-8 h-8 text-violet-400"></i>
+                        <!-- Card Content -->
+                        <div class="glass-card p-7 relative space-y-5 border-white/10 bg-[#0c101c]/90 shadow-2xl">
+                            <!-- Card Header -->
+                            <div class="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="h-12 px-2.5 rounded-xl bg-violet-600/20 border border-violet-500/40 flex items-center justify-center shadow-lg shadow-violet-500/20">
+                                        <img src="images/logo_icon.png" alt="Logo" class="h-8 w-auto object-contain drop-shadow-[0_0_10px_rgba(167,139,250,0.7)]">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-white font-heading font-bold text-sm">Perfil Técnico</h3>
+                                        <p class="text-[11px] text-slate-400 font-mono">Front-End & Agentes IA</p>
+                                    </div>
+                                </div>
+                                <span class="badge-live-pulse text-[11px]">Online</span>
+                            </div>
+
+                            <!-- Live Tech Rows -->
+                            <div class="space-y-2.5">
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-7 h-7 rounded-lg bg-violet-500/15 text-violet-400 flex items-center justify-center">
+                                            <i data-lucide="layout" class="w-4 h-4"></i>
+                                        </div>
+                                        <span class="text-xs text-slate-200 font-medium">React.js • Tailwind CSS • ES6+</span>
+                                    </div>
+                                    <span class="text-[11px] text-violet-400 font-mono font-semibold">Front-End</span>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center">
+                                            <i data-lucide="flame" class="w-4 h-4"></i>
+                                        </div>
+                                        <span class="text-xs text-slate-200 font-medium">Firebase Firestore & Auth</span>
+                                    </div>
+                                    <span class="text-[11px] text-amber-400 font-mono font-semibold">Real-Time</span>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/30 flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                                            <i data-lucide="bot" class="w-4 h-4"></i>
+                                        </div>
+                                        <span class="text-xs text-emerald-200 font-medium">Python, Gemini & Agentes IA</span>
+                                    </div>
+                                    <span class="text-[11px] text-emerald-400 font-mono font-semibold">SENAI 320h</span>
+                                </div>
+                            </div>
+
+                            <!-- Live Stat Summary Footer -->
+                            <div class="pt-2 grid grid-cols-2 gap-2 text-center text-xs">
+                                <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                                    <span class="block text-violet-400 font-bold font-mono text-base">2 SaaS</span>
+                                    <span class="text-[11px] text-slate-400">Em Produção</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                                    <span class="block text-emerald-400 font-bold font-mono text-base">Agentes IA</span>
+                                    <span class="text-[11px] text-slate-400">Python + Gemini</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="absolute bottom-4 -left-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-lg z-20 animate-float-delayed">
-                            <i data-lucide="database" class="w-8 h-8 text-blue-400"></i>
+
+                        <!-- Floating Badges -->
+                        <div class="absolute -top-4 -right-4 bg-slate-900/95 px-3 py-2 rounded-xl border border-violet-500/40 shadow-xl z-20 animate-float-slow flex items-center gap-2 text-xs font-semibold text-violet-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                            <span>SaaS & IA Integradas</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/[0.06]">
+                <div class="glass-card p-4.5 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="rocket" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 block" data-key="statSaaS">Plataformas SaaS</span>
+                        <span class="text-sm font-bold text-white font-heading" data-key="statSaaSVal">2 en Producción</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4.5 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 block" data-key="statStack">Desarrollo Web</span>
+                        <span class="text-sm font-bold text-white font-heading" data-key="statStackVal">React.js • Firebase</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4.5 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 block" data-key="statAI">IA & Automatización</span>
+                        <span class="text-sm font-bold text-white font-heading" data-key="statAIVal">Agentes & Python (SENAI)</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==== SECCIÓN SOBRE MÍ ==== -->
-        <section id="about" class="py-12 fade-in-section">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Columna Izquierda: Texto -->
-                <div>
-                    <h2 class="section-title font-heading text-3xl md:text-4xl font-bold mb-6 text-white text-left" data-key="aboutTitle">
+        <!-- ==== SOBRE MÍ ==== -->
+        <section id="about" class="py-20 fade-in-section border-t border-white/5">
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
+                <div class="lg:col-span-5 space-y-4">
+                    <h2 class="section-title text-left font-heading text-3xl sm:text-4xl font-bold text-white" data-key="aboutTitle">
                         Sobre mí
                     </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed text-left" data-key="aboutText">
-                        Soy desarrolladora web junior con enfoque en front-end y construcción de aplicaciones web reales. He desarrollado proyectos en producción usando React, Firebase y JavaScript, apoyándome en IA para acelerar el desarrollo y resolver problemas técnicos. Me interesa crecer en equipos donde pueda aportar, aprender y construir productos funcionales.
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed pt-2" data-key="aboutText">
+                        Desarrolladora Front-End especializada en la construcción de aplicaciones web y plataformas SaaS completas en producción con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>, combinando interfaces modernas con arquitecturas en tiempo real y desarrollo de <strong>Agentes de Inteligencia Artificial en Python</strong>.<br><br>Cuento con formación profesionalizante en <strong>Desarrollo de IA para Análisis Predictivo con Python (320h)</strong> en SENAI/SC y curso <strong>Sistemas para Internet</strong> en UniFatecie, además de una base en Ingeniería de Sistemas por la UNA.
                     </p>
                 </div>
 
-                <!-- Columna Derecha: Tarjetas de Enfoque -->
-                <div class="grid gap-4">
-                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
-                        <div class="bg-violet-500/20 p-3 rounded-lg text-violet-400">
-                            <i data-lucide="layout" class="w-6 h-6"></i>
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4.5">
+                    <!-- Pillar 1 -->
+                    <div class="glass-card p-5 space-y-2.5">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
+                            <i data-lucide="layout" class="w-5 h-5"></i>
                         </div>
-                        <div>
-                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus1">Arquitectura Frontend</h4>
-                        </div>
+                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard1Title">Arquitectura Front-End</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard1Desc">Interfaces reactivas, componentes modulares y diseño responsivo con React.js, JavaScript ES6+ y Tailwind CSS.</p>
                     </div>
-                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
-                        <div class="bg-blue-500/20 p-3 rounded-lg text-blue-400">
-                            <i data-lucide="server" class="w-6 h-6"></i>
+
+                    <!-- Pillar 2 -->
+                    <div class="glass-card p-5 space-y-2.5">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                            <i data-lucide="server" class="w-5 h-5"></i>
                         </div>
-                        <div>
-                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus2">Backend y Bases de Datos</h4>
-                        </div>
+                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard2Title">Backend & BaaS</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard2Desc">Autenticación segura de usuarios, Firestore en tiempo real, Storage de medios y Cloud Functions serverless.</p>
                     </div>
-                    <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-violet-500/50 transition-colors">
-                        <div class="bg-green-500/20 p-3 rounded-lg text-green-400">
-                            <i data-lucide="rocket" class="w-6 h-6"></i>
+
+                    <!-- Pillar 3 -->
+                    <div class="glass-card p-5 space-y-2.5 border-emerald-500/20 bg-emerald-950/15">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                            <i data-lucide="bot" class="w-5 h-5"></i>
                         </div>
-                        <div>
-                            <h4 class="text-white font-bold font-heading" data-key="aboutFocus3">Mentalidad de Producto</h4>
+                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard3Title">Agentes de IA & Python</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard3Desc">Desarrollo de agentes autónomos, integración de Google Gemini API, Google Places API y modelos predictivos en Python (SENAI/SC).</p>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="glass-card p-5 space-y-2.5">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
+                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard4Title">Mentalidad de Producto</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard4Desc">Experiencia real en plataformas SaaS multi-tenant, optimización de flujos y enfoque integral en la experiencia de usuario (UX).</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==== SECCIÓN DE PROYECTOS ==== -->
-        <section id="projects" class="py-20 fade-in-section">
-            <h2 class="section-title font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-white" data-key="projectsTitle">Mis Proyectos</h2>
-            <div class="space-y-16">
+        <!-- ==== PROYECTOS ==== -->
+        <section id="projects" class="py-20 fade-in-section border-t border-white/5">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="projectsTitle">
+                    Proyectos & Desarrollos
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="projectsSubtitle">
+                    Soluciones de software reales, plataformas SaaS en producción y agentes de IA
+                </p>
+            </div>
 
-                <!-- Proyecto 1: Domino Pro -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
-                    <!-- Slider para Domino Pro -->
-                    <div class="rounded-lg border border-slate-700 overflow-hidden bg-slate-900 shadow-2xl">
-                        <!-- Header de Navegador Mockup -->
-                        <div class="bg-slate-950 p-3 flex items-center gap-2 border-b border-slate-800">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div class="ml-4 flex-1 bg-slate-800 rounded-full h-5 max-w-xs opacity-50"></div>
+            <div class="space-y-16">
+                <!-- PROYECTO 1: DOMINOPRO -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-violet-500/50">
+                    <!-- Slider Container (6 cols) -->
+                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
+                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-400 font-medium">dominopro1.com</span>
+                            <div class="w-8"></div>
                         </div>
                         <div id="domino-slider" class="relative group">
-                            <!-- Contenedor de las imágenes -->
-                            <div class="slider-track flex transition-transform duration-500 ease-in-out cursor-zoom-in">
-                                <img src="images/dominopro1.png" alt="Domino Pro - Vista 1" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/dominopro2.png" alt="Domino Pro - Vista 2" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/dominopro3.png" alt="Domino Pro - Vista 3" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/dominopro4.png" alt="Domino Pro - Vista 4" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/dominopro5.png" alt="Domino Pro - Vista 5" class="w-full flex-shrink-0 object-cover">
+                            <div class="slider-track flex cursor-zoom-in">
+                                <img src="images/dominopro1.png" alt="DominoPro 1" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/dominopro2.png" alt="DominoPro 2" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/dominopro3.png" alt="DominoPro 3" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/dominopro4.png" alt="DominoPro 4" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/dominopro5.png" alt="DominoPro 5" class="w-full flex-shrink-0 object-cover aspect-video">
                             </div>
-                            <!-- Botones de navegación -->
-                            <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100">
-                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
                             </button>
-                            <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100">
-                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
                             </button>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-bold mb-4 text-white font-heading tracking-tight" data-key="p1Title">Domino Pro - Gestor de Torneos</h3>
-                        <p class="text-slate-300 mb-6 project-description text-lg leading-relaxed" data-key="p1Description">
-                            Aplicación web full-stack diseñada para la gestión integral de torneos de dominó, automatizando desde la inscripción hasta la clasificación final. La plataforma implementa lógicas de negocio complejas basadas en reglamentos oficiales para garantizar la transparencia y competitividad del evento.
+
+                    <!-- Info Container (6 cols) -->
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="flex items-center gap-3">
+                            <span class="badge-live-pulse" data-key="liveBadge">En Producción</span>
+                            <span class="text-xs text-slate-400 font-mono">2024 – Presente</span>
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p1Title">
+                            DominoPro — Plataforma de Gestión de Torneos
+                        </h3>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p1Description">
+                            Aplicación web integral para la administración completa de torneos de dominó profesionales, actuando desde la concepción de la arquitectura hasta el deploy en producción. Automatiza reglamentos oficiales y cálculos algorítmicos complejos.
                         </p>
 
-                        <!-- Nueva Sección: Deep Dive (Problema, Rol, Desafío) -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 mt-6">
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="alert-circle" class="w-4 h-4"></i> <span data-key="labelProblem">El Problema</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Problem">Los torneos manuales sufren de errores...</p>
-                                </div>
+                        <!-- Direct Highlights List -->
+                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p1Highlight1"><strong>Sistema Suizo Automático:</strong> Algoritmo de emparejamiento dinámico de rondas que previene repeticiones y equilibra niveles.</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="user-cog" class="w-4 h-4"></i> <span data-key="labelRole">Mi Rol</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Role">Diseñé la arquitectura NoSQL...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p1Highlight2"><strong>Ranking en Tiempo Real:</strong> Recálculo instantáneo de posiciones, puntos y métricas tras registrar resultados.</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="zap" class="w-4 h-4"></i> <span data-key="labelChallenge">El Desafío</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Challenge">Implementar el Sistema Suizo...</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="trending-up" class="w-4 h-4"></i> <span data-key="labelResults">Impacto y Aprendizaje</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p1Results">Reduje el tiempo de organización...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p1Highlight3"><strong>Autenticación & Firestore:</strong> Gestión de roles, sistema avanzado de sanciones y persistencia reactiva en tiempo real.</p>
                             </div>
                         </div>
 
-                        <div class="space-y-6 mb-8">
-                            <div class="accordion-item border border-slate-700/50 rounded-lg">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h4 class="font-bold text-white font-heading text-lg pointer-events-none" data-key="p1FeaturesTitle">Funcionalidades Clave:</h4>
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <ul class="list-disc list-inside text-slate-400 space-y-1">
-                                        <li data-key="p1Feature1">Gestión de Torneos...</li>
-                                        <li data-key="p1Feature2">Sistema de Emparejamiento Suizo...</li>
-                                        <li data-key="p1Feature3">Ranking en Tiempo Real...</li>
-                                        <li data-key="p1Feature4">Módulo Avanzado de Sanciones...</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <hr class="border-slate-700">
-                            <div class="accordion-item border border-slate-700/50 rounded-lg">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h4 class="font-bold text-white font-heading text-sm uppercase tracking-wider pointer-events-none" data-key="techUsed">Tecnologías Utilizadas:</h4>
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <div class="flex flex-wrap gap-2 pt-2 pb-2">
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">HTML5 / CSS3</span>
-                                        <span class="tech-tag">JavaScript (Vanilla JS)</span>
-                                        <span class="tech-tag">Firebase</span>
-                                        <span class="tech-tag">Bootstrap</span>
-                                        <span class="tech-tag">Serverless</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="tech-pill">React.js</span>
+                            <span class="tech-pill">JavaScript ES6+</span>
+                            <span class="tech-pill">Tailwind CSS</span>
+                            <span class="tech-pill">Firebase Firestore</span>
+                            <span class="tech-pill">Authentication</span>
+                            <span class="tech-pill tech-pill-cyan">Sistema Suizo</span>
                         </div>
 
-                        <div class="flex space-x-4 mt-auto">
-                            <!-- Reemplaza '#' con tus enlaces -->
-                            <a href="https://dominopro1.com/" target="_blank" class="accent-color text-white px-6 py-2 rounded-md font-semibold accent-color-hover transition duration-300 flex items-center gap-2" data-key="pBtnDemo">
-                                <i data-lucide="external-link" class="w-4 h-4"></i> <span data-key="pBtnDemoText">Demo</span>
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <a href="https://dominopro1.com/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span data-key="demoBtn">Ver Demo en Vivo</span>
                             </a>
-                            <a href="https://github.com/susejgo89/domino-pro-app" target="_blank" class="bg-slate-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-slate-600 transition duration-300 flex items-center gap-2" data-key="pBtnCode">
-                                <i data-lucide="github" class="w-4 h-4"></i> <span data-key="pBtnCodeText">Código</span>
+                            <a href="https://github.com/susejgo89/domino-pro-app" target="_blank" class="btn-outline-glass text-xs sm:text-sm py-2 px-4.5">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                                <span data-key="codeBtn">Código en GitHub</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 2: Nexus Play -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
-                     <!-- Slider para Nexus Play -->
-                     <div class="rounded-lg border border-slate-700 overflow-hidden bg-slate-900 shadow-2xl lg:order-2">
-                        <!-- Header de Navegador Mockup -->
-                        <div class="bg-slate-950 p-3 flex items-center gap-2 border-b border-slate-800">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div class="ml-4 flex-1 bg-slate-800 rounded-full h-5 max-w-xs opacity-50"></div>
+                <!-- PROYECTO 2: NEXUSREPLAY -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-cyan-500/50">
+                    <!-- Slider Container (6 cols) -->
+                    <div class="lg:col-span-6 lg:order-2 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
+                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-400 font-medium">nexusreplay.com</span>
+                            <div class="w-8"></div>
                         </div>
                         <div id="nexus-slider" class="relative group">
-                            <!-- Contenedor de las imágenes -->
-                            <div class="slider-track flex transition-transform duration-500 ease-in-out cursor-zoom-in">
-                                <img src="images/nexusplay1.png" alt="Nexus Play - Vista 1" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/nexusplay2.png" alt="Nexus Play - Vista 2" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/nexusplay3.png" alt="Nexus Play - Vista 3" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/nexusplay4.png" alt="Nexus Play - Vista 4" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/nexusplay5.png" alt="Nexus Play - Vista 5" class="w-full flex-shrink-0 object-cover">
+                            <div class="slider-track flex cursor-zoom-in">
+                                <img src="images/nexusplay1.png" alt="NexusRePlay 1" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/nexusplay2.png" alt="NexusRePlay 2" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/nexusplay3.png" alt="NexusRePlay 3" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/nexusplay4.png" alt="NexusRePlay 4" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/nexusplay5.png" alt="NexusRePlay 5" class="w-full flex-shrink-0 object-cover aspect-video">
                             </div>
-                            <!-- Botones de navegación -->
-                            <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
-                            <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                            </button>
+                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
                         </div>
-                     </div>
-                    <div class="lg:order-1">
-                        <h3 class="text-3xl font-bold mb-4 text-white font-heading tracking-tight" data-key="p2Title">Nexus Play - Plataforma de Contenido Corporativo</h3>
-                        <p class="text-slate-300 mb-6 project-description text-lg leading-relaxed" data-key="p2Description">
-                            Aplicación web profesional para la gestión de contenido multimedia en múltiples pantallas de forma remota. NexusPlay permite a los usuarios controlar playlists visuales y musicales, registrar dispositivos de forma segura y actualizar el contenido en tiempo real sin necesidad de intervención manual.
+                    </div>
+
+                    <!-- Info Container (6 cols) -->
+                    <div class="lg:col-span-6 lg:order-1 space-y-5">
+                        <div class="flex items-center gap-3">
+                            <span class="badge-live-pulse" data-key="liveBadge">En Producción</span>
+                            <span class="badge-feature text-[11px] py-0.5 px-3 border-cyan-500/40 text-cyan-300 bg-cyan-500/10">SaaS Multi-Tenant</span>
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p2Title">
+                            NexusRePlay — Plataforma SaaS de Digital Signage
+                        </h3>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p2Description">
+                            Plataforma SaaS para la gestión remota centralizada de pantallas corporativas y redes de señalización digital. Permite controlar playlists visuales y musicales sin necesidad de hardware costoso.
                         </p>
 
-                        <!-- Nueva Sección: Deep Dive (Problema, Rol, Desafío) -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 mt-6">
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="alert-circle" class="w-4 h-4"></i> <span data-key="labelProblem">El Problema</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Problem">Las empresas dependen de USBs...</p>
-                                </div>
+                        <!-- Direct Highlights List -->
+                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p2Highlight1"><strong>Playlists & Agendamiento:</strong> Asignación horaria y semanal de listas multimedia independientes (video, imagen y audio de fondo).</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="user-cog" class="w-4 h-4"></i> <span data-key="labelRole">Mi Rol</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Role">Construí el sistema de autenticación...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p2Highlight2"><strong>Sincronización en Tiempo Real:</strong> Actualización instantánea en pantallas remotas mediante listeners reactivos de Firestore.</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="zap" class="w-4 h-4"></i> <span data-key="labelChallenge">El Desafío</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Challenge">Lograr que los cambios se reflejen...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p2Highlight3"><strong>Arquitectura Multi-tenant:</strong> Panel para revendedores con emparejamiento seguro de pantallas mediante códigos únicos.</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="trending-up" class="w-4 h-4"></i> <span data-key="labelResults">Impacto y Aprendizaje</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p2Results">Logré sincronización de contenido...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p2Highlight4"><strong>IA Generativa Integrada:</strong> Funcionalidad asistida con la API de Google Gemini para creación dinámica de contenidos.</p>
                             </div>
                         </div>
 
-                        <div class="space-y-6 mb-8">
-                            <div class="accordion-item border border-slate-700/50 rounded-lg">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h4 class="font-bold text-white font-heading text-lg pointer-events-none" data-key="p2FeaturesTitle">Funcionalidades Clave:</h4>
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <ul class="list-disc list-inside text-slate-400 space-y-1">
-                                        <li data-key="p2Feature1">Gestión de Contenido...</li>
-                                        <li data-key="p2Feature2">Asignación Dual de Playlists...</li>
-                                        <li data-key="p2Feature3">Emparejamiento Seguro de Pantallas...</li>
-                                        <li data-key="p2Feature4">Programación Avanzada de Contenido...</li>
-                                        <li data-key="p2Feature5">Reproducción Inteligente...</li>
-                                        <li data-key="p2Feature6">Actualizaciones en Tiempo Real...</li>
-                                        <li data-key="p2Feature7">Autenticación Profesional...</li>
-                                        <li data-key="p2Feature8">Plataforma White-Label y Gestión de Roles...</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr class="border-slate-700">
-                            <div class="accordion-item border border-slate-700/50 rounded-lg">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h4 class="font-bold text-white font-heading text-sm uppercase tracking-wider pointer-events-none" data-key="techUsed">Tecnologías Utilizadas:</h4>
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <div class="flex flex-wrap gap-2 pt-2 pb-2">
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">Firebase</span>
-                                        <span class="tech-tag">Serverless</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="tech-pill">JavaScript ES6+</span>
+                            <span class="tech-pill">HTML5 / CSS3</span>
+                            <span class="tech-pill">Tailwind CSS</span>
+                            <span class="tech-pill">Firebase Cloud Functions</span>
+                            <span class="tech-pill tech-pill-cyan">Google Gemini API</span>
+                            <span class="tech-pill tech-pill-emerald">QR Codes</span>
                         </div>
 
-                        <div class="flex space-x-4 mt-auto">
-                            <a href="https://sutechtvcorporativa.web.app/" target="_blank" class="accent-color text-white px-6 py-2 rounded-md font-semibold accent-color-hover transition duration-300 flex items-center gap-2" data-key="pBtnDemo">
-                                <i data-lucide="external-link" class="w-4 h-4"></i> <span data-key="pBtnDemoText">Demo</span>
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <a href="https://sutechtvcorporativa.web.app/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span data-key="demoBtn">Ver Demo en Vivo</span>
                             </a>
-                            <a href="https://github.com/susejgo89/sync-cast-app" target="_blank" class="bg-slate-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-slate-600 transition duration-300 flex items-center gap-2" data-key="pBtnCode">
-                                <i data-lucide="github" class="w-4 h-4"></i> <span data-key="pBtnCodeText">Código</span>
+                            <a href="https://github.com/susejgo89/sync-cast-app" target="_blank" class="btn-outline-glass text-xs sm:text-sm py-2 px-4.5">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                                <span data-key="codeBtn">Código en GitHub</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 3: Borderless Design and Party -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center card-bg p-8 rounded-lg border border-color card-lift">
-                    <!-- Slider para Borderless -->
-                    <div class="rounded-lg border border-slate-700 overflow-hidden bg-slate-900 shadow-2xl">
-                        <!-- Header de Navegador Mockup -->
-                        <div class="bg-slate-950 p-3 flex items-center gap-2 border-b border-slate-800">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div class="ml-4 flex-1 bg-slate-800 rounded-full h-5 max-w-xs opacity-50"></div>
+                <!-- PROYECTO 3: AGENTE IA DE PROSPECCIÓN -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-emerald-500/50">
+                    <!-- Image Preview Container (6 cols) -->
+                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
+                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="font-mono text-[11px] text-emerald-400 font-medium">agente_prospeccion_maps_sheets</span>
+                            <div class="w-8"></div>
+                        </div>
+                        <div class="relative group cursor-zoom-in slider-track">
+                            <img src="images/prospector.png" alt="Agente IA de Prospección Preview" class="w-full object-cover aspect-video hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Info Container (6 cols) -->
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="flex items-center gap-3">
+                            <span class="badge-feature text-[11px] py-0.5 px-3 border-emerald-500/40 text-emerald-300 bg-emerald-500/10">
+                                <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                                <span>Agente Autónomo & Python</span>
+                            </span>
+                            <span class="badge-feature text-[11px] py-0.5 px-3 border-cyan-500/40 text-cyan-300 bg-cyan-500/10">Google Gemini API</span>
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p4Title">
+                            Agente IA de Prospección B2B — Maps & Google Sheets
+                        </h3>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p4Description">
+                            Agente autónomo de prospección comercial desarrollado en Python y Streamlit. Automatiza la búsqueda geográfica de empresas mediante Google Places API, cualifica leads con filtros estrictos, genera mensajes personalizados con Google Gemini AI y sincroniza prospectos en Google Sheets.
+                        </p>
+
+                        <!-- Direct Highlights List -->
+                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p4Highlight1"><strong>Extracción y Cualificación:</strong> Búsqueda por nicho/región con validación automática de WhatsApp, e-mail y presencia digital.</p>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p4Highlight2"><strong>Copywriting con Gemini AI:</strong> Redacción contextual e individualizada de propuestas comerciales para cada prospecto.</p>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p4Highlight3"><strong>Sincronización en la Nube:</strong> Exportación directa a Google Sheets para seguimiento de campañas de ventas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="tech-pill tech-pill-cyan">Python 3</span>
+                            <span class="tech-pill tech-pill-emerald">Streamlit</span>
+                            <span class="tech-pill tech-pill-cyan">Google Gemini AI</span>
+                            <span class="tech-pill">Google Places API</span>
+                            <span class="tech-pill">Google Sheets API</span>
+                            <span class="tech-pill">Lead Generation</span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <a href="https://github.com/susejgo89/agente_prospeccion_maps_sheets" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                                <span data-key="codeBtn">Código en GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 4: BORDERLESS -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10">
+                    <!-- Slider Container (6 cols) -->
+                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
+                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-400 font-medium">borderlessdesignandparty.com</span>
+                            <div class="w-8"></div>
                         </div>
                         <div id="borderless-slider" class="relative group">
-                            <div class="slider-track flex transition-transform duration-500 ease-in-out cursor-zoom-in">
-                                <img src="images/borderless/1.png" alt="Borderless - Vista 1" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/borderless/2.png" alt="Borderless - Vista 2" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/borderless/3.png" alt="Borderless - Vista 3" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/borderless/4.png" alt="Borderless - Vista 4" class="w-full flex-shrink-0 object-cover">
-                                <img src="images/borderless/5.png" alt="Borderless - Vista 5" class="w-full flex-shrink-0 object-cover">
+                            <div class="slider-track flex cursor-zoom-in">
+                                <img src="images/borderless/1.png" alt="Borderless 1" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/borderless/2.png" alt="Borderless 2" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/borderless/3.png" alt="Borderless 3" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/borderless/4.png" alt="Borderless 4" class="w-full flex-shrink-0 object-cover aspect-video">
+                                <img src="images/borderless/5.png" alt="Borderless 5" class="w-full flex-shrink-0 object-cover aspect-video">
                             </div>
-                            <button class="slider-button prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
-                            <button class="slider-button next absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition opacity-0 group-hover:opacity-100"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                            </button>
+                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-bold mb-4 text-white font-heading tracking-tight" data-key="p3Title">Borderless Design & Party</h3>
-                        <p class="text-slate-300 mb-6 project-description text-lg leading-relaxed" data-key="p3Description">
-                            Sitio web corporativo y portafolio para una empresa de diseño de eventos. Enfocado en la conversión y exhibición visual elegante.
+
+                    <!-- Info Container (6 cols) -->
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="flex items-center gap-3">
+                            <span class="badge-feature text-[11px] py-0.5 px-3 text-violet-300">Web Corporativa</span>
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p3Title">
+                            Borderless Design & Party — Web Corporativa
+                        </h3>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p3Description">
+                            Sitio web corporativo y portafolio interactivo de alta conversión desarrollado para una empresa de diseño de eventos, optimizado para máxima fidelidad visual y captación de clientes.
                         </p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 mt-6">
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="alert-circle" class="w-4 h-4"></i> <span data-key="labelProblem">El Problema</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p3Problem">Contenido del problema...</p>
-                                </div>
+                        <!-- Direct Highlights List -->
+                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p3Highlight1"><strong>Galería de Alto Desempeño:</strong> Carga optimizada y adaptativa de fotografías en alta resolución.</p>
                             </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="user-cog" class="w-4 h-4"></i> <span data-key="labelRole">Mi Rol</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p3Role">Contenido del rol...</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="zap" class="w-4 h-4"></i> <span data-key="labelChallenge">El Desafío</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p3Challenge">Contenido del desafío...</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item bg-slate-800/40 rounded-lg border border-slate-700/50">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h5 class="text-violet-400 font-bold flex items-center gap-2 text-sm uppercase tracking-wider pointer-events-none">
-                                        <i data-lucide="trending-up" class="w-4 h-4"></i> <span data-key="labelResults">Impacto</span>
-                                    </h5>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <p class="text-sm text-slate-300 leading-relaxed" data-key="p3Results">Contenido del impacto...</p>
-                                </div>
+                            <div class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
+                                <p data-key="p3Highlight2"><strong>Captación & SEO:</strong> Formularios integrados y optimización técnica para posicionamiento orgánico.</p>
                             </div>
                         </div>
 
-                        <div class="space-y-6 mb-8">
-                            <div class="accordion-item border border-slate-700/50 rounded-lg">
-                                <button class="accordion-trigger w-full p-4 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors">
-                                    <h4 class="font-bold text-white font-heading text-lg pointer-events-none" data-key="p3FeaturesTitle">Funcionalidades Clave:</h4>
-                                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 chevron-icon transition-transform"></i>
-                                </button>
-                                <div class="accordion-content px-4">
-                                    <ul class="list-disc list-inside text-slate-400 space-y-1">
-                                        <li data-key="p3Feature1">Portafolio Visual...</li>
-                                        <li data-key="p3Feature2">Sistema de Contacto...</li>
-                                        <li data-key="p3Feature3">Diseño Responsivo...</li>
-                                        <li data-key="p3Feature4">Optimización SEO...</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="tech-pill">HTML5 / CSS3</span>
+                            <span class="tech-pill">JavaScript</span>
+                            <span class="tech-pill">Responsive Design</span>
+                            <span class="tech-pill">SEO</span>
                         </div>
 
-                        <div class="flex space-x-4 mt-auto">
-                            <a href="https://borderlessdesignandparty.com/" target="_blank" class="accent-color text-white px-6 py-2 rounded-md font-semibold accent-color-hover transition duration-300 flex items-center gap-2" data-key="pBtnDemo">
-                                <i data-lucide="external-link" class="w-4 h-4"></i> <span data-key="pBtnDemoText">Demo</span>
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <a href="https://borderlessdesignandparty.com/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span data-key="demoBtn">Ver Demo en Vivo</span>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ==== SECCIÓN DE HABILIDADES ==== -->
-        <section id="skills" class="py-20 fade-in-section">
-            <h2 class="section-title font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-white" data-key="skillsTitle">Mi Stack Tecnológico</h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="card-bg p-6 rounded-lg border border-color card-lift flex flex-col items-center">
-                    <div class="text-violet-400 mb-3">
-                        <i data-lucide="monitor" class="w-8 h-8"></i>
+        <!-- ==== FORMACIÓN ACADÉMICA ==== -->
+        <section id="education" class="py-20 fade-in-section border-t border-white/5">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="educationTitle">
+                    Formación Académica & Especializaciones
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="educationSubtitle">
+                    Fundamentos de computación, desarrollo de software y especialización en IA
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Education 1: SENAI/SC (CURSO PROFISSIONALIZANTE DESTACADO) -->
+                <div class="edu-highlight-card p-6 sm:p-7 rounded-2xl relative space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="badge-feature text-[11px] border-cyan-500/40 text-cyan-300 bg-cyan-500/10">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                                <span>Curso Profesionalizante</span>
+                            </span>
+                            <span class="text-xs font-mono font-semibold text-emerald-400" data-key="edu1Status">En curso (Especialización Destacada)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu1Title">
+                            Curso Profesionalizante – Carreira Tech: Trilha IA
+                        </h3>
+                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu1Inst">
+                            SENAI/SC • Carga Horaria: 320h
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu1Desc">
+                            Curso profesionalizante enfocado en <strong>Desarrollo de Inteligencia Artificial para Análisis Predictivo con Python</strong>. Formación práctica en modelado de datos, algoritmos de Machine Learning, tratamiento de datasets y construcción de soluciones analíticas predictivas aplicadas a la industria.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-white font-heading" data-key="skillsFrontend">Frontend</h3>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Tailwind</span>
+
+                    <div class="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
+                        <span class="tech-pill tech-pill-cyan">Python</span>
+                        <span class="tech-pill tech-pill-cyan">Análisis Predictivo</span>
+                        <span class="tech-pill tech-pill-cyan">Machine Learning</span>
+                        <span class="tech-pill tech-pill-cyan">Data Science</span>
                     </div>
                 </div>
-                <div class="card-bg p-6 rounded-lg border border-color card-lift flex flex-col items-center">
-                    <div class="text-blue-400 mb-3">
-                        <i data-lucide="server" class="w-8 h-8"></i>
+
+                <!-- Education 2: UniFatecie -->
+                <div class="glass-card p-6 sm:p-7 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="badge-feature text-[11px] text-violet-300">
+                                <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+                                <span>Graduación Tecnológica</span>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400" data-key="edu2Status">En curso (Graduación)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu2Title">
+                            Tecnólogo em Sistemas para Internet
+                        </h3>
+                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu2Inst">
+                            UniFatecie
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu2Desc">
+                            Formación superior orientada al desarrollo web profesional, arquitectura de software, experiencia de usuario (UX/UI), ingeniería de sistemas y seguridad web.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-white font-heading" data-key="skillsBackend">Backend</h3>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Serverless</span>
+
+                    <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="tech-pill">Sistemas Web</span>
+                        <span class="tech-pill">Arquitectura</span>
+                        <span class="tech-pill">Engenharia de Software</span>
                     </div>
                 </div>
-                <div class="card-bg p-6 rounded-lg border border-color card-lift flex flex-col items-center">
-                    <div class="text-green-400 mb-3">
-                        <i data-lucide="database" class="w-8 h-8"></i>
+
+                <!-- Education 3: Universidad Nacional Abierta -->
+                <div class="glass-card p-6 sm:p-7 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="badge-feature text-[11px] text-slate-300">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                                <span>Base Universitaria</span>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400" data-key="edu3Status">6 Semestres</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu3Title">
+                            Ingeniería de Sistemas
+                        </h3>
+                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu3Inst">
+                            Universidad Nacional Abierta (Venezuela)
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu3Desc">
+                            Sólida formación en fundamentos teóricos y prácticos de la computación, estructuras de datos, lógica algorítmica y matemáticas discretas.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 text-white font-heading" data-key="skillsDatabases">Bases de Datos</h3>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="tech-tag">Firestore</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                </div>
-                <div class="card-bg p-6 rounded-lg border border-color card-lift flex flex-col items-center">
-                    <div class="text-yellow-400 mb-3">
-                        <i data-lucide="wrench" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-4 text-white font-heading" data-key="skillsTools">Herramientas</h3>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="tech-tag">Git</span>
-                        <span class="tech-tag">VS Code</span>
-                        <span class="tech-tag">IA Tools</span>
+
+                    <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="tech-pill">Fundamentos</span>
+                        <span class="tech-pill">Lógica & Algoritmos</span>
+                        <span class="tech-pill">Estructura de Datos</span>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- ==== SECCIÓN DE CONTACTO ==== -->
-        <section id="contact" class="py-24 text-center fade-in-section cta-section">
-             <h2 class="section-title font-heading text-4xl md:text-5xl font-bold mb-6 text-white" data-key="contactTitle">¿Hablamos?</h2>
-             <p class="text-lg text-slate-400 max-w-xl mx-auto mb-8" data-key="contactSubtitle">
-                Estoy disponible para oportunidades freelance y roles de tiempo completo. Si tienes un proyecto en mente o simplemente quieres conectar, ¡no dudes en contactarme!
-             </p>
-             <div class="flex flex-col items-center gap-6">
-                <!-- Email -->
-                <a href="mailto:susejgo@gmail.com" class="inline-block accent-color text-white text-lg px-8 py-3 rounded-md font-semibold accent-color-hover transition-transform duration-300 hover:scale-105 w-full sm:w-auto magnetic-effect" data-key="contactButton">
-                   Envíame un correo
-                </a>
-                <!-- WhatsApp -->
-                <a href="https://wa.me/5548991242305" target="_blank" class="inline-flex items-center gap-3 text-slate-300 hover:text-white transition-transform duration-300 hover:scale-110 magnetic-effect">
-                    <img src="images/what.png" alt="WhatsApp" class="w-12 h-12">
-                    <span>+55 48 99124 2305</span>
-                </a>
-             </div>
+
+        <!-- ==== HABILIDADES TÉCNICAS ==== -->
+        <section id="skills" class="py-20 fade-in-section border-t border-white/5">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="skillsTitle">
+                    Stack & Habilidades Técnicas
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="skillsSubtitle">
+                    Tecnologías, herramientas y lenguajes que aplico en mis desarrollos
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Skill 1: Frontend -->
+                <div class="glass-card p-5.5 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
+                        <i data-lucide="layout" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsFrontend">Frontend</h3>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="tech-pill">React.js</span>
+                        <span class="tech-pill">JavaScript ES6+</span>
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">Tailwind CSS</span>
+                        <span class="tech-pill">Bootstrap</span>
+                        <span class="tech-pill">Vite</span>
+                    </div>
+                </div>
+
+                <!-- Skill 2: Backend & BaaS -->
+                <div class="glass-card p-5.5 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsBackend">Backend & BaaS</h3>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="tech-pill">Firebase Firestore</span>
+                        <span class="tech-pill">Firebase Auth</span>
+                        <span class="tech-pill">Firebase Storage</span>
+                        <span class="tech-pill">Cloud Functions</span>
+                        <span class="tech-pill">APIs REST</span>
+                        <span class="tech-pill">Node.js (Básico)</span>
+                    </div>
+                </div>
+
+                <!-- Skill 3: IA & Agentes -->
+                <div class="glass-card p-5.5 border-emerald-500/30 bg-emerald-950/20 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsAI">IA & Agentes Python</h3>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="tech-pill tech-pill-cyan">Python 3</span>
+                        <span class="tech-pill tech-pill-emerald">Agentes Autónomos</span>
+                        <span class="tech-pill tech-pill-emerald">Streamlit</span>
+                        <span class="tech-pill tech-pill-cyan">Google Gemini API</span>
+                        <span class="tech-pill tech-pill-cyan">Análisis Predictivo</span>
+                        <span class="tech-pill tech-pill-cyan">Machine Learning</span>
+                    </div>
+                </div>
+
+                <!-- Skill 4: Tools -->
+                <div class="glass-card p-5.5 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="wrench" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsTools">Herramientas</h3>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="tech-pill tech-pill-emerald">Git</span>
+                        <span class="tech-pill tech-pill-emerald">GitHub</span>
+                        <span class="tech-pill tech-pill-emerald">Google Places API</span>
+                        <span class="tech-pill tech-pill-emerald">Google Sheets API</span>
+                        <span class="tech-pill tech-pill-emerald">VS Code</span>
+                        <span class="tech-pill tech-pill-emerald">Canva / Figma</span>
+                    </div>
+                </div>
+
+                <!-- Skill 5: Languages -->
+                <div class="glass-card p-5.5 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsLanguages">Idiomas</h3>
+                    <div class="space-y-2 pt-1 text-xs text-slate-300">
+                        <div class="flex justify-between py-1 border-b border-slate-800">
+                            <span data-key="langEs">Español</span>
+                            <span class="text-violet-400 font-mono font-semibold">Nativo</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800">
+                            <span data-key="langPt">Português</span>
+                            <span class="text-violet-400 font-mono font-semibold">Fluente</span>
+                        </div>
+                        <div class="flex justify-between py-1">
+                            <span data-key="langEn">Inglés</span>
+                            <span class="text-slate-400 font-mono">Básico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==== CONTACTO ==== -->
+        <section id="contact" class="py-24 text-center fade-in-section border-t border-white/5">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="contactTitle">
+                    ¿Conectamos para una oportunidad o proyecto?
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed pt-2" data-key="contactSubtitle">
+                    Estoy disponible para oportunidades como Desarrolladora Front-End Jr., desarrollo de aplicaciones con React/Firebase o proyectos de software con IA y Agentes. ¡Escríbeme!
+                </p>
+                
+                <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+                    <a href="mailto:susejgo@gmail.com" class="btn-glow-primary py-3 px-7 text-sm sm:text-base">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span data-key="contactEmailBtn">Enviar Correo</span>
+                    </a>
+                    
+                    <a href="https://wa.me/5548991242305" target="_blank" class="btn-outline-glass py-3 px-7 text-sm sm:text-base border-emerald-500/40 text-emerald-300 hover:bg-emerald-950/40 hover:border-emerald-500/60">
+                        <svg class="w-4 h-4 fill-current text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
+                        </svg>
+                        <span data-key="contactWhatsappBtn">WhatsApp Directo</span>
+                    </a>
+                </div>
+
+                <!-- CRISP CIRCULAR SOCIAL LINKS IN CONTACT SECTION -->
+                <div class="flex justify-center items-center gap-3.5 pt-6">
+                    <a href="https://github.com/susejgo89" target="_blank" class="social-circle-btn" title="GitHub" aria-label="GitHub">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="social-circle-btn" title="LinkedIn" aria-label="LinkedIn">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/5548991242305" target="_blank" class="social-circle-btn whatsapp-circle" title="WhatsApp" aria-label="WhatsApp">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- ==== CHATBOT AI WIDGET ==== -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-[100]">
-        <!-- Botón Flotante -->
-        <button id="chat-toggle" class="accent-color text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform magnetic-effect flex items-center justify-center">
+        <!-- Floating Toggle Button -->
+        <button id="chat-toggle" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white p-3.5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center border border-white/25 shadow-violet-600/40" aria-label="Abrir Asistente AI">
             <i data-lucide="bot" class="w-6 h-6"></i>
         </button>
 
-        <!-- Ventana de Chat -->
-        <div id="chat-window" class="absolute bottom-20 right-0 w-80 md:w-96 card-bg border border-slate-700 rounded-2xl shadow-2xl overflow-hidden hidden flex flex-col">
-            <div class="bg-violet-600 p-4 flex justify-between items-center text-white">
+        <!-- Chat Window -->
+        <div id="chat-window" class="absolute bottom-16 right-0 w-80 sm:w-96 glass-card border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden hidden flex-col bg-[#07090e]/95">
+            <div class="bg-gradient-to-r from-violet-600 to-indigo-600 p-3.5 flex justify-between items-center text-white">
                 <div class="flex items-center gap-2">
                     <i data-lucide="sparkles" class="w-4 h-4"></i>
-                    <span class="font-bold text-sm" data-key="chatTitle">Asistente AI</span>
+                    <span class="font-bold text-xs sm:text-sm font-heading" data-key="chatTitle">Asistente Virtual de Susej</span>
                 </div>
-                <button id="chat-close" class="hover:opacity-70"><i data-lucide="x" class="w-4 h-4"></i></button>
+                <button id="chat-close" class="hover:opacity-75 p-1"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
-            <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-4 text-sm flex flex-col">
-                <!-- Los mensajes aparecerán aquí -->
+
+            <!-- Quick Question Chips -->
+            <div class="px-3 pt-2.5 pb-1 flex flex-wrap gap-1.5 border-b border-slate-800 bg-slate-950/60">
+                <button class="chat-chip" data-query="agente prospeccion" data-key="chatChip1">🤖 Agente IA Prospección</button>
+                <button class="chat-chip" data-query="curso senai ia" data-key="chatChip2">🎓 Curso SENAI IA</button>
+                <button class="chat-chip" data-query="dominopro" data-key="chatChip3">🚀 DominoPro</button>
+                <button class="chat-chip" data-query="nexusreplay" data-key="chatChip4">📺 NexusRePlay</button>
             </div>
-            <div class="p-3 border-t border-slate-700 bg-slate-900/50 flex gap-2">
-                <input type="text" id="chat-input" class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-violet-500" data-key-placeholder="chatPlaceholder">
-                <button id="send-message" class="bg-violet-600 text-white p-2 rounded-lg hover:bg-violet-500 transition-colors">
+            
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3 text-xs sm:text-sm flex flex-col bg-[#07090e]">
+                <!-- Messages will appear here -->
+            </div>
+            
+            <div class="p-3 border-t border-slate-800 bg-slate-900/90 flex gap-2">
+                <input type="text" id="chat-input" class="flex-1 bg-slate-800/90 border border-slate-700 rounded-lg px-3 py-2 text-white text-xs sm:text-sm focus:outline-none focus:border-violet-500" data-key-placeholder="chatPlaceholder" placeholder="Pregunta algo sobre Susej...">
+                <button id="send-message" class="bg-violet-600 text-white p-2 rounded-lg hover:bg-violet-500 transition-colors flex items-center justify-center shadow-md">
                     <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
             </div>
@@ -633,17 +944,22 @@
     </div>
 
     <!-- ==== FOOTER ==== -->
-    <footer class="border-t border-color mt-10">
-        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
-            <p class="text-5xl font-bold text-white transition-all duration-300 name-glow font-cursive mb-2" data-key="yourName">Susej Gonzalez</p>
-            <p data-key="footerText" class="text-sm">&copy; 2024 Susej Gonzalez. Todos los derechos reservados.</p>
+    <footer class="border-t border-white/5 py-8 bg-[#07090e]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-2.5 font-heading font-semibold text-slate-400">
+                <img src="images/logo_icon.png" alt="Susej Logo" class="h-5 w-auto object-contain opacity-75">
+                <span>Susej Gonzalez</span>
+                <span>•</span>
+                <span class="text-slate-500 font-normal" data-key="footerRole">Desenvolvedora Front-End & Agentes de IA</span>
+            </div>
+            <p data-key="footerText">&copy; 2026 Susej Gonzalez. Desarrollado con React & Tailwind CSS.</p>
         </div>
     </footer>
     
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Zoom Proyecto">
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Vista previa del proyecto">
     </div>
 
     <!-- Scripts -->

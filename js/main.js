@@ -1,99 +1,126 @@
-// Inicia Lucide Icons
+// Initialize Lucide Icons
 lucide.createIcons();
 
-// --- LÓGICA DE TRADUCCIÓN ---
-
-// El objeto 'translations' se carga desde js/translations.js
-
+// --- MULTI-LANGUAGE TRANSLATION LOGIC ---
 const languageSelector = document.getElementById('language-selector');
 
 const setLanguage = (lang) => {
-    // Asegurarse de que el idioma solicitado existe, si no, usar 'es' por defecto.
     const currentLang = translations[lang] ? lang : 'es';
-    const langTranslations = translations[currentLang];
+    const langData = translations[currentLang];
 
+    // Translate elements with [data-key]
     const elements = document.querySelectorAll('[data-key]');
     elements.forEach(element => {
         const key = element.getAttribute('data-key');
-        if (translations[currentLang][key]) {
-            element.innerHTML = translations[currentLang][key];
-        }
-
-        const placeholderKey = element.getAttribute('data-key-placeholder');
-        if (placeholderKey && translations[currentLang][placeholderKey]) {
-            element.placeholder = translations[currentLang][placeholderKey];
+        if (langData[key]) {
+            element.innerHTML = langData[key];
         }
     });
-    document.title = langTranslations.pageTitle;
+
+    // Translate placeholders
+    const placeholders = document.querySelectorAll('[data-key-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-key-placeholder');
+        if (langData[key]) {
+            element.placeholder = langData[key];
+        }
+    });
+
+    document.title = langData.pageTitle;
     document.documentElement.lang = currentLang;
 
-    // Actualizar el enlace de descarga del CV
+    // Update CV download links
     const cvLink = document.getElementById('cv-download-link');
-    if (cvLink && langTranslations.cvPath) {
-        cvLink.href = langTranslations.cvPath;
+    const cvLinkMobile = document.getElementById('cv-download-link-mobile');
+    if (langData.cvPath) {
+        if (cvLink) cvLink.href = langData.cvPath;
+        if (cvLinkMobile) cvLinkMobile.href = langData.cvPath;
     }
 
     localStorage.setItem('language', currentLang);
-    languageSelector.value = currentLang;
+    if (languageSelector) languageSelector.value = currentLang;
+
+    // Re-render icons if any were replaced
+    lucide.createIcons();
 };
 
-languageSelector.addEventListener('change', (event) => {
-    setLanguage(event.target.value);
-});
+if (languageSelector) {
+    languageSelector.addEventListener('change', (event) => {
+        setLanguage(event.target.value);
+    });
+}
 
-// Detectar idioma del navegador o usar el guardado al cargar la página
+// Detect initial language
 const userLang = localStorage.getItem('language') || navigator.language.split('-')[0];
 const initialLang = ['es', 'en', 'pt'].includes(userLang) ? userLang : 'es';
 setLanguage(initialLang);
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA DEL SLIDER DE PROYECTOS ---
+    // --- MOBILE MENU ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+
+    // --- PROJECT SLIDERS ---
     const initSliders = () => {
-        const sliders = document.querySelectorAll('[id$="-slider"]'); // Selecciona todos los IDs que terminan en -slider
+        const sliders = document.querySelectorAll('[id$="-slider"]');
         if (sliders.length === 0) return;
 
         sliders.forEach(slider => {
             const track = slider.querySelector('.slider-track');
+            if (!track) return;
             const slides = Array.from(track.children);
             const nextButton = slider.querySelector('.slider-button.next');
             const prevButton = slider.querySelector('.slider-button.prev');
             
             let currentIndex = 0;
-            let slideWidth = slider.offsetWidth; // Usamos el ancho del contenedor, es más fiable.
+            let slideWidth = slider.offsetWidth;
 
             const updateButtons = () => {
-                prevButton.classList.toggle('hidden', currentIndex === 0);
-                nextButton.classList.toggle('hidden', currentIndex === slides.length - 1);
+                if (prevButton) prevButton.classList.toggle('hidden', currentIndex === 0);
+                if (nextButton) nextButton.classList.toggle('hidden', currentIndex === slides.length - 1);
             };
 
             const moveToSlide = (index, smooth = true) => {
-                if (smooth) {
-                    track.style.transition = 'transform 0.5s ease-in-out';
-                } else {
-                    track.style.transition = 'none';
-                }
-                track.style.transform = 'translateX(-' + slideWidth * index + 'px)';
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)' : 'none';
+                track.style.transform = `translateX(-${slideWidth * index}px)`;
                 currentIndex = index;
                 updateButtons();
             };
 
-            // Recalcular el ancho y reajustar el slider si la ventana cambia de tamaño
             const handleResize = () => {
                 slideWidth = slider.offsetWidth;
-                moveToSlide(currentIndex, false); // Mueve al slide actual sin animación
+                moveToSlide(currentIndex, false);
             };
 
-            nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
-            prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
+            if (nextButton) nextButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (currentIndex < slides.length - 1) moveToSlide(currentIndex + 1);
+            });
 
-            updateButtons(); // Inicializa el estado de los botones
+            if (prevButton) prevButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (currentIndex > 0) moveToSlide(currentIndex - 1);
+            });
 
+            updateButtons();
             window.addEventListener('resize', handleResize);
         });
     };
 
-    // --- LÓGICA DE ANIMACIÓN AL HACER SCROLL ---
+    // --- SCROLL ANIMATIONS ---
     const initScrollAnimations = () => {
         const sections = document.querySelectorAll('.fade-in-section');
         const observer = new IntersectionObserver((entries) => {
@@ -102,155 +129,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.classList.add('is-visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08 });
 
         sections.forEach(section => observer.observe(section));
     };
 
-    // --- LÓGICA DEL CURSOR TRAIL ---
-    const initCursorTrail = () => {
-        const cursor = document.getElementById('cursor-glow');
-        if (!cursor) return;
-
-        window.addEventListener('mousemove', (e) => {
-            requestAnimationFrame(() => {
-                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            });
-        });
-
-        // Efecto de hover en elementos interactivos
-        document.querySelectorAll('a, button, .card-lift, select').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '60px';
-                cursor.style.height = '60px';
-            });
-
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '30px';
-                cursor.style.height = '30px';
-            });
-
-            // Sonido de hover
-            el.addEventListener('mouseenter', () => {
-                const hoverSound = new Audio('js/sounds/button_hover.mp3');
-                hoverSound.play();
-            });
-            // Sonido de click
-             el.addEventListener('click', () => {
-                const clickSound = new Audio('js/sounds/button_click.mp3');
-                clickSound.play();
-            });
-        });
-    };
-
-   // --- LÓGICA DE BOTONES MAGNÉTICOS ---
-    const initMagneticElements = () => {
-        const magnets = document.querySelectorAll('.magnetic-effect');
-        const strength = 40; // Fuerza de la atracción
-
-        magnets.forEach(magnet => {
-            magnet.addEventListener('mousemove', (e) => {
-                const rect = magnet.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-
-                // Mueve el elemento hacia el cursor
-                requestAnimationFrame(() => {
-                    magnet.style.transform = `translate(${x / rect.width * strength}px, ${y / rect.height * strength}px)`;
-                });
-            });
-
-            // Resetea la posición cuando el cursor sale
-            magnet.addEventListener('mouseleave', () => {
-                magnet.style.transform = 'translate(0, 0)';
-            });
-        });
-    };
-
-    // --- LÓGICA DE SCROLL SUAVE ---
+    // --- SMOOTH SCROLL ---
     const initSmoothScroll = () => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId) return;
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
                     targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
     };
 
-    // --- EFECTO PARALLAX EN EL FONDO ---
-    const initParallax = () => {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            document.body.style.backgroundPosition = `0px ${scrollY * 0.5}px`;
-        });
-    };
-
-    // --- ANIMACIÓN DE MÁQUINA DE ESCRIBIR ---
-    const initTypewriter = () => {
-        const titleElement = document.getElementById('hero-title');
-        if (!titleElement) return;
-
-        const originalText = translations[initialLang].heroTitle;
-        let i = 0;
-        titleElement.innerHTML = ''; // Limpia el texto inicial
-
-         // Carga el sonido de la máquina de escribir
-        const typeSound = new Audio('js/sounds/typewriter.mp3');
-        typeSound.volume = 0.5; // Ajusta el volumen como desees
-
-        function type() {
-            if (i < originalText.length) {
-                titleElement.innerHTML += originalText.charAt(i);
-                i++;
-                typeSound.play().catch(() => {}); // Reproduce el sonido en cada carácter
-                setTimeout(type, 100); // Velocidad de escritura
-            } else {
-                typeSound.pause(); // Pausa el sonido al finalizar
-                typeSound.currentTime = 0; // Reinicia el sonido al principio
-            }
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                setTimeout(type, 500); // Pequeño retraso antes de empezar
-                observer.unobserve(titleElement); // Unobserve the element instead of disconnecting entirely
-            }
-        }, { threshold: 0.5 });
-
-
-        observer.observe(titleElement);
-    };
-
-    // --- EFECTO SPOTLIGHT EN TARJETAS ---
-    const initSpotlightCards = () => {
-        const cards = document.querySelectorAll('.card-lift');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
-    };
-
-    // --- LIGHTBOX (ZOOM DE IMÁGENES) ---
+    // --- LIGHTBOX (IMAGE ZOOM) ---
     const initLightbox = () => {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBtn = document.querySelector('.lightbox-close');
 
-        if (!lightbox) return;
+        if (!lightbox || !lightboxImg) return;
 
-        // Abrir lightbox al hacer clic en imágenes del slider
         document.querySelectorAll('.slider-track img').forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
@@ -258,18 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cerrar lightbox
         const closeLightbox = () => {
             lightbox.classList.remove('active');
-            setTimeout(() => { lightboxImg.src = ''; }, 300); // Limpiar src después de la transición
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
         };
 
-        closeBtn.addEventListener('click', closeLightbox);
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
         
-        // Cerrar con tecla Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                 closeLightbox();
@@ -277,32 +184,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- LÓGICA DE ACORDEONES (DESPLEGABLES) ---
-    const initAccordions = () => {
-        const triggers = document.querySelectorAll('.accordion-trigger');
-        
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.closest('.accordion-item');
-                // Toggle la clase activa
-                item.classList.toggle('active');
-            });
-        });
-    };
-
-    // --- LÓGICA DEL CHATBOT ---
+    // --- AI CHATBOT ASSISTANT ---
     const initChatbot = () => {
         const toggle = document.getElementById('chat-toggle');
-        const window = document.getElementById('chat-window');
+        const chatWindow = document.getElementById('chat-window');
         const close = document.getElementById('chat-close');
         const input = document.getElementById('chat-input');
         const sendBtn = document.getElementById('send-message');
         const messagesContainer = document.getElementById('chat-messages');
+        const chips = document.querySelectorAll('.chat-chip');
+
+        if (!toggle || !chatWindow || !input || !sendBtn || !messagesContainer) return;
 
         const addMessage = (text, sender) => {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-msg ${sender === 'ai' ? 'msg-ai' : 'msg-user'}`;
-            msgDiv.innerText = text;
+            msgDiv.innerHTML = text;
             messagesContainer.appendChild(msgDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         };
@@ -314,55 +211,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const responseMap = [
                 {
-                    keys: ["nexus", "replay"],
+                    keys: ["senai", "curso", "ia", "inteligencia", "inteligência", "python", "predictiv", "preditiv", "machine learning"],
                     responses: {
-                        es: "Nexus RePlay es un SaaS de Digital Signage para gestión remota de pantallas corporativas. Incluye playlists e integración con Google Gemini.",
-                        pt: "O Nexus RePlay é um SaaS de Digital Signage para gestão remota de TVs corporativas com integração Google Gemini.",
-                        en: "Nexus RePlay is a Digital Signage SaaS for remote management with Google Gemini integration."
+                        es: "Susej cursa el <strong>Curso Profesionalizante en Desarrollo de IA para Análisis Predictivo con Python (320h)</strong> en SENAI/SC (Carreira Tech), especializándose en modelado de datos, machine learning y soluciones analíticas.",
+                        pt: "Susej realiza o <strong>Curso Profissionalizante em Desenvolvimento de IA para Análise Preditiva com Python (320h)</strong> no SENAI/SC (Carreira Tech), especializando-se em modelagem preditiva e machine learning.",
+                        en: "Susej is taking the <strong>Vocational Certification in AI Development for Predictive Analysis with Python (320h)</strong> at SENAI/SC (Carreira Tech), specializing in predictive data modeling and machine learning."
                     }
                 },
                 {
-                    keys: ["domino"],
+                    keys: ["estudio", "formación", "formação", "educación", "faculdade", "unifatecie", "universidad", "ingeniería", "engenharia"],
                     responses: {
-                        es: "Domino Pro es una plataforma para torneos que implementa el Sistema Suizo automático y Firebase.",
-                        pt: "O Domino Pro é uma plataforma para torneios que implementa o Sistema Suíço automático e Firebase.",
-                        en: "Domino Pro is a tournament platform featuring an automatic Swiss System and Firebase."
+                        es: "Formación académica de Susej: <br>• <strong>SENAI/SC:</strong> Curso Profesionalizante – Trilha IA: Desarrollo de IA para Análisis Predictivo con Python (320h, en curso).<br>• <strong>UniFatecie:</strong> Tecnólogo en Sistemas para Internet (en curso).<br>• <strong>UNA (Venezuela):</strong> Ingeniería de Sistemas (6 semestres, base en computación y algoritmos).",
+                        pt: "Formação acadêmica da Susej: <br>• <strong>SENAI/SC:</strong> Curso Profissionalizante – Trilha IA: Desenvolvimento de IA para Análise Preditiva com Python (320h, em andamento).<br>• <strong>UniFatecie:</strong> Tecnólogo em Sistemas para Internet (em andamento).<br>• <strong>UNA (Venezuela):</strong> Engenharia de Sistemas (6 semestres, base em computação e algoritmos).",
+                        en: "Susej's education: <br>• <strong>SENAI/SC:</strong> Vocational Certification – AI Track: AI Development for Predictive Analysis with Python (320h, in progress).<br>• <strong>UniFatecie:</strong> Internet Systems Degree (in progress).<br>• <strong>UNA (Venezuela):</strong> Systems Engineering (6 semesters, strong computing and algorithm foundation)."
                     }
                 },
                 {
-                    keys: ["estudio", "formación", "educación", "uni", "faculdade", "unifatecie", "senai"],
+                    keys: ["agente", "prospecc", "prospec", "sheets", "maps", "leads", "prospector"],
                     responses: {
-                        es: "Susej estudia Sistemas para Internet en UniFatecie y cursa la Trilha de IA en SENAI/SC.",
-                        pt: "Susej estuda Sistemas para Internet na UniFatecie e cursa a Trilha de IA no SENAI/SC.",
-                        en: "Susej studies Systems for Internet at UniFatecie and takes an AI track at SENAI/SC."
+                        es: "<strong>Agente IA de Prospección B2B:</strong> Aplicación desarrollada en Python y Streamlit que automatiza la búsqueda de empresas en Google Maps (Google Places API), cualifica leads con filtros estrictos, genera copy de prospección personalizado con Google Gemini AI y sincroniza con Google Sheets.",
+                        pt: "<strong>Agente IA de Prospecção B2B:</strong> Aplicação desenvolvida em Python e Streamlit que automatiza a busca de empresas no Google Maps (Google Places API), qualifica leads com filtros estritos, gera copy de abordagem personalizada com Google Gemini AI e exporta para o Google Sheets.",
+                        en: "<strong>B2B AI Prospecting Agent:</strong> Python and Streamlit application that automates company searches on Google Maps (Google Places API), qualifies leads with strict filtering, generates custom outreach copy with Google Gemini AI, and syncs directly to Google Sheets."
                     }
                 },
                 {
-                    keys: ["stack", "tecnolog", "habilidad", "tech", "react", "firebase"],
+                    keys: ["nexus", "replay", "signage", "tv", "pantalla", "tela"],
                     responses: {
-                        es: "Su stack principal es React.js, Firebase y Tailwind CSS. Domina la integración de APIs modernas.",
-                        pt: "Sua stack principal é React.js, Firebase e Tailwind CSS. Domina a integração de APIs modernas.",
-                        en: "Her main stack is React.js, Firebase, and Tailwind CSS. She excels in modern API integration."
+                        es: "<strong>NexusRePlay</strong> es una plataforma SaaS de Digital Signage en producción para gestión remota de pantallas corporativas. Desarrollada con JavaScript, Tailwind CSS, Firebase Cloud Functions y Google Gemini API.",
+                        pt: "<strong>NexusRePlay</strong> é uma plataforma SaaS de Digital Signage em produção para gerenciamento remoto de TVs corporativas. Desenvolvida com JS, Tailwind, Firebase Cloud Functions e Google Gemini API.",
+                        en: "<strong>NexusRePlay</strong> is a live Digital Signage SaaS for remote corporate screen management, built with JavaScript, Tailwind, Firebase Cloud Functions, and Google Gemini API."
                     }
                 },
                 {
-                    keys: ["experiencia", "experiência", "remotasks", "lidar", "social"],
+                    keys: ["domino", "torneo", "torneio", "suizo", "suíço"],
                     responses: {
-                        es: "Tiene experiencia en Remotasks (LiDAR para IA), Social Media y educación. Es muy multidisciplinar.",
-                        pt: "Tem experiência na Remotasks (LiDAR para IA), Social Media e educação. É muito multidisciplinar.",
-                        en: "She has experience in Remotasks (LiDAR for AI), Social Media, and education. She is very multidisciplinary."
+                        es: "<strong>DominoPro</strong> es una aplicación web en producción para gestión integral de torneos de dominó con Sistema Suizo automático, ranking en tiempo real y persistencia en Firebase Firestore.",
+                        pt: "<strong>DominoPro</strong> é uma aplicação em produção para gestão de torneios com Sistema Suíço automático, ranking em tempo real e Firebase Firestore.",
+                        en: "<strong>DominoPro</strong> is a live tournament platform featuring an automated Swiss Pairing System, real-time standings, and Firebase Firestore."
                     }
                 },
                 {
-                    keys: ["contacto", "contato", "whatsapp", "email"],
+                    keys: ["stack", "tecnolog", "habilidad", "habilidades", "tech", "react", "firebase"],
                     responses: {
-                        es: "Contáctala al +55 48 99124 2305 o susejgo@gmail.com.",
-                        pt: "Entre em contato pelo +55 48 99124 2305 ou susejgo@gmail.com.",
-                        en: "Reach her at +55 48 99124 2305 or susejgo@gmail.com."
+                        es: "Stack principal: <strong>React.js, JavaScript ES6+, Tailwind CSS, Firebase (Firestore, Auth, Storage, Cloud Functions)</strong>, además de <strong>Python para IA predictiva</strong>, Vite y Git/GitHub.",
+                        pt: "Stack principal: <strong>React.js, JavaScript ES6+, Tailwind CSS, Firebase (Firestore, Auth, Storage, Cloud Functions)</strong>, além de <strong>Python para IA preditiva</strong>, Vite e Git/GitHub.",
+                        en: "Core stack: <strong>React.js, JavaScript ES6+, Tailwind CSS, Firebase (Firestore, Auth, Storage, Cloud Functions)</strong>, plus <strong>Python for predictive AI</strong>, Vite, and Git/GitHub."
                     }
                 },
                 {
-                    keys: ["hola", "hi", "oi", "saludos"],
+                    keys: ["contacto", "contato", "whatsapp", "email", "telefone", "telefono"],
+                    responses: {
+                        es: "Puedes contactar a Susej vía WhatsApp (+55 48 99124 2305), correo (susejgo@gmail.com) o a través de su LinkedIn (linkedin.com/in/susejgo).",
+                        pt: "Você pode falar com a Susej via WhatsApp (+55 48 99124 2305), e-mail (susejgo@gmail.com) ou LinkedIn (linkedin.com/in/susejgo).",
+                        en: "You can reach Susej via WhatsApp (+55 48 99124 2305), email (susejgo@gmail.com), or LinkedIn (linkedin.com/in/susejgo)."
+                    }
+                },
+                {
+                    keys: ["hola", "hi", "oi", "ola", "saludos", "hello"],
                     responses: {
                         es: translations.es.chatGreeting,
                         pt: translations.pt.chatGreeting,
@@ -371,57 +276,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ];
 
-            // Buscar coincidencia
             const match = responseMap.find(item => contains(item.keys));
-            
-            if (match) {
-                return match.responses[lang] || match.responses['en'];
-            }
+            if (match) return match.responses[lang] || match.responses['en'];
 
-            // Fallback
-            if (lang === 'es') return "Esa es una buena pregunta. Susej tiene experiencia sólida en React y Firebase. ¿Te gustaría saber sobre sus proyectos o formación?";
-            if (lang === 'pt') return "Essa é uma boa pergunta. A Susej tem experiência sólida em React e Firebase. Quer saber sobre os projetos ou a formação dela?";
-            return "That's a good question. Susej has solid experience in React and Firebase. Would you like to know about her projects or education?";
+            // Fallback response
+            if (lang === 'pt') return "A Susej é Desenvolvedora Front-End Jr. com produtos em produção (React, Firebase) e Curso Profissionalizante em IA Preditiva com Python no SENAI/SC. Deseja saber sobre os projetos ou a formação?";
+            if (lang === 'en') return "Susej is a Junior Front-End Developer with production SaaS experience (React, Firebase) and vocational training in Predictive AI with Python at SENAI/SC. Would you like to know more about her projects or education?";
+            return "Susej es Desarrolladora Front-End Jr. con experiencia en producción (React, Firebase) y Curso Profesionalizante en IA Predictiva con Python en SENAI/SC. ¿Te gustaría saber más sobre sus proyectos o formación?";
+        };
+
+        const processUserQuery = (val) => {
+            if (!val) return;
+            addMessage(val, 'user');
+            setTimeout(() => {
+                addMessage(getAIResponse(val), 'ai');
+            }, 450);
         };
 
         toggle.addEventListener('click', () => {
-            window.classList.toggle('hidden');
-            if (!window.classList.contains('hidden') && messagesContainer.children.length === 0) {
-                setTimeout(() => addMessage(translations[localStorage.getItem('language') || 'es'].chatGreeting, 'ai'), 500);
+            chatWindow.classList.toggle('hidden');
+            chatWindow.classList.toggle('flex');
+            if (!chatWindow.classList.contains('hidden') && messagesContainer.children.length === 0) {
+                const currentLang = localStorage.getItem('language') || 'es';
+                setTimeout(() => addMessage(translations[currentLang].chatGreeting, 'ai'), 300);
             }
         });
 
-        close.addEventListener('click', () => window.classList.add('hidden'));
+        if (close) {
+            close.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                chatWindow.classList.remove('flex');
+            });
+        }
 
         const handleSendMessage = () => {
             const val = input.value.trim();
             if (!val) return;
-            addMessage(val, 'user');
             input.value = '';
-            
-            // Simular "escribiendo"
-            setTimeout(() => {
-                addMessage(getAIResponse(val), 'ai');
-                const botSound = new Audio('js/sounds/button_hover.mp3'); // Reutilizando sonido
-                botSound.play().catch(() => {});
-            }, 1000);
+            processUserQuery(val);
         };
 
         sendBtn.addEventListener('click', handleSendMessage);
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleSendMessage();
         });
+
+        // Click on suggestion chips
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const query = chip.getAttribute('data-query');
+                processUserQuery(query);
+            });
+        });
     };
 
+    // Initialize components
     initSliders();
     initScrollAnimations();
-    initCursorTrail();
-    initMagneticElements();
     initSmoothScroll();
-    initParallax();
-    initTypewriter();
-    initSpotlightCards();
     initLightbox();
-    initAccordions();
     initChatbot();
 });
