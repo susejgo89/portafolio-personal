@@ -17,19 +17,20 @@ const translations = {
         // Hero
         heroLocation: "Florianópolis, SC • Remoto / Presencial / Híbrido",
         heroTitle: "Susej Gonzalez",
-        heroRole: "Desarrolladora Front-End & Agentes de IA | React.js • Firebase • Python",
-        heroDescription: "Desarrolladora Front-End y creadora de soluciones con Inteligencia Artificial. Experiencia práctica en plataformas SaaS en producción con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>, además del desarrollo de <strong>Agentes de IA y automatización con Python</strong> (Google Gemini API, Google Places y Sheets).",
+        heroRole: "Desarrolladora Front-End & Agentes de IA",
+        heroDescription: "Construyo plataformas SaaS en producción y aplicaciones web de alto rendimiento con <strong>React.js</strong> y <strong>Firebase</strong>, combinadas con el poder de <strong>Agentes de IA en Python</strong>.",
         aiBadge: "Front-End & Agentes de IA",
         btnViewProjects: "Explorar Proyectos",
         btnContact: "Contactar",
+        connectPill: "Conectar Ahora",
         
         // Stats
         statSaaS: "Plataformas SaaS",
-        statSaaSVal: "2 en Producción",
+        statSaaSVal: "2 en Prod.",
         statStack: "Desarrollo Web",
         statStackVal: "React.js • Firebase",
-        statAI: "IA & Automatización",
-        statAIVal: "Agentes & Python (SENAI)",
+        statAI: "IA & Frontend",
+        statAIVal: "Python & React",
 
         // Sobre mí
         aboutTitle: "Sobre mí",
@@ -44,6 +45,8 @@ const translations = {
         aboutCard4Desc: "Experiencia real en plataformas SaaS multi-tenant, optimización de flujos y enfoque integral en la experiencia de usuario (UX).",
         
         // Proyectos
+        projectsBadge: "SHOWCASE INTERACTIVO 3D",
+        coverflowHint: "ARRASTRA • SCROLL • FLECHAS",
         projectsTitle: "Proyectos & Desarrollos",
         projectsSubtitle: "Soluciones de software reales, plataformas SaaS en producción y agentes de IA",
         liveBadge: "En Producción",
@@ -82,28 +85,28 @@ const translations = {
         educationTitle: "Formación Académica & Especializaciones",
         educationSubtitle: "Fundamentos de computación, desarrollo de software y especialización en IA",
         
-        edu1Title: "Curso Profesionalizante – Carreira Tech: Trilha IA",
-        edu1Inst: "SENAI/SC • Carga Horaria: 320h",
-        edu1Status: "En curso (Especialización Destacada)",
-        edu1Desc: "Curso profesionalizante enfocado en <strong>Desarrollo de Inteligencia Artificial para Análisis Predictivo con Python</strong>. Formación práctica en modelado de datos, algoritmos de Machine Learning, tratamiento de datasets y construcción de soluciones analíticas predictivas aplicadas a la industria.",
+        edu1Title: "Carreira Tech: Trilha IA",
+        edu1Inst: "SENAI/SC • Carga Horaria: 320 Horas",
+        edu1Status: "En curso (Trilha IA • 320h)",
+        edu1Desc: "Desarrollo de Inteligencia Artificial para Análisis Predictivo con Python. Formación práctica en modelado de datos, algoritmos de Machine Learning, tratamiento de datasets y construcción de pipelines analíticos orientados al mercado.",
         
-        edu2Title: "Tecnólogo em Sistemas para Internet",
+        edu2Title: "Sistemas para Internet",
         edu2Inst: "UniFatecie",
         edu2Status: "En curso (Graduación)",
-        edu2Desc: "Formación superior orientada al desarrollo web profesional, arquitectura de software, experiencia de usuario (UX/UI), ingeniería de sistemas y seguridad web.",
+        edu2Desc: "Formación superior enfocada en arquitectura de software web, diseño de sistemas reactivos escalables, experiencia de usuario (UX/UI), buenas prácticas de desarrollo moderno y seguridad web.",
         
-        edu3Title: "Ingeniería de Sistemas (6 semestres)",
+        edu3Title: "Ingeniería de Sistemas",
         edu3Inst: "Universidad Nacional Abierta (Venezuela)",
-        edu3Status: "Base Universitaria",
-        edu3Desc: "Sólida formación en fundamentos teóricos y prácticos de la computación, estructuras de datos, lógica algorítmica y matemáticas discretas.",
+        edu3Status: "6 Semestres Cursados",
+        edu3Desc: "Sólida base en computación teórica y aplicada: estructuras de datos complejas, pensamiento algorítmico disciplinado, lógica matemática y resolución estructurada de problemas de ingeniería.",
 
         // Habilidades
         skillsTitle: "Stack & Habilidades Técnicas",
-        skillsSubtitle: "Tecnologías, herramientas y lenguajes que aplico en mis desarrollos",
-        skillsFrontend: "Frontend",
+        skillsSubtitle: "Tecnologías, herramientas y lenguajes aplicados en proyectos reales y producción",
+        skillsFrontend: "Frontend Moderno",
         skillsBackend: "Backend & BaaS",
         skillsAI: "IA & Agentes Python",
-        skillsTools: "Herramientas",
+        skillsTools: "Workflow & Idiomas",
         skillsLanguages: "Idiomas",
         
         langEs: "Español",
@@ -111,8 +114,10 @@ const translations = {
         langEn: "Inglés",
 
         // Contacto
+        contactBadge: "CONECTEMOS",
+        contactDockLabel: "Pasa el cursor o toca para revelar canales",
         contactTitle: "¿Conectamos para una oportunidad o proyecto?",
-        contactSubtitle: "Estoy disponible para oportunidades como Desarrolladora Front-End Jr., desarrollo de aplicaciones con React/Firebase o proyectos de software con IA y Agentes. ¡Escríbeme!",
+        contactSubtitle: "Estoy disponible para oportunidades como Desarrolladora Front-End Jr., desarrollo con React/Firebase o proyectos de software con IA y Agentes. ¡Escríbeme!",
         contactEmailBtn: "Enviar Correo",
         contactWhatsappBtn: "WhatsApp Directo",
         
@@ -147,19 +152,20 @@ const translations = {
         // Hero
         heroLocation: "Florianópolis, SC • Remoto / Presencial / Híbrido",
         heroTitle: "Susej Gonzalez",
-        heroRole: "Desenvolvedora Front-End & Agentes de IA | React.js • Firebase • Python",
-        heroDescription: "Desenvolvedora Front-End e criadora de soluções com Inteligência Artificial. Experiência prática em produtos SaaS em produção com <strong>React.js</strong>, <strong>Firebase</strong> e <strong>Tailwind CSS</strong>, além de desenvolvimento de <strong>Agentes de IA e automação com Python</strong> (Gemini API, Google Places e Google Sheets).",
+        heroRole: "Desenvolvedora Front-End & Agentes de IA",
+        heroDescription: "Construo plataformas SaaS em produção e aplicações web de alto desempenho com <strong>React.js</strong> e <strong>Firebase</strong>, combinadas com o poder de <strong>Agentes de IA em Python</strong>.",
         aiBadge: "Front-End & Agentes de IA",
         btnViewProjects: "Explorar Projetos",
         btnContact: "Falar Comigo",
+        connectPill: "Conectar Agora",
 
         // Stats
         statSaaS: "Plataformas SaaS",
-        statSaaSVal: "2 em Produção",
+        statSaaSVal: "2 em Prod.",
         statStack: "Desenvolvimento Web",
         statStackVal: "React.js • Firebase",
-        statAI: "IA & Automação",
-        statAIVal: "Agentes & Python (SENAI)",
+        statAI: "IA & Frontend",
+        statAIVal: "Python & React",
         
         // Sobre mim
         aboutTitle: "Sobre mim",
@@ -174,6 +180,8 @@ const translations = {
         aboutCard4Desc: "Experiência real em produtos SaaS multi-tenant, otimização de fluxos e foco contínuo na experiência do usuário (UX).",
         
         // Projetos
+        projectsBadge: "SHOWCASE INTERATIVO 3D",
+        coverflowHint: "ARRASTE • SCROLL • SETAS",
         projectsTitle: "Projetos & Desenvolvimentos",
         projectsSubtitle: "Produtos digitais reais, plataformas SaaS em produção e agentes de inteligência artificial",
         liveBadge: "Em Produção",
@@ -212,28 +220,28 @@ const translations = {
         educationTitle: "Formação Acadêmica & Especializações",
         educationSubtitle: "Fundamentos de computação e especialização contínua em tecnologia e IA",
         
-        edu1Title: "Curso Profissionalizante – Carreira Tech: Trilha IA",
-        edu1Inst: "SENAI/SC • Carga Horária: 320h",
-        edu1Status: "Em andamento (Especialização Destaque)",
-        edu1Desc: "Curso profissionalizante com foco em <strong>Desenvolvimento de IA para Análise Preditiva com Python</strong>. Tratamento de dados, Machine Learning, modelos preditivos estatísticos e criação de soluções de IA aplicadas a desafios reais.",
+        edu1Title: "Carreira Tech: Trilha IA",
+        edu1Inst: "SENAI/SC • Carga Horária: 320 Horas",
+        edu1Status: "Em andamento (Trilha IA • 320h)",
+        edu1Desc: "Desenvolvimento de Inteligência Artificial para Análise Preditiva com Python. Tratamento de dados, Machine Learning e criação de pipelines analíticos aplicados ao mercado.",
         
-        edu2Title: "Tecnólogo em Sistemas para Internet",
+        edu2Title: "Sistemas para Internet",
         edu2Inst: "UniFatecie",
         edu2Status: "Em andamento (Graduação)",
-        edu2Desc: "Formação superior com foco em desenvolvimento web, arquitetura de sistemas, engenharia de software e usabilidade.",
+        edu2Desc: "Formação superior com foco em arquitetura de software web, sistemas reativos escaláveis, UI/UX e segurança web.",
         
-        edu3Title: "Engenharia de Sistemas (6 semestres)",
+        edu3Title: "Engenharia de Sistemas",
         edu3Inst: "Universidad Nacional Abierta (Venezuela)",
-        edu3Status: "Base Acadêmica",
-        edu3Desc: "Base sólida em fundamentos da computação, lógica de programação, algoritmos e estruturas de dados.",
+        edu3Status: "6 Semestres Cursados",
+        edu3Desc: "Base sólida em computação teórica e aplicada: estruturas de dados, algoritmia disciplinada e lógica matemática.",
 
         // Habilidades
         skillsTitle: "Stack & Habilidades Técnicas",
-        skillsSubtitle: "Tecnologias, ferramentas e competências aplicadas no desenvolvimento",
-        skillsFrontend: "Frontend",
+        skillsSubtitle: "Tecnologias, ferramentas e competências aplicadas em projetos reais e produção",
+        skillsFrontend: "Frontend Moderno",
         skillsBackend: "Backend & BaaS",
         skillsAI: "IA & Agentes Python",
-        skillsTools: "Ferramentas",
+        skillsTools: "Workflow & Idiomas",
         skillsLanguages: "Idiomas",
         
         langEs: "Espanhol",
@@ -241,6 +249,8 @@ const translations = {
         langEn: "Inglês",
 
         // Contato
+        contactBadge: "VAMOS CONECTAR",
+        contactDockLabel: "Passe o mouse ou toque para revelar canais",
         contactTitle: "Vamos conversar sobre oportunidades?",
         contactSubtitle: "Aberta a oportunidades em desenvolvimento web Front-End Jr., projetos com React/Firebase ou iniciativas com IA e Agentes. Fique à vontade para entrar em contato!",
         contactEmailBtn: "Enviar E-mail",
@@ -277,19 +287,20 @@ const translations = {
         // Hero
         heroLocation: "Florianópolis, Brazil • Remote / On-site / Hybrid",
         heroTitle: "Susej Gonzalez",
-        heroRole: "Front-End & AI Agent Developer | React.js • Firebase • Python",
-        heroDescription: "Front-End Developer and AI solutions creator. Hands-on experience building production SaaS platforms using <strong>React.js</strong>, <strong>Firebase</strong>, and <strong>Tailwind CSS</strong>, alongside engineering <strong>Autonomous AI Agents and automation with Python</strong> (Google Gemini API, Google Places, and Sheets).",
+        heroRole: "Front-End & AI Agent Developer",
+        heroDescription: "Building production SaaS platforms and high-performance web applications with <strong>React.js</strong> and <strong>Firebase</strong>, powered by <strong>Autonomous Python AI Agents</strong>.",
         aiBadge: "Front-End & AI Agents",
         btnViewProjects: "Explore Projects",
         btnContact: "Get in Touch",
+        connectPill: "Connect Now",
 
         // Stats
         statSaaS: "SaaS Platforms",
-        statSaaSVal: "2 in Production",
+        statSaaSVal: "2 in Prod.",
         statStack: "Web Engineering",
         statStackVal: "React.js • Firebase",
-        statAI: "AI & Automation",
-        statAIVal: "Agents & Python (SENAI)",
+        statAI: "AI & Frontend",
+        statAIVal: "Python & React",
         
         // About
         aboutTitle: "About Me",
@@ -342,28 +353,28 @@ const translations = {
         educationTitle: "Education & Specializations",
         educationSubtitle: "Academic foundations in computer science, web engineering, and applied AI",
         
-        edu1Title: "Vocational Certification – AI Track (Carreira Tech)",
-        edu1Inst: "SENAI/SC • 320h Intensive Program",
-        edu1Status: "In Progress (Featured Focus)",
-        edu1Desc: "Vocational certification program focused on <strong>AI Development for Predictive Analysis with Python</strong>. Hands-on training in predictive modeling, Machine Learning algorithms, dataset curation, and real-world industrial AI solutions.",
+        edu1Title: "Tech Career: AI Track",
+        edu1Inst: "SENAI/SC • Workload: 320 Hours",
+        edu1Status: "In Progress (AI Track • 320h)",
+        edu1Desc: "AI Development for Predictive Analysis with Python. Hands-on training in data modeling, Machine Learning algorithms, and production analytics pipelines.",
         
-        edu2Title: "Associate Degree in Internet Systems",
+        edu2Title: "Internet Systems",
         edu2Inst: "UniFatecie",
         edu2Status: "In Progress (Degree)",
-        edu2Desc: "Higher education covering web engineering, system architecture, responsive UI design, software engineering, and web security.",
+        edu2Desc: "Higher education covering web engineering, scalable reactive systems, modern responsive UI/UX, and web application security.",
         
-        edu3Title: "Systems Engineering (6 Semesters)",
+        edu3Title: "Systems Engineering",
         edu3Inst: "Universidad Nacional Abierta (Venezuela)",
-        edu3Status: "Academic Foundation",
-        edu3Desc: "Solid foundation in computer science fundamentals, data structures, algorithms, and applied discrete logic.",
+        edu3Status: "6 Semesters Completed",
+        edu3Desc: "Solid foundation in theoretical and applied computer science: data structures, algorithmic discipline, and discrete mathematics.",
 
         // Skills
         skillsTitle: "Tech Stack & Skills",
-        skillsSubtitle: "Core technologies, tools, and workflows in my developer stack",
-        skillsFrontend: "Frontend",
+        skillsSubtitle: "Core technologies, tools, and workflows applied in real-world products",
+        skillsFrontend: "Modern Frontend",
         skillsBackend: "Backend & BaaS",
         skillsAI: "AI & Python Agents",
-        skillsTools: "Tools & APIs",
+        skillsTools: "Workflow & Languages",
         skillsLanguages: "Languages",
         
         langEs: "Spanish",
@@ -371,6 +382,8 @@ const translations = {
         langEn: "English",
 
         // Contact
+        contactBadge: "LET'S CONNECT",
+        contactDockLabel: "Hover or tap to reveal channels",
         contactTitle: "Interested in working together?",
         contactSubtitle: "I am open to Junior Front-End Developer opportunities, React/Firebase web app roles, and projects involving AI and Agentic workflows. Let's connect!",
         contactEmailBtn: "Send Email",

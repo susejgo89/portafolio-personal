@@ -7,79 +7,100 @@
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Roboto Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
     
-    <!-- Google Fonts: Inter & Poppins & Roboto Mono -->
+    <!-- Google Fonts: Plus Jakarta Sans & Roboto Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260908_biznext">
 </head>
 <body class="w-full">
 
-    <!-- ==== AMBIENT BACKGROUND GLOWS ==== -->
-    <div class="fixed top-20 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-    <div class="fixed top-1/3 right-10 w-[28rem] h-[28rem] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-    <div class="fixed bottom-20 left-1/3 w-96 h-96 bg-violet-800/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+    <!-- ==== AMBIENT ATMOSPHERE (BIZNEXT EMERALD AURA) ==== -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[32rem] bg-emerald-500/[0.06] rounded-full blur-[180px] pointer-events-none -z-10"></div>
+    <div class="fixed top-28 right-0 w-[35rem] h-[35rem] bg-teal-500/[0.04] rounded-full blur-[180px] pointer-events-none -z-10"></div>
 
-    <!-- ==== HEADER / NAVEGACIÓN ==== -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#07090e]/85 backdrop-blur-xl border-b border-white/[0.06]">
-        <div class="max-w-7xl mx-auto px-6 py-3.5 flex justify-between items-center">
-            <!-- Brand Logo -->
-            <a href="#home" class="flex items-center gap-3.5 group">
-                <div class="h-11 px-2.5 rounded-xl bg-violet-500/15 border border-violet-500/40 flex items-center justify-center transition-all group-hover:scale-105 group-hover:border-violet-400/70 shadow-lg shadow-violet-500/20 group-hover:shadow-violet-500/35">
-                    <img src="images/logo_icon.png" alt="Susej Gonzalez Logo" class="h-7 w-auto object-contain drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]">
+    <!-- ==== FLOATING LIQUID GLASS DOCK ==== -->
+    <header class="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div class="glass-dock pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 py-2.5 rounded-full max-w-6xl w-full">
+            <!-- Brand Logo (Prominent, High-Contrast & Crisp) -->
+            <a href="#home" class="flex items-center gap-3 group flex-shrink-0" aria-label="Inicio">
+                <div class="h-10 sm:h-11 flex items-center justify-center transition-all group-hover:scale-105">
+                    <img src="images/logo_icon.png" alt="Susej Gonzalez Logo" class="brand-logo-img h-8 sm:h-9 w-auto object-contain">
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-heading font-bold text-white text-base sm:text-lg tracking-tight leading-none">Susej<span class="text-violet-400">.dev</span></span>
-                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-mono leading-tight" data-key="headerRole">Front-End & Agentes de IA</span>
+                <div class="flex flex-col text-left">
+                    <span class="font-heading font-extrabold text-base sm:text-lg tracking-tight leading-none text-white">Susej<span class="text-violet-500 dark:text-violet-400">.dev</span></span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-mono tracking-wide mt-0.5" data-key="headerRole">Front-End & IA</span>
                 </div>
             </a>
             
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#about" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navAbout">Sobre mí</a>
-                <a href="#projects" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navProjects">Proyectos</a>
-                <a href="#education" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navEducation">Formación</a>
-                <a href="#skills" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navSkills">Habilidades</a>
-                <a href="#contact" class="text-slate-300 hover:text-white hover:text-violet-300 transition-colors duration-200" data-key="navContact">Contacto</a>
+            <!-- Desktop Pill Navigation Track -->
+            <nav class="hidden md:flex nav-pill-container" id="nav-pill-track">
+                <div id="nav-pill-indicator" class="nav-pill-indicator"></div>
+                <a href="#about" class="nav-pill-link" data-key="navAbout">Sobre mí</a>
+                <a href="#projects" class="nav-pill-link" data-key="navProjects">Proyectos</a>
+                <a href="#education" class="nav-pill-link" data-key="navEducation">Formación</a>
+                <a href="#skills" class="nav-pill-link" data-key="navSkills">Habilidades</a>
+                <a href="#contact" class="nav-pill-link" data-key="navContact">Contacto</a>
             </nav>
             
-            <!-- Right Actions: Language Selector & CV -->
-            <div class="flex items-center gap-3">
+            <!-- Right Actions: Language Selector, Theme Switcher & CV -->
+            <div class="flex items-center gap-2 flex-shrink-0">
                 <div class="relative">
-                    <select id="language-selector" class="bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 block px-2.5 py-1.5 cursor-pointer transition shadow-inner">
-                        <option value="es">ES</option>
-                        <option value="pt">PT</option>
-                        <option value="en">EN</option>
+                    <select id="language-selector" class="bg-black/30 border border-white/10 text-xs font-semibold rounded-full px-2.5 py-1.5 cursor-pointer transition focus:outline-none text-slate-200" aria-label="Idioma">
+                        <option value="es" class="bg-slate-900 text-white">ES</option>
+                        <option value="pt" class="bg-slate-900 text-white">PT</option>
+                        <option value="en" class="bg-slate-900 text-white">EN</option>
                     </select>
                 </div>
+
+                <!-- Theme Toggle Button (Liquid Glass Style) -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Modo Oscuro y Claro" title="Cambiar tema">
+                    <i data-lucide="sun" id="theme-icon-sun" class="w-4 h-4 text-amber-300"></i>
+                    <i data-lucide="moon" id="theme-icon-moon" class="w-4 h-4 text-violet-300 hidden"></i>
+                </button>
                 
-                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold bg-violet-600/15 hover:bg-violet-600/25 text-violet-300 border border-violet-500/40 px-3.5 py-1.5 rounded-lg transition-all hover:scale-105 shadow-sm">
+                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold bg-violet-600/20 hover:bg-violet-600/35 text-violet-400 dark:text-violet-300 border border-violet-500/40 px-3.5 py-1.5 rounded-full transition-all hover:scale-105 shadow-sm flex-shrink-0">
                     <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                    <span data-key="downloadCV">Descargar CV</span>
+                    <span>CV</span>
                 </a>
 
                 <!-- Mobile Menu Toggle Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition-colors" aria-label="Menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors" aria-label="Menu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#07090e]/95 border-b border-slate-800 px-6 py-5 space-y-3.5 backdrop-blur-xl">
-            <a href="#about" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navAbout">Sobre mí</a>
-            <a href="#projects" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navProjects">Proyectos</a>
-            <a href="#education" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navEducation">Formación</a>
-            <a href="#skills" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navSkills">Habilidades</a>
-            <a href="#contact" class="block text-slate-300 hover:text-white py-2 text-base font-medium mobile-link" data-key="navContact">Contacto</a>
-            <div class="pt-3 border-t border-slate-800">
-                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link-mobile" target="_blank" class="flex items-center justify-center gap-2 w-full text-sm font-semibold bg-violet-600 text-white px-4 py-2.5 rounded-xl shadow-lg shadow-violet-600/30">
+        <!-- Mobile Floating Glass Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden fixed top-20 left-4 right-4 z-50 glass-card p-5 space-y-3.5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-2xl pointer-events-auto">
+            <a href="#about" class="block text-slate-200 hover:text-violet-400 py-2 text-base font-medium mobile-link" data-key="navAbout">Sobre mí</a>
+            <a href="#projects" class="block text-slate-200 hover:text-violet-400 py-2 text-base font-medium mobile-link" data-key="navProjects">Proyectos</a>
+            <a href="#education" class="block text-slate-200 hover:text-violet-400 py-2 text-base font-medium mobile-link" data-key="navEducation">Formación</a>
+            <a href="#skills" class="block text-slate-200 hover:text-violet-400 py-2 text-base font-medium mobile-link" data-key="navSkills">Habilidades</a>
+            <a href="#contact" class="block text-slate-200 hover:text-violet-400 py-2 text-base font-medium mobile-link" data-key="navContact">Contacto</a>
+            <div class="pt-3 border-t border-white/10">
+                <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="cv-download-link-mobile" target="_blank" class="flex items-center justify-center gap-2 w-full text-sm font-semibold bg-violet-600 text-white px-4 py-2.5 rounded-full shadow-lg shadow-violet-600/30">
                     <i data-lucide="download" class="w-4 h-4"></i>
                     <span data-key="downloadCV">Descargar CV</span>
                 </a>
@@ -90,239 +111,263 @@
     <main class="max-w-7xl mx-auto px-6 pt-28 md:pt-36">
         
         <!-- ==== HERO SECTION ==== -->
-        <section id="home" class="min-h-[78vh] flex flex-col justify-center mb-16">
-            <div class="grid lg:grid-cols-12 gap-12 w-full items-center">
-                <!-- Left Column (7 cols) -->
-                <div class="lg:col-span-7 text-left space-y-6">
-                    <!-- Badges -->
-                    <div class="flex flex-wrap items-center gap-3">
-                        <span class="badge-feature">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
-                            <span data-key="aiBadge">Front-End & Agentes de IA</span>
-                        </span>
-                        <span class="text-xs text-slate-400 flex items-center gap-1.5 font-medium bg-slate-900/60 px-3 py-1.5 rounded-full border border-slate-800">
-                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-violet-400"></i>
-                            <span data-key="heroLocation">Florianópolis, SC • Remoto / Presencial / Híbrido</span>
-                        </span>
-                    </div>
-
-                    <!-- Name & Headline -->
-                    <div>
-                        <h1 class="text-gradient font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none mb-3" data-key="heroTitle">
-                            Susej Gonzalez
-                        </h1>
-                        <h2 class="text-xl sm:text-2xl font-semibold text-violet-300 font-heading" data-key="heroRole">
-                            Desenvolvedora Front-End & Agentes de IA | React.js • Firebase • Python
-                        </h2>
-                    </div>
-
-                    <!-- Value Proposition -->
-                    <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-light" data-key="heroDescription">
-                        Desarrolladora Front-End y creadora de soluciones con IA. Experiencia práctica en plataformas SaaS en producción con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>, además de desarrollo de <strong>Agentes de IA y automatización con Python</strong> (Gemini API, Google Places y Sheets).
-                    </p>
-
-                    <!-- CTAs + CRISP CIRCULAR SOCIAL BUTTONS -->
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a href="#projects" class="btn-glow-primary" data-key="btnViewProjects">
-                            <span data-key="btnViewProjects">Explorar Proyectos</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#contact" class="btn-outline-glass" data-key="btnContact">
-                            <i data-lucide="mail" class="w-4 h-4 text-violet-400"></i>
-                            <span data-key="btnContact">Contactar</span>
-                        </a>
-                        
-                        <!-- CIRCULAR SOCIAL BUTTONS WITH EMBEDDED SVGs -->
-                        <div class="flex items-center gap-2.5 sm:ml-2">
-                            <!-- GitHub Circle -->
-                            <a href="https://github.com/susejgo89" target="_blank" class="social-circle-btn" title="GitHub — susejgo89" aria-label="GitHub">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                                </svg>
-                            </a>
-                            <!-- LinkedIn Circle -->
-                            <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="social-circle-btn" title="LinkedIn — susejgo" aria-label="LinkedIn">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
-                                </svg>
-                            </a>
-                            <!-- WhatsApp Circle -->
-                            <a href="https://wa.me/5548991242305" target="_blank" class="social-circle-btn whatsapp-circle" title="WhatsApp — +55 48 99124-2305" aria-label="WhatsApp">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+        <section id="home" class="min-h-[85vh] flex flex-col justify-center items-center text-center py-16 sm:py-24 mb-16">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Status Badge & Kicker -->
+                <div class="flex flex-wrap justify-center items-center gap-3">
+                    <span class="badge-live-pulse text-xs py-1.5 px-4 font-semibold">
+                        <span data-key="aiBadge">Front-End & Agentes de IA</span>
+                    </span>
+                    <span class="text-xs text-slate-300 flex items-center gap-1.5 font-medium bg-slate-900/80 px-4 py-1.5 rounded-full border border-slate-700/80">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span data-key="heroLocation">Florianópolis, SC • Remoto / Híbrido</span>
+                    </span>
                 </div>
 
-                <!-- Right Column: Interactive Holographic Tech Box (5 cols) -->
-                <div class="lg:col-span-5 relative hidden lg:flex justify-center">
-                    <div class="relative w-full max-w-sm">
-                        <!-- Hologram Background Glow -->
-                        <div class="absolute -inset-1 bg-gradient-to-r from-violet-600 via-cyan-500 to-emerald-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-                        
-                        <!-- Card Content -->
-                        <div class="glass-card p-7 relative space-y-5 border-white/10 bg-[#0c101c]/90 shadow-2xl">
-                            <!-- Card Header -->
-                            <div class="flex items-center justify-between border-b border-white/[0.06] pb-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="h-12 px-2.5 rounded-xl bg-violet-600/20 border border-violet-500/40 flex items-center justify-center shadow-lg shadow-violet-500/20">
-                                        <img src="images/logo_icon.png" alt="Logo" class="h-8 w-auto object-contain drop-shadow-[0_0_10px_rgba(167,139,250,0.7)]">
-                                    </div>
-                                    <div>
-                                        <h3 class="text-white font-heading font-bold text-sm">Perfil Técnico</h3>
-                                        <p class="text-[11px] text-slate-400 font-mono">Front-End & Agentes IA</p>
-                                    </div>
-                                </div>
-                                <span class="badge-live-pulse text-[11px]">Online</span>
-                            </div>
+                <!-- Headline (BizNext Luxury Typography) -->
+                <div class="space-y-3">
+                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-white" data-key="heroTitle">
+                        Susej Gonzalez
+                    </h1>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-gradient tracking-tight" data-key="heroRole">
+                        Desarrolladora Front-End & Agentes de IA
+                    </h2>
+                </div>
 
-                            <!-- Live Tech Rows -->
-                            <div class="space-y-2.5">
-                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-                                    <div class="flex items-center gap-2.5">
-                                        <div class="w-7 h-7 rounded-lg bg-violet-500/15 text-violet-400 flex items-center justify-center">
-                                            <i data-lucide="layout" class="w-4 h-4"></i>
-                                        </div>
-                                        <span class="text-xs text-slate-200 font-medium">React.js • Tailwind CSS • ES6+</span>
-                                    </div>
-                                    <span class="text-[11px] text-violet-400 font-mono font-semibold">Front-End</span>
-                                </div>
+                <!-- Executive Pitch -->
+                <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed font-normal" data-key="heroDescription">
+                    Construyo plataformas SaaS en producción y aplicaciones web de alto rendimiento con <strong>React.js</strong> y <strong>Firebase</strong>, combinadas con el poder de <strong>Agentes de IA en Python</strong>.
+                </p>
 
-                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-                                    <div class="flex items-center gap-2.5">
-                                        <div class="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center">
-                                            <i data-lucide="flame" class="w-4 h-4"></i>
-                                        </div>
-                                        <span class="text-xs text-slate-200 font-medium">Firebase Firestore & Auth</span>
-                                    </div>
-                                    <span class="text-[11px] text-amber-400 font-mono font-semibold">Real-Time</span>
-                                </div>
+                <!-- Primary CTAs (BizNext Glowing Emerald & Glass) -->
+                <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+                    <a href="#projects" class="btn-biznext-emerald py-3.5 px-8 text-sm sm:text-base font-semibold" data-key="btnViewProjects">
+                        <span data-key="btnViewProjects">Explorar Proyectos</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" target="_blank" class="btn-outline-glass py-3.5 px-7 text-sm sm:text-base font-semibold">
+                        <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i>
+                        <span data-key="downloadCV">Descargar CV</span>
+                    </a>
+                </div>
 
-                                <div class="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/30 flex items-center justify-between">
-                                    <div class="flex items-center gap-2.5">
-                                        <div class="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
-                                            <i data-lucide="bot" class="w-4 h-4"></i>
-                                        </div>
-                                        <span class="text-xs text-emerald-200 font-medium">Python, Gemini & Agentes IA</span>
-                                    </div>
-                                    <span class="text-[11px] text-emerald-400 font-mono font-semibold">SENAI 320h</span>
-                                </div>
-                            </div>
+                <!-- 3D CONTACT DOCK ANIMATION (KEYBOARD KEYS C-O-N-T-A-C-T) -->
+                <div class="contact-dock-container pt-2">
+                    <p class="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-3" data-key="contactDockLabel">
+                        Pasa el cursor o toca para revelar canales
+                    </p>
+                    <ul class="contact-dock" role="list">
+                        <!-- C: GitHub -->
+                        <li class="dock-key" style="--brand: #a855f7;">
+                            <a class="dock-key__hit" href="https://github.com/susejgo89" target="_blank" aria-label="GitHub">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">C</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip">GitHub</span>
+                        </li>
 
-                            <!-- Live Stat Summary Footer -->
-                            <div class="pt-2 grid grid-cols-2 gap-2 text-center text-xs">
-                                <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                                    <span class="block text-violet-400 font-bold font-mono text-base">2 SaaS</span>
-                                    <span class="text-[11px] text-slate-400">Em Produção</span>
-                                </div>
-                                <div class="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                                    <span class="block text-emerald-400 font-bold font-mono text-base">Agentes IA</span>
-                                    <span class="text-[11px] text-slate-400">Python + Gemini</span>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- O: LinkedIn -->
+                        <li class="dock-key" style="--brand: #0a66c2;">
+                            <a class="dock-key__hit" href="https://www.linkedin.com/in/susejgo/" target="_blank" aria-label="LinkedIn">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">O</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip">LinkedIn</span>
+                        </li>
 
-                        <!-- Floating Badges -->
-                        <div class="absolute -top-4 -right-4 bg-slate-900/95 px-3 py-2 rounded-xl border border-violet-500/40 shadow-xl z-20 animate-float-slow flex items-center gap-2 text-xs font-semibold text-violet-300">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
-                            <span>SaaS & IA Integradas</span>
-                        </div>
-                    </div>
+                        <!-- N: WhatsApp -->
+                        <li class="dock-key" style="--brand: #25d366;">
+                            <a class="dock-key__hit" href="https://wa.me/5548991242305" target="_blank" aria-label="WhatsApp">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">N</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip">WhatsApp</span>
+                        </li>
+
+                        <!-- T: Email -->
+                        <li class="dock-key" style="--brand: #ea4335;">
+                            <a class="dock-key__hit" href="mailto:susejgo@gmail.com" aria-label="Enviar Email">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">T</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <i data-lucide="mail" class="w-5 h-5 text-red-500"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip">susejgo@gmail.com</span>
+                        </li>
+
+                        <!-- A: Currículo / CV -->
+                        <li class="dock-key" style="--brand: #8b5cf6;">
+                            <a class="dock-key__hit" href="images/Susej_Gonzalez_Curriculo_a1_Espanol.pdf" id="dock-cv-link" target="_blank" aria-label="Descargar CV">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">A</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <i data-lucide="file-text" class="w-5 h-5 text-violet-500"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip" data-key="downloadCV">Descargar CV</span>
+                        </li>
+
+                        <!-- C: DominoPro Live Demo -->
+                        <li class="dock-key" style="--brand: #06b6d4;">
+                            <a class="dock-key__hit" href="https://dominopro1.com/" target="_blank" aria-label="DominoPro Demo">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">C</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <i data-lucide="external-link" class="w-5 h-5 text-cyan-500"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip">DominoPro Live</span>
+                        </li>
+
+                        <!-- T: Chatbot Asistente IA -->
+                        <li class="dock-key" style="--brand: #ec4899;" id="dock-key-ai-chat">
+                            <a class="dock-key__hit" href="#ai-chat-widget" id="dock-chat-trigger" aria-label="Asistente IA">
+                                <span class="dock-key__glow"></span>
+                                <span class="dock-key__cap">
+                                    <span class="dock-key__face dock-key__face--letter">T</span>
+                                    <span class="dock-key__face dock-key__face--icon">
+                                        <i data-lucide="bot" class="w-5 h-5 text-pink-500"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <span class="dock-key__tip" data-key="chatTitle">Asistente Virtual</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Quick Stats Bar -->
-            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/[0.06]">
-                <div class="glass-card p-4.5 flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="rocket" class="w-5 h-5"></i>
+            <!-- BizNext Horizontal Stats Bar & Ticker (Inspired by Reference) -->
+            <div class="mt-14 w-full flex flex-col items-center">
+                <div class="biznext-stats-bar">
+                    <div class="biznext-stat-item">
+                        <span class="biznext-stat-val text-gradient" data-key="statSaaSVal">2 en Prod.</span>
+                        <span class="biznext-stat-lbl" data-key="statSaaS">Plataformas SaaS</span>
                     </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block" data-key="statSaaS">Plataformas SaaS</span>
-                        <span class="text-sm font-bold text-white font-heading" data-key="statSaaSVal">2 en Producción</span>
+                    <div class="biznext-stat-div hidden sm:block"></div>
+                    <div class="biznext-stat-item">
+                        <span class="biznext-stat-val text-emerald-gradient">320h Trilha IA</span>
+                        <span class="biznext-stat-lbl">Formación SENAI/SC</span>
                     </div>
+                    <div class="biznext-stat-div hidden sm:block"></div>
+                    <div class="biznext-stat-item">
+                        <span class="biznext-stat-val text-gold-gradient" data-key="statAIVal">Python & React</span>
+                        <span class="biznext-stat-lbl" data-key="statAI">IA & Frontend</span>
+                    </div>
+                    <div class="biznext-stat-div hidden md:block"></div>
+                    <a href="#contact" class="hidden md:inline-flex btn-biznext-emerald !py-2 !px-4 text-xs font-semibold">
+                        <span data-key="connectPill">Conectar</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
 
-                <div class="glass-card p-4.5 flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="code-2" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block" data-key="statStack">Desarrollo Web</span>
-                        <span class="text-sm font-bold text-white font-heading" data-key="statStackVal">React.js • Firebase</span>
-                    </div>
-                </div>
-
-                <div class="glass-card p-4.5 flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="bot" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-slate-400 block" data-key="statAI">IA & Automatización</span>
-                        <span class="text-sm font-bold text-white font-heading" data-key="statAIVal">Agentes & Python (SENAI)</span>
-                    </div>
+                <!-- BizNext Ticker with Neon Laser Lines -->
+                <div class="biznext-ticker">
+                    <span class="ticker-laser"></span>
+                    <span>Modern • Fast • Secure • Scalable</span>
+                    <span class="ticker-laser"></span>
                 </div>
             </div>
         </section>
 
         <!-- ==== SOBRE MÍ ==== -->
-        <section id="about" class="py-20 fade-in-section border-t border-white/5">
-            <div class="grid lg:grid-cols-12 gap-10 items-start">
-                <div class="lg:col-span-5 space-y-4">
-                    <h2 class="section-title text-left font-heading text-3xl sm:text-4xl font-bold text-white" data-key="aboutTitle">
+        <section id="about" class="py-24 fade-in-section border-t border-white/10">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <!-- Section Header -->
+                <div class="space-y-3 text-left">
+                    <span class="badge-feature inline-flex items-center gap-1.5">
+                        <i data-lucide="user" class="w-3.5 h-3.5 text-violet-400"></i>
+                        <span>PERFIL PROFESIONAL</span>
+                    </span>
+                    <h2 class="section-title font-display text-4xl sm:text-5xl font-bold text-white tracking-tight" data-key="aboutTitle">
                         Sobre mí
                     </h2>
-                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed pt-2" data-key="aboutText">
-                        Desarrolladora Front-End especializada en la construcción de aplicaciones web y plataformas SaaS completas en producción con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>, combinando interfaces modernas con arquitecturas en tiempo real y desarrollo de <strong>Agentes de Inteligencia Artificial en Python</strong>.<br><br>Cuento con formación profesionalizante en <strong>Desarrollo de IA para Análisis Predictivo con Python (320h)</strong> en SENAI/SC y curso <strong>Sistemas para Internet</strong> en UniFatecie, además de una base en Ingeniería de Sistemas por la UNA.
+                </div>
+
+                <!-- Narrative Text (Spacious, Clear, Zero-Cramp) -->
+                <div class="text-slate-200 text-lg sm:text-xl leading-relaxed space-y-5 text-left font-light" data-key="aboutText">
+                    <p>
+                        Desarrolladora Front-End especializada en crear <strong>plataformas SaaS completas en producción</strong> con <strong>React.js</strong>, <strong>Firebase</strong> y <strong>Tailwind CSS</strong>. Diseño arquitecturas reactivas en tiempo real y conecto interfaces modernas con <strong>Agentes de Inteligencia Artificial en Python</strong>.
+                    </p>
+                    <p class="text-base sm:text-lg text-slate-300">
+                        Cuento con formación profesionalizante en <strong>Desarrollo de IA para Análisis Predictivo con Python (320h)</strong> en SENAI/SC y curso <strong>Sistemas para Internet</strong> en UniFatecie, con una sólida base analítica en Ingeniería de Sistemas por la UNA.
                     </p>
                 </div>
 
-                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4.5">
+                <!-- 3 Spacious Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 text-left">
                     <!-- Pillar 1 -->
-                    <div class="glass-card p-5 space-y-2.5">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
-                            <i data-lucide="layout" class="w-5 h-5"></i>
+                    <div class="bento-card !p-7 space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-violet-500/15 text-violet-400 flex items-center justify-center border border-violet-500/30">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard1Title">Arquitectura Front-End</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard1Desc">Interfaces reactivas, componentes modulares y diseño responsivo con React.js, JavaScript ES6+ y Tailwind CSS.</p>
+                        <h4 class="text-white font-bold text-lg" data-key="aboutCard1Title">Frontend & SaaS Real</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed" data-key="aboutCard1Desc">
+                            Aplicaciones web reactivas, modulares y optimizadas para producción con React.js, JavaScript moderno y Tailwind CSS.
+                        </p>
                     </div>
 
                     <!-- Pillar 2 -->
-                    <div class="glass-card p-5 space-y-2.5">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-                            <i data-lucide="server" class="w-5 h-5"></i>
+                    <div class="bento-card !p-7 space-y-4 border-emerald-500/30">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+                            <i data-lucide="bot" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard2Title">Backend & BaaS</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard2Desc">Autenticación segura de usuarios, Firestore en tiempo real, Storage de medios y Cloud Functions serverless.</p>
+                        <h4 class="text-white font-bold text-lg" data-key="aboutCard3Title">Agentes IA & Python</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed" data-key="aboutCard3Desc">
+                            Desarrollo de agentes autónomos, integración con Gemini API, Places y Sheets, y modelos predictivos (SENAI/SC).
+                        </p>
                     </div>
 
                     <!-- Pillar 3 -->
-                    <div class="glass-card p-5 space-y-2.5 border-emerald-500/20 bg-emerald-950/15">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
+                    <div class="bento-card !p-7 space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center border border-amber-500/30">
+                            <i data-lucide="database" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard3Title">Agentes de IA & Python</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard3Desc">Desarrollo de agentes autónomos, integración de Google Gemini API, Google Places API y modelos predictivos en Python (SENAI/SC).</p>
-                    </div>
-
-                    <!-- Pillar 4 -->
-                    <div class="glass-card p-5 space-y-2.5">
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        </div>
-                        <h4 class="text-white font-bold font-heading text-base" data-key="aboutCard4Title">Mentalidad de Producto</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed" data-key="aboutCard4Desc">Experiencia real en plataformas SaaS multi-tenant, optimización de flujos y enfoque integral en la experiencia de usuario (UX).</p>
+                        <h4 class="text-white font-bold text-lg" data-key="aboutCard2Title">Backend & BaaS</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed" data-key="aboutCard2Desc">
+                            Autenticación segura de usuarios, bases de datos Firestore en tiempo real, Storage y funciones serverless.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==== PROYECTOS ==== -->
+                <!-- ==== PROYECTOS (ATLAS 3D COVERFLOW) ==== -->
         <section id="projects" class="py-20 fade-in-section border-t border-white/5">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="projectsTitle">
+            <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+                <span class="badge-feature inline-flex items-center gap-1.5 mb-2">
+                    <i data-lucide="layers" class="w-3.5 h-3.5 text-violet-400"></i>
+                    <span data-key="projectsBadge">SHOWCASE INTERACTIVO 3D</span>
+                </span>
+                <h2 class="section-title font-display text-4xl sm:text-5xl font-bold text-white tracking-tight" data-key="projectsTitle">
                     Proyectos & Desarrollos
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="projectsSubtitle">
@@ -330,575 +375,597 @@
                 </p>
             </div>
 
-            <div class="space-y-16">
-                <!-- PROYECTO 1: DOMINOPRO -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-violet-500/50">
-                    <!-- Slider Container (6 cols) -->
-                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
-                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
-                            <div class="flex items-center gap-1.5">
-                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="font-mono text-[11px] text-slate-400 font-medium">dominopro1.com</span>
-                            <div class="w-8"></div>
-                        </div>
-                        <div id="domino-slider" class="relative group">
-                            <div class="slider-track flex cursor-zoom-in">
-                                <img src="images/dominopro1.png" alt="DominoPro 1" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/dominopro2.png" alt="DominoPro 2" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/dominopro3.png" alt="DominoPro 3" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/dominopro4.png" alt="DominoPro 4" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/dominopro5.png" alt="DominoPro 5" class="w-full flex-shrink-0 object-cover aspect-video">
-                            </div>
-                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
-                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                            </button>
-                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
-                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                            </button>
-                        </div>
-                    </div>
+            <!-- Atlas 3D Coverflow Component -->
+            <div class="coverflow-component relative w-full select-none" id="coverflow-container">
+                <!-- 3D Viewport / Stage -->
+                <div class="coverflow-viewport">
+                    <div class="coverflow-stage" id="coverflow-stage">
+                        
+                        <!-- CARD 0: DOMINOPRO -->
+                        <div class="coverflow-card is-active" data-index="0">
+                            <div class="coverflow-card-inner flex flex-col h-full">
+                                <!-- Project Image Preview -->
+                                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 group cursor-zoom-in coverflow-zoom-target">
+                                    <img src="images/dominopro1.png" alt="DominoPro Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 coverflow-main-img">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e111a] via-transparent to-transparent opacity-60"></div>
+                                    <div class="absolute top-3 right-3">
+                                        <span class="badge-live-pulse text-[11px] py-1 px-3 shadow-lg font-medium" data-key="liveBadge">En Producción</span>
+                                    </div>
+                                    <div class="absolute bottom-3 left-4 flex items-center gap-1.5 text-xs text-white/90 font-mono">
+                                        <i data-lucide="globe" class="w-3.5 h-3.5 text-violet-400"></i>
+                                        <span>dominopro1.com</span>
+                                    </div>
+                                </div>
 
-                    <!-- Info Container (6 cols) -->
-                    <div class="lg:col-span-6 space-y-5">
-                        <div class="flex items-center gap-3">
-                            <span class="badge-live-pulse" data-key="liveBadge">En Producción</span>
-                            <span class="text-xs text-slate-400 font-mono">2024 – Presente</span>
-                        </div>
+                                <!-- Card Content Plate (Clean, Spacious, Beautiful) -->
+                                <div class="p-6 sm:p-7 flex flex-col justify-between flex-grow space-y-4 text-left">
+                                    <div>
+                                        <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+                                            <span class="font-mono text-violet-400 font-semibold uppercase text-[11px] tracking-wider">SaaS Web App</span>
+                                            <span class="font-mono">2024 – Presente</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white tracking-tight" data-key="p1Title">
+                                            DominoPro
+                                        </h3>
+                                        <p class="text-xs sm:text-sm font-semibold text-violet-300/90 mt-0.5">
+                                            Gestión Integral de Torneos Profesionales
+                                        </p>
+                                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5" data-key="p1Description">
+                                            Plataforma integral con emparejamiento automático por Sistema Suizo, cálculo instantáneo de rankings y persistencia reactiva en Firebase Firestore.
+                                        </p>
+                                    </div>
 
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p1Title">
-                            DominoPro — Plataforma de Gestión de Torneos
-                        </h3>
+                                    <!-- Tech Tags -->
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span class="tech-tag">React.js</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">Firestore</span>
+                                        <span class="tech-tag">Sistema Suizo</span>
+                                    </div>
 
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p1Description">
-                            Aplicación web integral para la administración completa de torneos de dominó profesionales, actuando desde la concepción de la arquitectura hasta el deploy en producción. Automatiza reglamentos oficiales y cálculos algorítmicos complejos.
-                        </p>
-
-                        <!-- Direct Highlights List -->
-                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p1Highlight1"><strong>Sistema Suizo Automático:</strong> Algoritmo de emparejamiento dinámico de rondas que previene repeticiones y equilibra niveles.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p1Highlight2"><strong>Ranking en Tiempo Real:</strong> Recálculo instantáneo de posiciones, puntos y métricas tras registrar resultados.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p1Highlight3"><strong>Autenticación & Firestore:</strong> Gestión de roles, sistema avanzado de sanciones y persistencia reactiva en tiempo real.</p>
-                            </div>
-                        </div>
-
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="tech-pill">React.js</span>
-                            <span class="tech-pill">JavaScript ES6+</span>
-                            <span class="tech-pill">Tailwind CSS</span>
-                            <span class="tech-pill">Firebase Firestore</span>
-                            <span class="tech-pill">Authentication</span>
-                            <span class="tech-pill tech-pill-cyan">Sistema Suizo</span>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex flex-wrap gap-3 pt-2">
-                            <a href="https://dominopro1.com/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                <span data-key="demoBtn">Ver Demo en Vivo</span>
-                            </a>
-                            <a href="https://github.com/susejgo89/domino-pro-app" target="_blank" class="btn-outline-glass text-xs sm:text-sm py-2 px-4.5">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                                </svg>
-                                <span data-key="codeBtn">Código en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROYECTO 2: NEXUSREPLAY -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-cyan-500/50">
-                    <!-- Slider Container (6 cols) -->
-                    <div class="lg:col-span-6 lg:order-2 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
-                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
-                            <div class="flex items-center gap-1.5">
-                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="font-mono text-[11px] text-slate-400 font-medium">nexusreplay.com</span>
-                            <div class="w-8"></div>
-                        </div>
-                        <div id="nexus-slider" class="relative group">
-                            <div class="slider-track flex cursor-zoom-in">
-                                <img src="images/nexusplay1.png" alt="NexusRePlay 1" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/nexusplay2.png" alt="NexusRePlay 2" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/nexusplay3.png" alt="NexusRePlay 3" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/nexusplay4.png" alt="NexusRePlay 4" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/nexusplay5.png" alt="NexusRePlay 5" class="w-full flex-shrink-0 object-cover aspect-video">
-                            </div>
-                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
-                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                            </button>
-                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
-                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Info Container (6 cols) -->
-                    <div class="lg:col-span-6 lg:order-1 space-y-5">
-                        <div class="flex items-center gap-3">
-                            <span class="badge-live-pulse" data-key="liveBadge">En Producción</span>
-                            <span class="badge-feature text-[11px] py-0.5 px-3 border-cyan-500/40 text-cyan-300 bg-cyan-500/10">SaaS Multi-Tenant</span>
-                        </div>
-
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p2Title">
-                            NexusRePlay — Plataforma SaaS de Digital Signage
-                        </h3>
-
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p2Description">
-                            Plataforma SaaS para la gestión remota centralizada de pantallas corporativas y redes de señalización digital. Permite controlar playlists visuales y musicales sin necesidad de hardware costoso.
-                        </p>
-
-                        <!-- Direct Highlights List -->
-                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p2Highlight1"><strong>Playlists & Agendamiento:</strong> Asignación horaria y semanal de listas multimedia independientes (video, imagen y audio de fondo).</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p2Highlight2"><strong>Sincronización en Tiempo Real:</strong> Actualización instantánea en pantallas remotas mediante listeners reactivos de Firestore.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p2Highlight3"><strong>Arquitectura Multi-tenant:</strong> Panel para revendedores con emparejamiento seguro de pantallas mediante códigos únicos.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p2Highlight4"><strong>IA Generativa Integrada:</strong> Funcionalidad asistida con la API de Google Gemini para creación dinámica de contenidos.</p>
+                                    <!-- Action Buttons -->
+                                    <div class="flex items-center gap-3 pt-2">
+                                        <a href="https://dominopro1.com/" target="_blank" class="btn-glow-primary text-xs py-2.5 px-4 flex-1 justify-center">
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                            <span data-key="demoBtn">Ver Demo en Vivo</span>
+                                        </a>
+                                        <a href="https://github.com/susejgo89/domino-pro-app" target="_blank" class="btn-outline-glass text-xs py-2.5 px-4 justify-center" title="Código en GitHub">
+                                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                            </svg>
+                                            <span>Código</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="tech-pill">JavaScript ES6+</span>
-                            <span class="tech-pill">HTML5 / CSS3</span>
-                            <span class="tech-pill">Tailwind CSS</span>
-                            <span class="tech-pill">Firebase Cloud Functions</span>
-                            <span class="tech-pill tech-pill-cyan">Google Gemini API</span>
-                            <span class="tech-pill tech-pill-emerald">QR Codes</span>
-                        </div>
+                        <!-- CARD 1: NEXUSREPLAY -->
+                        <div class="coverflow-card is-next" data-index="1">
+                            <div class="coverflow-card-inner flex flex-col h-full">
+                                <!-- Project Image Preview -->
+                                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 group cursor-zoom-in coverflow-zoom-target">
+                                    <img src="images/nexusplay1.png" alt="NexusRePlay Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 coverflow-main-img">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e111a] via-transparent to-transparent opacity-60"></div>
+                                    <div class="absolute top-3 right-3">
+                                        <span class="badge-live-pulse text-[11px] py-1 px-3 shadow-lg font-medium" data-key="liveBadge">En Producción</span>
+                                    </div>
+                                    <div class="absolute bottom-3 left-4 flex items-center gap-1.5 text-xs text-white/90 font-mono">
+                                        <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+                                        <span>nexus-replay.web.app</span>
+                                    </div>
+                                </div>
 
-                        <!-- Action Buttons -->
-                        <div class="flex flex-wrap gap-3 pt-2">
-                            <a href="https://sutechtvcorporativa.web.app/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                <span data-key="demoBtn">Ver Demo en Vivo</span>
-                            </a>
-                            <a href="https://github.com/susejgo89/sync-cast-app" target="_blank" class="btn-outline-glass text-xs sm:text-sm py-2 px-4.5">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                                </svg>
-                                <span data-key="codeBtn">Código en GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                                <!-- Card Content Plate -->
+                                <div class="p-6 sm:p-7 flex flex-col justify-between flex-grow space-y-4 text-left">
+                                    <div>
+                                        <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+                                            <span class="font-mono text-cyan-400 font-semibold uppercase text-[11px] tracking-wider">Digital Signage SaaS</span>
+                                            <span class="font-mono">2025</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white tracking-tight" data-key="p2Title">
+                                            NexusRePlay
+                                        </h3>
+                                        <p class="text-xs sm:text-sm font-semibold text-cyan-300/90 mt-0.5">
+                                            Gestión Remota de Pantallas Corporativas
+                                        </p>
+                                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5" data-key="p2Description">
+                                            Plataforma SaaS multi-tenant para control centralizado de playlists multimedia en pantallas remotas en tiempo real, con generación asistida por Gemini API.
+                                        </p>
+                                    </div>
 
-                <!-- PROYECTO 3: AGENTE IA DE PROSPECCIÓN -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10 hover:border-emerald-500/50">
-                    <!-- Image Preview Container (6 cols) -->
-                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
-                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
-                            <div class="flex items-center gap-1.5">
-                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="font-mono text-[11px] text-emerald-400 font-medium">agente_prospeccion_maps_sheets</span>
-                            <div class="w-8"></div>
-                        </div>
-                        <div class="relative group cursor-zoom-in slider-track">
-                            <img src="images/prospector.png" alt="Agente IA de Prospección Preview" class="w-full object-cover aspect-video hover:scale-105 transition-transform duration-500">
-                        </div>
-                    </div>
+                                    <!-- Tech Tags -->
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span class="tech-tag">JavaScript ES6+</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">Cloud Functions</span>
+                                        <span class="tech-tag">Gemini API</span>
+                                    </div>
 
-                    <!-- Info Container (6 cols) -->
-                    <div class="lg:col-span-6 space-y-5">
-                        <div class="flex items-center gap-3">
-                            <span class="badge-feature text-[11px] py-0.5 px-3 border-emerald-500/40 text-emerald-300 bg-emerald-500/10">
-                                <i data-lucide="bot" class="w-3.5 h-3.5"></i>
-                                <span>Agente Autónomo & Python</span>
-                            </span>
-                            <span class="badge-feature text-[11px] py-0.5 px-3 border-cyan-500/40 text-cyan-300 bg-cyan-500/10">Google Gemini API</span>
-                        </div>
-
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p4Title">
-                            Agente IA de Prospección B2B — Maps & Google Sheets
-                        </h3>
-
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p4Description">
-                            Agente autónomo de prospección comercial desarrollado en Python y Streamlit. Automatiza la búsqueda geográfica de empresas mediante Google Places API, cualifica leads con filtros estrictos, genera mensajes personalizados con Google Gemini AI y sincroniza prospectos en Google Sheets.
-                        </p>
-
-                        <!-- Direct Highlights List -->
-                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p4Highlight1"><strong>Extracción y Cualificación:</strong> Búsqueda por nicho/región con validación automática de WhatsApp, e-mail y presencia digital.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p4Highlight2"><strong>Copywriting con Gemini AI:</strong> Redacción contextual e individualizada de propuestas comerciales para cada prospecto.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p4Highlight3"><strong>Sincronización en la Nube:</strong> Exportación directa a Google Sheets para seguimiento de campañas de ventas.</p>
+                                    <!-- Action Buttons -->
+                                    <div class="flex items-center gap-3 pt-2">
+                                        <a href="https://nexus-replay.web.app/" target="_blank" class="btn-glow-primary text-xs py-2.5 px-4 flex-1 justify-center">
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                            <span data-key="demoBtn">Ver Demo en Vivo</span>
+                                        </a>
+                                        <a href="https://github.com/susejgo89/nexus-replay-app" target="_blank" class="btn-outline-glass text-xs py-2.5 px-4 justify-center" title="Código en GitHub">
+                                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                            </svg>
+                                            <span>Código</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="tech-pill tech-pill-cyan">Python 3</span>
-                            <span class="tech-pill tech-pill-emerald">Streamlit</span>
-                            <span class="tech-pill tech-pill-cyan">Google Gemini AI</span>
-                            <span class="tech-pill">Google Places API</span>
-                            <span class="tech-pill">Google Sheets API</span>
-                            <span class="tech-pill">Lead Generation</span>
+                        <!-- CARD 2: AGENTE IA DE PROSPECCIÓN -->
+                        <div class="coverflow-card is-far-next" data-index="2">
+                            <div class="coverflow-card-inner flex flex-col h-full">
+                                <!-- Project Image Preview -->
+                                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 group cursor-zoom-in coverflow-zoom-target">
+                                    <img src="images/prospector.png" alt="Prospector AI Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 coverflow-main-img">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e111a] via-transparent to-transparent opacity-60"></div>
+                                    <div class="absolute top-3 right-3">
+                                        <span class="badge-feature text-[11px] py-1 px-3 shadow-lg font-medium text-emerald-300 border-emerald-500/40 bg-emerald-950/60">Agente de IA</span>
+                                    </div>
+                                    <div class="absolute bottom-3 left-4 flex items-center gap-1.5 text-xs text-white/90 font-mono">
+                                        <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                        <span>prospectorai.streamlit.app</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Plate -->
+                                <div class="p-6 sm:p-7 flex flex-col justify-between flex-grow space-y-4 text-left">
+                                    <div>
+                                        <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+                                            <span class="font-mono text-emerald-400 font-semibold uppercase text-[11px] tracking-wider">Python & IA Generativa</span>
+                                            <span class="font-mono">2025</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white tracking-tight" data-key="p4Title">
+                                            Agente de Prospección B2B
+                                        </h3>
+                                        <p class="text-xs sm:text-sm font-semibold text-emerald-300/90 mt-0.5">
+                                            Google Maps & Google Sheets API
+                                        </p>
+                                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5" data-key="p4Description">
+                                            Agente autónomo que busca empresas en Maps, cualifica leads con filtros estrictos, redacta propuestas de valor con Gemini AI y exporta a Sheets.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tech Tags -->
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Streamlit</span>
+                                        <span class="tech-tag">Google Gemini</span>
+                                        <span class="tech-tag">Sheets API</span>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="flex items-center gap-3 pt-2">
+                                        <a href="https://prospectorai.streamlit.app/" target="_blank" class="btn-glow-primary text-xs py-2.5 px-4 flex-1 justify-center">
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                            <span data-key="demoBtn">Ver Demo en Vivo</span>
+                                        </a>
+                                        <a href="https://github.com/susejgo89/agente-prospeccion-maps" target="_blank" class="btn-outline-glass text-xs py-2.5 px-4 justify-center" title="Código en GitHub">
+                                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                            </svg>
+                                            <span>Código</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Action Buttons -->
-                        <div class="flex flex-wrap gap-3 pt-2">
-                            <a href="https://github.com/susejgo89/agente_prospeccion_maps_sheets" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                                </svg>
-                                <span data-key="codeBtn">Código en GitHub</span>
-                            </a>
+                        <!-- CARD 3: BORDERLESS -->
+                        <div class="coverflow-card is-hidden" data-index="3">
+                            <div class="coverflow-card-inner flex flex-col h-full">
+                                <!-- Project Image Preview -->
+                                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 group cursor-zoom-in coverflow-zoom-target">
+                                    <img src="images/borderless/1.png" alt="Borderless Preview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 coverflow-main-img">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#0e111a] via-transparent to-transparent opacity-60"></div>
+                                    <div class="absolute top-3 right-3">
+                                        <span class="badge-feature text-[11px] py-1 px-3 shadow-lg font-medium text-violet-300">Web Corporativa</span>
+                                    </div>
+                                    <div class="absolute bottom-3 left-4 flex items-center gap-1.5 text-xs text-white/90 font-mono">
+                                        <i data-lucide="globe" class="w-3.5 h-3.5 text-violet-400"></i>
+                                        <span>borderlessdesignandparty.com</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Plate -->
+                                <div class="p-6 sm:p-7 flex flex-col justify-between flex-grow space-y-4 text-left">
+                                    <div>
+                                        <div class="flex items-center justify-between text-xs text-slate-400 mb-1">
+                                            <span class="font-mono text-violet-400 font-semibold uppercase text-[11px] tracking-wider">Diseño & Frontend</span>
+                                            <span class="font-mono">2025</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white tracking-tight" data-key="p3Title">
+                                            Borderless Design & Party
+                                        </h3>
+                                        <p class="text-xs sm:text-sm font-semibold text-violet-300/90 mt-0.5">
+                                            Portafolio Corporativo de Alta Conversión
+                                        </p>
+                                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5" data-key="p3Description">
+                                            Sitio web corporativo y portafolio interactivo desarrollado para captación de clientes de alta gama, optimizado para máxima fidelidad visual y SEO.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tech Tags -->
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span class="tech-tag">HTML5 / CSS3</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">Responsive</span>
+                                        <span class="tech-tag">SEO</span>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="flex items-center gap-3 pt-2">
+                                        <a href="https://borderlessdesignandparty.com/" target="_blank" class="btn-glow-primary text-xs py-2.5 px-4 flex-1 justify-center">
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                            <span data-key="demoBtn">Ver Demo en Vivo</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
-                <!-- PROYECTO 4: BORDERLESS -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-9 border-white/10">
-                    <!-- Slider Container (6 cols) -->
-                    <div class="lg:col-span-6 rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-2xl">
-                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800 text-xs text-slate-400">
-                            <div class="flex items-center gap-1.5">
-                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="font-mono text-[11px] text-slate-400 font-medium">borderlessdesignandparty.com</span>
-                            <div class="w-8"></div>
-                        </div>
-                        <div id="borderless-slider" class="relative group">
-                            <div class="slider-track flex cursor-zoom-in">
-                                <img src="images/borderless/1.png" alt="Borderless 1" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/borderless/2.png" alt="Borderless 2" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/borderless/3.png" alt="Borderless 3" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/borderless/4.png" alt="Borderless 4" class="w-full flex-shrink-0 object-cover aspect-video">
-                                <img src="images/borderless/5.png" alt="Borderless 5" class="w-full flex-shrink-0 object-cover aspect-video">
-                            </div>
-                            <button class="slider-button prev absolute top-1/2 left-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Anterior">
-                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                            </button>
-                            <button class="slider-button next absolute top-1/2 right-2.5 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 shadow-xl" aria-label="Siguiente">
-                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                            </button>
-                        </div>
+                <!-- Coverflow Navigation Controls (ATLAS inspired) -->
+                <div class="flex flex-col items-center gap-3 mt-4">
+                    <!-- Numeric Counter -->
+                    <div class="font-mono text-xs font-semibold tracking-wider text-slate-400">
+                        <span id="coverflow-current-num" class="text-violet-400 text-sm font-bold">01</span>
+                        <span class="mx-1">/</span>
+                        <span id="coverflow-total-num">04</span>
                     </div>
 
-                    <!-- Info Container (6 cols) -->
-                    <div class="lg:col-span-6 space-y-5">
-                        <div class="flex items-center gap-3">
-                            <span class="badge-feature text-[11px] py-0.5 px-3 text-violet-300">Web Corporativa</span>
+                    <!-- Prev Button, Segment Indicators, Next Button -->
+                    <div class="flex items-center gap-4 sm:gap-6">
+                        <button id="coverflow-prev-btn" class="glass-btn p-2.5 rounded-full text-slate-300 hover:text-white transition-all shadow-md hover:scale-110 active:scale-95" aria-label="Proyecto anterior">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+
+                        <div class="flex items-center gap-2" id="coverflow-indicators">
+                            <div class="coverflow-dot active" data-index="0"></div>
+                            <div class="coverflow-dot" data-index="1"></div>
+                            <div class="coverflow-dot" data-index="2"></div>
+                            <div class="coverflow-dot" data-index="3"></div>
                         </div>
 
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-heading tracking-tight" data-key="p3Title">
-                            Borderless Design & Party — Web Corporativa
-                        </h3>
+                        <button id="coverflow-next-btn" class="glass-btn p-2.5 rounded-full text-slate-300 hover:text-white transition-all shadow-md hover:scale-110 active:scale-95" aria-label="Proyecto siguiente">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
 
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-key="p3Description">
-                            Sitio web corporativo y portafolio interactivo de alta conversión desarrollado para una empresa de diseño de eventos, optimizado para máxima fidelidad visual y captación de clientes.
-                        </p>
-
-                        <!-- Direct Highlights List -->
-                        <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 py-1">
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p3Highlight1"><strong>Galería de Alto Desempeño:</strong> Carga optimizada y adaptativa de fotografías en alta resolución.</p>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                <p data-key="p3Highlight2"><strong>Captación & SEO:</strong> Formularios integrados y optimización técnica para posicionamiento orgánico.</p>
-                            </div>
-                        </div>
-
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="tech-pill">HTML5 / CSS3</span>
-                            <span class="tech-pill">JavaScript</span>
-                            <span class="tech-pill">Responsive Design</span>
-                            <span class="tech-pill">SEO</span>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex flex-wrap gap-3 pt-2">
-                            <a href="https://borderlessdesignandparty.com/" target="_blank" class="btn-glow-primary text-xs sm:text-sm py-2 px-4.5">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                <span data-key="demoBtn">Ver Demo en Vivo</span>
-                            </a>
-                        </div>
+                    <!-- Drag / Scroll Hint -->
+                    <div class="font-mono text-[10px] tracking-widest text-slate-500 uppercase mt-1">
+                        <span data-key="coverflowHint">ARRASTRA • SCROLL • FLECHAS</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==== FORMACIÓN ACADÉMICA ==== -->
-        <section id="education" class="py-20 fade-in-section border-t border-white/5">
+        <!-- ==== FORMACIÓN ACADÉMICA & ESPECIALIZACIONES (MODERN BENTO TIMELINE) ==== -->
+        <section id="education" class="py-24 fade-in-section border-t border-white/5">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="educationTitle">
+                <span class="badge-feature inline-flex items-center gap-1.5 mb-2">
+                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-violet-400"></i>
+                    <span>TRAYECTORIA ACADÉMICA</span>
+                </span>
+                <h2 class="section-title font-display text-4xl sm:text-5xl font-bold text-white tracking-tight" data-key="educationTitle">
                     Formación Académica & Especializaciones
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="educationSubtitle">
-                    Fundamentos de computación, desarrollo de software y especialización en IA
+                <p class="text-slate-300 text-sm sm:text-base pt-3" data-key="educationSubtitle">
+                    Fundamentos de computación, desarrollo de software y especialización en Inteligencia Artificial
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Education 1: SENAI/SC (CURSO PROFISSIONALIZANTE DESTACADO) -->
-                <div class="edu-highlight-card p-6 sm:p-7 rounded-2xl relative space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="badge-feature text-[11px] border-cyan-500/40 text-cyan-300 bg-cyan-500/10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Education 1: SENAI/SC (FEATURED HIGHLIGHT CARD) -->
+                <div class="edu-bento-card relative flex flex-col justify-between overflow-hidden group">
+                    <span class="edu-number">01</span>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="badge-feature text-[11px] border-cyan-500/40 text-cyan-400 dark:text-cyan-300 bg-cyan-500/10">
                                 <i data-lucide="award" class="w-3.5 h-3.5"></i>
-                                <span>Curso Profesionalizante</span>
+                                <span>Especialización Destacada</span>
                             </span>
-                            <span class="text-xs font-mono font-semibold text-emerald-400" data-key="edu1Status">En curso (Especialización Destacada)</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu1Title">
-                            Curso Profesionalizante – Carreira Tech: Trilha IA
-                        </h3>
-                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu1Inst">
-                            SENAI/SC • Carga Horaria: 320h
-                        </h4>
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu1Desc">
-                            Curso profesionalizante enfocado en <strong>Desarrollo de Inteligencia Artificial para Análisis Predictivo con Python</strong>. Formación práctica en modelado de datos, algoritmos de Machine Learning, tratamiento de datasets y construcción de soluciones analíticas predictivas aplicadas a la industria.
+                        
+                        <div>
+                            <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider" data-key="edu1Status">En curso (Trilha IA • 320h)</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white font-heading mt-1 leading-snug" data-key="edu1Title">
+                                Carreira Tech: Trilha IA
+                            </h3>
+                            <h4 class="text-xs font-semibold text-violet-600 dark:text-violet-300 font-mono mt-1" data-key="edu1Inst">
+                                SENAI/SC • Carga Horaria: 320 Horas
+                            </h4>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-key="edu1Desc">
+                            Desarrollo de Inteligencia Artificial para Análisis Predictivo con Python. Formación práctica en modelado de datos, algoritmos de Machine Learning, tratamiento de datasets y construcción de pipelines analíticos orientados al mercado.
                         </p>
                     </div>
 
-                    <div class="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
-                        <span class="tech-pill tech-pill-cyan">Python</span>
-                        <span class="tech-pill tech-pill-cyan">Análisis Predictivo</span>
-                        <span class="tech-pill tech-pill-cyan">Machine Learning</span>
-                        <span class="tech-pill tech-pill-cyan">Data Science</span>
+                    <!-- Clean Highlight Pills -->
+                    <div class="flex flex-wrap gap-2 pt-4 relative z-10">
+                        <span class="tech-tag"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>Machine Learning</span>
+                        <span class="tech-tag"><i data-lucide="terminal" class="w-3.5 h-3.5 text-cyan-400"></i>Python Científico</span>
+                        <span class="tech-tag"><i data-lucide="database" class="w-3.5 h-3.5 text-cyan-400"></i>Pandas & NumPy</span>
+                        <span class="tech-tag"><i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-400"></i>Modelado Predictivo</span>
                     </div>
                 </div>
 
                 <!-- Education 2: UniFatecie -->
-                <div class="glass-card p-6 sm:p-7 space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="badge-feature text-[11px] text-violet-300">
+                <div class="bento-card flex flex-col justify-between relative group">
+                    <span class="edu-number">02</span>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="badge-feature text-[11px] text-violet-400 dark:text-violet-300">
                                 <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
-                                <span>Graduación Tecnológica</span>
+                                <span>Graduación Superior</span>
                             </span>
-                            <span class="text-xs font-mono text-slate-400" data-key="edu2Status">En curso (Graduación)</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu2Title">
-                            Tecnólogo em Sistemas para Internet
-                        </h3>
-                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu2Inst">
-                            UniFatecie
-                        </h4>
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu2Desc">
-                            Formación superior orientada al desarrollo web profesional, arquitectura de software, experiencia de usuario (UX/UI), ingeniería de sistemas y seguridad web.
+
+                        <div>
+                            <span class="text-xs font-mono font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider" data-key="edu2Status">En curso (Graduación)</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white font-heading mt-1 leading-snug" data-key="edu2Title">
+                                Sistemas para Internet
+                            </h3>
+                            <h4 class="text-xs font-semibold text-violet-600 dark:text-violet-300 font-mono mt-1" data-key="edu2Inst">
+                                UniFatecie
+                            </h4>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-key="edu2Desc">
+                            Formación superior enfocada en arquitectura de software web, diseño de sistemas reactivos escalables, experiencia de usuario (UX/UI), buenas prácticas de desarrollo moderno y seguridad web.
                         </p>
                     </div>
 
-                    <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
-                        <span class="tech-pill">Sistemas Web</span>
-                        <span class="tech-pill">Arquitectura</span>
-                        <span class="tech-pill">Engenharia de Software</span>
+                    <!-- Clean Highlight Pills -->
+                    <div class="flex flex-wrap gap-2 pt-4 relative z-10">
+                        <span class="tech-tag"><i data-lucide="layout" class="w-3.5 h-3.5 text-violet-400"></i>Arquitectura Web</span>
+                        <span class="tech-tag"><i data-lucide="palette" class="w-3.5 h-3.5 text-violet-400"></i>UI/UX & Frontend</span>
+                        <span class="tech-tag"><i data-lucide="shield" class="w-3.5 h-3.5 text-violet-400"></i>Seguridad Web</span>
+                        <span class="tech-tag"><i data-lucide="git-merge" class="w-3.5 h-3.5 text-violet-400"></i>Sistemas Reactivos</span>
                     </div>
                 </div>
 
                 <!-- Education 3: Universidad Nacional Abierta -->
-                <div class="glass-card p-6 sm:p-7 space-y-4 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="badge-feature text-[11px] text-slate-300">
+                <div class="bento-card flex flex-col justify-between relative group">
+                    <span class="edu-number">03</span>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="badge-feature text-[11px] text-slate-400 dark:text-slate-300">
                                 <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-                                <span>Base Universitaria</span>
+                                <span>Base Académica</span>
                             </span>
-                            <span class="text-xs font-mono text-slate-400" data-key="edu3Status">6 Semestres</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white font-heading" data-key="edu3Title">
-                            Ingeniería de Sistemas
-                        </h3>
-                        <h4 class="text-xs font-semibold text-violet-300 font-mono" data-key="edu3Inst">
-                            Universidad Nacional Abierta (Venezuela)
-                        </h4>
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1" data-key="edu3Desc">
-                            Sólida formación en fundamentos teóricos y prácticos de la computación, estructuras de datos, lógica algorítmica y matemáticas discretas.
+
+                        <div>
+                            <span class="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider" data-key="edu3Status">6 Semestres Cursados</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white font-heading mt-1 leading-snug" data-key="edu3Title">
+                                Ingeniería de Sistemas
+                            </h3>
+                            <h4 class="text-xs font-semibold text-violet-600 dark:text-violet-300 font-mono mt-1" data-key="edu3Inst">
+                                Universidad Nacional Abierta (Venezuela)
+                            </h4>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-key="edu3Desc">
+                            Sólida base en computación teórica y aplicada: estructuras de datos complejas, pensamiento algorítmico disciplinado, lógica matemática y resolución estructurada de problemas de ingeniería.
                         </p>
                     </div>
 
-                    <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
-                        <span class="tech-pill">Fundamentos</span>
-                        <span class="tech-pill">Lógica & Algoritmos</span>
-                        <span class="tech-pill">Estructura de Datos</span>
+                    <!-- Clean Highlight Pills -->
+                    <div class="flex flex-wrap gap-2 pt-4 relative z-10">
+                        <span class="tech-tag"><i data-lucide="code" class="w-3.5 h-3.5 text-slate-400"></i>Algoritmia</span>
+                        <span class="tech-tag"><i data-lucide="binary" class="w-3.5 h-3.5 text-slate-400"></i>Estructuras de Datos</span>
+                        <span class="tech-tag"><i data-lucide="brain" class="w-3.5 h-3.5 text-slate-400"></i>Lógica Matemática</span>
+                        <span class="tech-tag"><i data-lucide="compass" class="w-3.5 h-3.5 text-slate-400"></i>Ingeniería de Software</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==== HABILIDADES TÉCNICAS ==== -->
-        <section id="skills" class="py-20 fade-in-section border-t border-white/5">
+        <!-- ==== STACK & HABILIDADES TÉCNICAS (BIZNEXT-INSPIRED CLEAN FROSTED CARDS) ==== -->
+        <section id="skills" class="py-24 fade-in-section border-t border-white/5">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="skillsTitle">
+                <span class="badge-feature inline-flex items-center gap-1.5 mb-2">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5 text-violet-400"></i>
+                    <span>STACK & HERRAMIENTAS</span>
+                </span>
+                <h2 class="section-title font-display text-4xl sm:text-5xl font-bold text-white tracking-tight" data-key="skillsTitle">
                     Stack & Habilidades Técnicas
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base pt-3" data-key="skillsSubtitle">
-                    Tecnologías, herramientas y lenguajes que aplico en mis desarrollos
+                <p class="text-slate-300 text-sm sm:text-base pt-3" data-key="skillsSubtitle">
+                    Tecnologías, herramientas y lenguajes aplicados en proyectos reales y producción
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-                <!-- Skill 1: Frontend -->
-                <div class="glass-card p-5.5 space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
-                        <i data-lucide="layout" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsFrontend">Frontend</h3>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
-                        <span class="tech-pill">React.js</span>
-                        <span class="tech-pill">JavaScript ES6+</span>
-                        <span class="tech-pill">HTML5</span>
-                        <span class="tech-pill">CSS3</span>
-                        <span class="tech-pill">Tailwind CSS</span>
-                        <span class="tech-pill">Bootstrap</span>
-                        <span class="tech-pill">Vite</span>
-                    </div>
-                </div>
-
-                <!-- Skill 2: Backend & BaaS -->
-                <div class="glass-card p-5.5 space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-                        <i data-lucide="database" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsBackend">Backend & BaaS</h3>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
-                        <span class="tech-pill">Firebase Firestore</span>
-                        <span class="tech-pill">Firebase Auth</span>
-                        <span class="tech-pill">Firebase Storage</span>
-                        <span class="tech-pill">Cloud Functions</span>
-                        <span class="tech-pill">APIs REST</span>
-                        <span class="tech-pill">Node.js (Básico)</span>
-                    </div>
-                </div>
-
-                <!-- Skill 3: IA & Agentes -->
-                <div class="glass-card p-5.5 border-emerald-500/30 bg-emerald-950/20 space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                        <i data-lucide="bot" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsAI">IA & Agentes Python</h3>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
-                        <span class="tech-pill tech-pill-cyan">Python 3</span>
-                        <span class="tech-pill tech-pill-emerald">Agentes Autónomos</span>
-                        <span class="tech-pill tech-pill-emerald">Streamlit</span>
-                        <span class="tech-pill tech-pill-cyan">Google Gemini API</span>
-                        <span class="tech-pill tech-pill-cyan">Análisis Predictivo</span>
-                        <span class="tech-pill tech-pill-cyan">Machine Learning</span>
-                    </div>
-                </div>
-
-                <!-- Skill 4: Tools -->
-                <div class="glass-card p-5.5 space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
-                        <i data-lucide="wrench" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsTools">Herramientas</h3>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
-                        <span class="tech-pill tech-pill-emerald">Git</span>
-                        <span class="tech-pill tech-pill-emerald">GitHub</span>
-                        <span class="tech-pill tech-pill-emerald">Google Places API</span>
-                        <span class="tech-pill tech-pill-emerald">Google Sheets API</span>
-                        <span class="tech-pill tech-pill-emerald">VS Code</span>
-                        <span class="tech-pill tech-pill-emerald">Canva / Figma</span>
-                    </div>
-                </div>
-
-                <!-- Skill 5: Languages -->
-                <div class="glass-card p-5.5 space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white font-heading" data-key="skillsLanguages">Idiomas</h3>
-                    <div class="space-y-2 pt-1 text-xs text-slate-300">
-                        <div class="flex justify-between py-1 border-b border-slate-800">
-                            <span data-key="langEs">Español</span>
-                            <span class="text-violet-400 font-mono font-semibold">Nativo</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                <!-- Stack 1: Frontend & SaaS -->
+                <div class="stack-card group">
+                    <div>
+                        <!-- Circular Icon Badge (BizNext Inspired) -->
+                        <div class="stack-icon-circle bg-violet-500/15 border border-violet-500/30 text-violet-400 shadow-lg shadow-violet-500/15">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
                         </div>
-                        <div class="flex justify-between py-1 border-b border-slate-800">
-                            <span data-key="langPt">Português</span>
-                            <span class="text-violet-400 font-mono font-semibold">Fluente</span>
+                        <h3 class="text-lg font-bold text-white font-heading" data-key="skillsFrontend">Frontend Moderno</h3>
+                        <p class="text-xs text-slate-400 mt-1 mb-5">Interfaces reactivas y experiencias fluidas</p>
+
+                        <!-- Orderly Clean Tech Pills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="stack-pill"><i data-lucide="atom" class="w-4 h-4 text-violet-400"></i>React.js</span>
+                            <span class="stack-pill"><i data-lucide="code" class="w-4 h-4 text-amber-400"></i>JavaScript ES6+</span>
+                            <span class="stack-pill"><i data-lucide="palette" class="w-4 h-4 text-sky-400"></i>Tailwind CSS</span>
+                            <span class="stack-pill"><i data-lucide="zap" class="w-4 h-4 text-violet-400"></i>Vite</span>
+                            <span class="stack-pill"><i data-lucide="file-code" class="w-4 h-4 text-orange-400"></i>HTML5 / CSS3</span>
+                            <span class="stack-pill"><i data-lucide="smartphone" class="w-4 h-4 text-emerald-400"></i>Diseño Responsivo</span>
                         </div>
-                        <div class="flex justify-between py-1">
-                            <span data-key="langEn">Inglés</span>
-                            <span class="text-slate-400 font-mono">Básico</span>
+                    </div>
+
+                    <!-- BizNext 3 Dots Accent -->
+                    <div class="card-dots text-violet-400">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Stack 2: Backend & BaaS -->
+                <div class="stack-card group">
+                    <div>
+                        <!-- Circular Icon Badge -->
+                        <div class="stack-icon-circle bg-amber-500/15 border border-amber-500/30 text-amber-400 shadow-lg shadow-amber-500/15">
+                            <i data-lucide="database" class="w-6 h-6"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white font-heading" data-key="skillsBackend">Backend & BaaS</h3>
+                        <p class="text-xs text-slate-400 mt-1 mb-5">Bases de datos y servicios en la nube</p>
+
+                        <!-- Orderly Clean Tech Pills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="stack-pill"><i data-lucide="flame" class="w-4 h-4 text-amber-500"></i>Firebase Firestore</span>
+                            <span class="stack-pill"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>Firebase Auth</span>
+                            <span class="stack-pill"><i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i>Cloud Functions</span>
+                            <span class="stack-pill"><i data-lucide="server" class="w-4 h-4 text-cyan-400"></i>APIs REST</span>
+                            <span class="stack-pill"><i data-lucide="hard-drive" class="w-4 h-4 text-yellow-400"></i>Cloud Storage</span>
+                            <span class="stack-pill"><i data-lucide="lock" class="w-4 h-4 text-violet-400"></i>Reglas de Seguridad</span>
+                        </div>
+                    </div>
+
+                    <!-- BizNext 3 Dots Accent -->
+                    <div class="card-dots text-amber-400">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Stack 3: AI & Python (BizNext Featured Active Card) -->
+                <div class="stack-card is-featured-biznext group">
+                    <div>
+                        <!-- Circular Icon Badge (Glowing Emerald) -->
+                        <div class="stack-icon-circle bg-emerald-500/25 border border-emerald-400/50 text-emerald-300 shadow-xl shadow-emerald-500/25">
+                            <i data-lucide="bot" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h3 class="text-lg font-bold text-white font-heading" data-key="skillsAI">IA & Agentes Python</h3>
+                            <span class="badge-live-pulse text-[10px] py-0.5 px-2">Core Focus</span>
+                        </div>
+                        <p class="text-xs text-slate-300 mt-1 mb-5">Automatización inteligente y modelos</p>
+
+                        <!-- Orderly Clean Tech Pills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="stack-pill"><i data-lucide="terminal" class="w-4 h-4 text-emerald-400"></i>Python 3</span>
+                            <span class="stack-pill"><i data-lucide="bot" class="w-4 h-4 text-emerald-400"></i>Agentes Autónomos</span>
+                            <span class="stack-pill"><i data-lucide="sparkles" class="w-4 h-4 text-emerald-300"></i>Google Gemini API</span>
+                            <span class="stack-pill"><i data-lucide="layers" class="w-4 h-4 text-rose-400"></i>Streamlit</span>
+                            <span class="stack-pill"><i data-lucide="trending-up" class="w-4 h-4 text-cyan-400"></i>Machine Learning</span>
+                            <span class="stack-pill"><i data-lucide="search" class="w-4 h-4 text-sky-400"></i>Web Scraping</span>
+                        </div>
+                    </div>
+
+                    <!-- BizNext 3 Dots Accent -->
+                    <div class="card-dots text-emerald-400 opacity-90">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Stack 4: Tools & Languages -->
+                <div class="stack-card group">
+                    <div>
+                        <!-- Circular Icon Badge -->
+                        <div class="stack-icon-circle bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 shadow-lg shadow-cyan-500/15">
+                            <i data-lucide="git-branch" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white font-heading" data-key="skillsTools">Workflow & Idiomas</h3>
+                        <p class="text-xs text-slate-400 mt-1 mb-5">Entorno técnico y comunicación</p>
+
+                        <!-- Orderly Clean Tech Pills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="stack-pill"><i data-lucide="git-pull-request" class="w-4 h-4 text-orange-400"></i>Git & GitHub</span>
+                            <span class="stack-pill"><i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>Google Places API</span>
+                            <span class="stack-pill"><i data-lucide="table" class="w-4 h-4 text-emerald-400"></i>Google Sheets API</span>
+                        </div>
+
+                        <!-- Language Proficiency Badges -->
+                        <div class="pt-4 mt-4 border-t border-white/10 dark:border-white/10 space-y-2">
+                            <div class="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-black/20 dark:bg-white/5 border border-white/5">
+                                <span class="text-slate-300 font-medium" data-key="langEs">Español</span>
+                                <span class="text-violet-500 dark:text-violet-400 font-mono font-bold">Nativo</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-black/20 dark:bg-white/5 border border-white/5">
+                                <span class="text-slate-300 font-medium" data-key="langPt">Português</span>
+                                <span class="text-cyan-600 dark:text-cyan-400 font-mono font-bold">Fluente</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-black/20 dark:bg-white/5 border border-white/5">
+                                <span class="text-slate-300 font-medium" data-key="langEn">Inglés</span>
+                                <span class="text-slate-500 dark:text-slate-400 font-mono">Técnico / Básico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BizNext 3 Dots Accent -->
+                    <div class="card-dots text-cyan-400">
+                        <span></span><span></span><span></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==== CONTACTO ==== -->
+        <!-- ==== CONTACTO (LIMPIO, DIRECTO Y ACCESIBLE) ==== -->
         <section id="contact" class="py-24 text-center fade-in-section border-t border-white/5">
-            <div class="max-w-2xl mx-auto space-y-6">
-                <h2 class="section-title font-heading text-3xl sm:text-4xl font-bold text-white" data-key="contactTitle">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <span class="badge-feature inline-flex items-center gap-1.5 mb-1">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-violet-400"></i>
+                    <span data-key="contactBadge">CONECTEMOS</span>
+                </span>
+                <h2 class="section-title font-display text-3xl sm:text-5xl font-bold text-white tracking-tight" data-key="contactTitle">
                     ¿Conectamos para una oportunidad o proyecto?
                 </h2>
-                <p class="text-slate-300 text-sm sm:text-base leading-relaxed pt-2" data-key="contactSubtitle">
-                    Estoy disponible para oportunidades como Desarrolladora Front-End Jr., desarrollo de aplicaciones con React/Firebase o proyectos de software con IA y Agentes. ¡Escríbeme!
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto" data-key="contactSubtitle">
+                    Estoy disponible para oportunidades como Desarrolladora Front-End Jr., desarrollo con React/Firebase o proyectos de software con IA y Agentes. ¡Escríbeme!
                 </p>
-                
+
+                <!-- Primary Action Buttons -->
                 <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
-                    <a href="mailto:susejgo@gmail.com" class="btn-glow-primary py-3 px-7 text-sm sm:text-base">
+                    <a href="mailto:susejgo@gmail.com" class="btn-glow-primary py-3.5 px-8 text-sm sm:text-base font-semibold shadow-xl">
                         <i data-lucide="mail" class="w-4 h-4"></i>
                         <span data-key="contactEmailBtn">Enviar Correo</span>
                     </a>
                     
-                    <a href="https://wa.me/5548991242305" target="_blank" class="btn-outline-glass py-3 px-7 text-sm sm:text-base border-emerald-500/40 text-emerald-300 hover:bg-emerald-950/40 hover:border-emerald-500/60">
-                        <svg class="w-4 h-4 fill-current text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
+                    <a href="https://wa.me/5548991242305" target="_blank" class="btn-outline-glass py-3.5 px-8 text-sm sm:text-base font-semibold border-emerald-500/40 text-emerald-400 dark:text-emerald-300 hover:bg-emerald-950/30 hover:border-emerald-500/60 shadow-lg">
+                        <svg class="w-4 h-4 fill-current text-emerald-500 dark:text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
                         </svg>
                         <span data-key="contactWhatsappBtn">WhatsApp Directo</span>
                     </a>
                 </div>
 
-                <!-- CRISP CIRCULAR SOCIAL LINKS IN CONTACT SECTION -->
-                <div class="flex justify-center items-center gap-3.5 pt-6">
-                    <a href="https://github.com/susejgo89" target="_blank" class="social-circle-btn" title="GitHub" aria-label="GitHub">
+                <!-- Clean Circular Social Channels -->
+                <div class="flex items-center justify-center gap-3 pt-6">
+                    <!-- GitHub Circle -->
+                    <a href="https://github.com/susejgo89" target="_blank" class="social-circle-btn" title="GitHub — susejgo89" aria-label="GitHub">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="social-circle-btn" title="LinkedIn" aria-label="LinkedIn">
+                    <!-- LinkedIn Circle -->
+                    <a href="https://www.linkedin.com/in/susejgo/" target="_blank" class="social-circle-btn" title="LinkedIn — susejgo" aria-label="LinkedIn">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
                         </svg>
                     </a>
-                    <a href="https://wa.me/5548991242305" target="_blank" class="social-circle-btn whatsapp-circle" title="WhatsApp" aria-label="WhatsApp">
+                    <!-- WhatsApp Circle -->
+                    <a href="https://wa.me/5548991242305" target="_blank" class="social-circle-btn whatsapp-circle" title="WhatsApp — +55 48 99124-2305" aria-label="WhatsApp">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/>
                         </svg>
+                    </a>
+                    <!-- Email Circle -->
+                    <a href="mailto:susejgo@gmail.com" class="social-circle-btn" title="Enviar Correo — susejgo@gmail.com" aria-label="Email">
+                        <i data-lucide="mail" class="w-5 h-5 text-red-400"></i>
                     </a>
                 </div>
             </div>
@@ -947,7 +1014,7 @@
     <footer class="border-t border-white/5 py-8 bg-[#07090e]">
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <div class="flex items-center gap-2.5 font-heading font-semibold text-slate-400">
-                <img src="images/logo_icon.png" alt="Susej Logo" class="h-5 w-auto object-contain opacity-75">
+                <img src="images/logo_icon.png" alt="Susej Logo" class="h-8 w-auto object-contain">
                 <span>Susej Gonzalez</span>
                 <span>•</span>
                 <span class="text-slate-500 font-normal" data-key="footerRole">Desenvolvedora Front-End & Agentes de IA</span>
